@@ -8,10 +8,12 @@ $config = array(
     'DB_DEBUG'  		=>  false, // 数据库调试模式 开启后可以记录SQL日志
     'DB_FIELDS_CACHE'   =>  true,        // 启用字段缓存
 
-    'SITE_NAME'   =>  $name,
+    'NAME'   =>  $name,
     'SITE_KEYWORDS'   =>  $name,
     'SITE_DESCRIPTION'   =>  $name,
-    'FOOTER_SITE_NAME'   =>  $name,
+    'FOOTER_NAME'   =>  $name,
+    'SITE_NAME'   =>  $site_name,
+    'SITE_TITLE'   =>  $site_title,
 
     /* URL设置 */
     'URL_CASE_INSENSITIVE'  =>  true,   // 默认false 表示URL区分大小写 true则表示不区分大小写
@@ -77,7 +79,7 @@ $config = array(
     'MAIL_SMTPAUTH'  	=>TRUE, //启用smtp认证
     'MAIL_USERNAME' 	=>'hzgkfd@zyhzedu.com',//你的邮箱名
     'MAIL_FROM' 		=>'hzgkfd@zyhzedu.com',//发件人地址
-    'MAIL_FROMNAME'		=>$site_name,//发件人姓名
+    'MAIL_FROMNAME'		=>$NAME,//发件人姓名
     'MAIL_PASSWORD'		=>'Bohui123',//邮箱密码
     'MAIL_CHARSET'		=>'utf-8',//设置邮件编码
     'MAIL_ISHTML'		=>TRUE, // 是否HTML格式邮件
