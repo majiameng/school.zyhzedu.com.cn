@@ -78,7 +78,7 @@ class UserController extends PublicController{
 			->display();
 	}
 
-    public $api_url = "http://pay.zyhzedu.com.cn/index.php";
+    public $api_url = "http://payment.zyhzedu.com.cn/index.php";
 
     /**
      * @param $userid
