@@ -22,7 +22,7 @@ class UserController extends PublicController{
                 'written_achievement'=>0,
                 'interview_achievement'=>0,
                 'achievement'=>0,
-                'is_free'=>0,
+//                'is_free'=>0,
             ];
         }
 

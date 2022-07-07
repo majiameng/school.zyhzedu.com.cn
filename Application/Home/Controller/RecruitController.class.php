@@ -155,19 +155,19 @@ class RecruitController extends PublicController{
                 }
             }
 
-            // 规培证
-            $file_field = 'train_img';
-            if(isset($params[$file_field.'1'])){
-                $info[$file_field] = $params[$file_field.'1'];//修改时
-            }
-            if(!empty($_FILES[$file_field])) {
-                $info[$file_field] = $avatar[$file_field]['file'];//上传时
-            }
-            if($info['is_train'] == 1) {
-                if(empty($info[$file_field])){
-                    $this->error('请上传规培证照片');
-                }
-            }
+//            // 规培证
+//            $file_field = 'train_img';
+//            if(isset($params[$file_field.'1'])){
+//                $info[$file_field] = $params[$file_field.'1'];//修改时
+//            }
+//            if(!empty($_FILES[$file_field])) {
+//                $info[$file_field] = $avatar[$file_field]['file'];//上传时
+//            }
+//            if($info['is_train'] == 1) {
+//                if(empty($info[$file_field])){
+//                    $this->error('请上传规培证照片');
+//                }
+//            }
 
             //学历
             $graduation_img_array = [];
@@ -368,7 +368,7 @@ class RecruitController extends PublicController{
                 'graduation_img'=>empty($data['graduation_img']) ? '' : implode(',',$data['graduation_img']),
                 'skill_img'=>empty($data['skill_img']) ? '' : implode(',',$data['skill_img']),
                 'operation_img' => empty($info['operation_img']) ? '' : $info['operation_img'],
-                'train_img' => empty($info['train_img']) ? '' : $info['train_img'],
+//                'train_img' => empty($info['train_img']) ? '' : $info['train_img'],
             ];
             D('ResumeQualifications')->where(array('pid'=>$id))->delete();
             D('ResumeQualifications')->create($val);

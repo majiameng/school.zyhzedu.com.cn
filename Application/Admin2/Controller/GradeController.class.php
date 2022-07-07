@@ -39,7 +39,7 @@ class GradeController extends AdminBaseController {
 			$job  = I('post.job',0,'intval');
 			$score  = I('post.score',0,'floatval');
     		if(empty($unit)){
-    			$this->error("请选择报考科室");
+    			$this->error("请选择系部名称");
     		} 
 			if(empty($job)){
     			$this->error("请选择报考岗位");
@@ -78,7 +78,7 @@ class GradeController extends AdminBaseController {
 			$job  = I('post.job',0,'intval');
 			$score  = I('post.score',0,'floatval');
     		if(empty($unit)){
-    			$this->error("请选择报考科室");
+    			$this->error("请选择系部名称");
     		} 
 			if(empty($job)){
     			$this->error("请选择报考岗位");

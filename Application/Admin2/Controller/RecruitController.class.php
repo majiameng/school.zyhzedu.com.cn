@@ -89,12 +89,12 @@ class RecruitController extends AdminBaseController {
 				$data[$k]['remark']   	 = ' ';
 				$data[$k]['resume_qualifications'] = $r['resume_qualifications_data'];
 				$data[$k]['is_famous'] = (!empty($r['is_famous'])) ? '是' : '否';
-				$data[$k]['is_train'] = (!empty($r['is_train'])) ? '有' : '没有';
+//				$data[$k]['is_train'] = (!empty($r['is_train'])) ? '有' : '没有';
 				$data[$k]['is_operation'] = (!empty($r['is_operation'])) ? '有' : '没有';
-                $data[$k]['is_free'] = (!empty($r['is_free'])) ? '符合' : '不符合';
+//                $data[$k]['is_free'] = (!empty($r['is_free'])) ? '符合' : '不符合';
                 $data[$k]['is_pay'] = (!empty($r['is_pay'])) ? '已支付' : '未支付';
                 $data[$k]['operation_img'] = !empty($r['resume_qualifications_data']['operation_img']) ? $r['resume_qualifications_data']['operation_img'] : '';
-                $data[$k]['train_img'] = !empty($r['resume_qualifications_data']['train_img']) ? $r['resume_qualifications_data']['train_img'] : '';
+//                $data[$k]['train_img'] = !empty($r['resume_qualifications_data']['train_img']) ? $r['resume_qualifications_data']['train_img'] : '';
                 $data[$k]['graduation_img'] = !empty($r['resume_qualifications_data']['graduation_img']) ? explode(',', $r['resume_qualifications_data']['graduation_img']) : [];
                 $data[$k]['skill_img'] = !empty($r['resume_qualifications_data']['skill_img']) ? explode(',', $r['resume_qualifications_data']['skill_img']) : [];
 
@@ -149,7 +149,7 @@ class RecruitController extends AdminBaseController {
 			}
 			unset($more,$edu,$family,$work,$skill);
 			$cnTable = array(			
-				'unit'		=>'报考科室',
+				'unit'		=>'系部名称',
 				'job'		=>'报考岗位',
 				// 'exam_no'	=>'考场号',	
 				'name'		=>'姓名',	
@@ -185,7 +185,7 @@ class RecruitController extends AdminBaseController {
 				'avatar'	=>'照片',
 				'reamark'	=>'备注',
 				'is_pay'	=>'是否支付报名费',
-				'is_free'	=>'是否符合免试条件',
+//				'is_free'	=>'是否符合免试条件',
 				'is_famous'	=>'是否985/211',
 				'card_front'	=>'身份证正面',
 				'card_behind'	=>'身份证反面',
@@ -193,8 +193,8 @@ class RecruitController extends AdminBaseController {
 				'study_img'	=>'学信网证明',
 				'is_operation'	=>'是否有执业资格',
 				'operation_img'	=>'执业资格证',
-				'is_train'	=>'是否有规培证',
-				'train_img'	=>'规培证',
+//				'is_train'	=>'是否有规培证',
+//				'train_img'	=>'规培证',
 				'skill_img'	=>'其他',
 
 			);
@@ -247,7 +247,7 @@ class RecruitController extends AdminBaseController {
 			->assign('result', $result)
 			->assign('is_join', L('is_join'))
 			->assign("status",$status)
-			->assign("is_free", I('get.is_free'))
+//			->assign("is_free", I('get.is_free'))
 			->assign("is_pay_status", I('get.is_pay'))
             ->assign('is_pay',$is_pay);
     }
@@ -266,7 +266,7 @@ class RecruitController extends AdminBaseController {
         //面试待审核
         $mapFree = [
             'status'=>2,
-            'is_free'=>1,
+//            'is_free'=>1,
         ];
         $Freecount = $model->where($mapFree)->count();
         $result[6] = $Freecount ?? 0;
@@ -274,7 +274,7 @@ class RecruitController extends AdminBaseController {
         //待审核
         $mapFree = [
             'status'=>2,
-            'is_free'=>0,
+//            'is_free'=>0,
         ];
         $Freecount = $model->where($mapFree)->count();
         $result[2] = $Freecount ?? 0;
@@ -722,7 +722,7 @@ class RecruitController extends AdminBaseController {
 		);
 		$data[] = $arry;
 		$cnTable = array(
-			'unit'		=> '报考科室',
+			'unit'		=> '系部名称',
 			'job'		=> '报考岗位',
 			'status1'	=> '审核通过',
 			'status2'	=> '待审核',
@@ -1061,21 +1061,21 @@ class RecruitController extends AdminBaseController {
         }else{
             $base['is_famous'] 	= '否';
         }
-        if(!empty($base['is_free']) && $base['is_free']==1){
-            $base['is_free'] 	= '是';
-        }else{
-            $base['is_free'] 	= '否';
-        }
+//        if(!empty($base['is_free']) && $base['is_free']==1){
+//            $base['is_free'] 	= '是';
+//        }else{
+//            $base['is_free'] 	= '否';
+//        }
         if(!empty($base['is_operation']) && $base['is_famous']==1){
             $base['is_operation'] 	= '有';
         }else{
             $base['is_operation'] 	= '没有';
         }
-        if(!empty($base['is_train']) && $base['is_train']==1){
-            $base['is_train'] 	= '有';
-        }else{
-            $base['is_train'] 	= '没有';
-        }
+//        if(!empty($base['is_train']) && $base['is_train']==1){
+//            $base['is_train'] 	= '有';
+//        }else{
+//            $base['is_train'] 	= '没有';
+//        }
 		$base['full_time'] 	= $full_time[$base['full_time']];
 		$base['unit'] 		= $unit[$base['unit']]['name'];
 		$base['job'] 		= $job[$base['job']];
@@ -1243,7 +1243,7 @@ class RecruitController extends AdminBaseController {
 			}  
    
 			$cnTable = array(
-				'unit'		=>'报考科室',
+				'unit'		=>'系部名称',
 				'job'		=>'报考岗位',				
 				'no'		=>'准考证号',
 				'exam_no'	=>'考场',
@@ -1512,7 +1512,7 @@ class RecruitController extends AdminBaseController {
     public function getWhere(){
     	$where = array();
     	$status		= I('get.status',2,'intval');
-    	$isFree		= I('get.is_free', 0, 'intval');
+//    	$isFree		= I('get.is_free', 0, 'intval');
 		$sex 		= I('get.sex',0,'intval');
 		$isPay = I('get.is_pay', 3, 'intval');
 		$isPayStatus = I('get.is_pay_status', 3, 'intval');
@@ -1526,13 +1526,13 @@ class RecruitController extends AdminBaseController {
 		    if ($status == 6) {
                 $where['status'] = 2;
             } elseif ($status == 2){
-                $where['is_free'] = 0;
+//                $where['is_free'] = 0;
                 $where['status'] = 2;
             } else {
                 $where['status'] = $status;
             }
         }
-        if($isFree > 0) $where['is_free'] = $isFree;
+//        if($isFree > 0) $where['is_free'] = $isFree;
 
 		if($tt!=1) $where['status'] = 1;		
 		if($sex > 0) $where['sex'] = $sex;	

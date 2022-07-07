@@ -60,7 +60,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="2" height="33"    align="center">报考科室:</td>
+                        <td colspan="2" height="33"    align="center">系部名称:</td>
                         <td colspan="3" height="33"    align="center">{$unit[$base[unit]][name]}</td>
                         <td colspan="2" height="33"    align="center">报考岗位:</td>
                         <td colspan="3" height="33"    align="center">{$job[$base[job]]}</td>
@@ -70,12 +70,12 @@
                         <td colspan="3" height="33"    align="center">{$base.card}</td>
 <!--                        <td colspan="2" height="33"    align="center">是否符合回避原则:</td>-->
 <!--                        <td colspan="1" height="33"    align="center">{$is_huibi[$base[is_huibi]]}</td>-->
-                        <td colspan="2" height="33"    align="center">是否符合免试条件:</td>
-                        <td colspan="1" height="33"    align="center">
-                            <if condition="$base.is_free eq 1 ">是
-                                <else /> 否
-                            </if>
-                        </td>
+<!--                        <td colspan="2" height="33"    align="center">是否符合免试条件:</td>-->
+<!--                        <td colspan="1" height="33"    align="center">-->
+<!--                            <if condition="$base.is_free eq 1 ">是-->
+<!--                                <else /> 否-->
+<!--                            </if>-->
+<!--                        </td>-->
                         <td colspan="1" height="33"    align="center">是否985/211:</td>
                         <td colspan="1" height="33"    align="center">
                             <if condition="$base.is_famous eq 1 ">是
@@ -212,20 +212,20 @@
                             <img src="{$base.operation_img}" width="200" class="code">
                         </td>
                     </tr>
-                    <tr>
-                        <td colspan="2" height="33"    align="center">是否有规培证:</td>
-                        <td colspan="8" height="" align="center">
-                            <if condition="$base.is_train eq 1 ">有
-                                <else /> 没有
-                            </if>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="33"    align="center">规培证:</td>
-                        <td colspan="8" height="">
-                            <img src="{$base.train_img}" width="200" class="code">
-                        </td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <td colspan="2" height="33"    align="center">是否有规培证:</td>-->
+<!--                        <td colspan="8" height="" align="center">-->
+<!--                            <if condition="$base.is_train eq 1 ">有-->
+<!--                                <else /> 没有-->
+<!--                            </if>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td colspan="2" height="33"    align="center">规培证:</td>-->
+<!--                        <td colspan="8" height="">-->
+<!--                            <img src="{$base.train_img}" width="200" class="code">-->
+<!--                        </td>-->
+<!--                    </tr>-->
                     <tr>
                         <td colspan="2" height="33"    align="center">其他:</td>
                         <td colspan="8" height="">

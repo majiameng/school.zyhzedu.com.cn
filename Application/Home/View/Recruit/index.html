@@ -119,14 +119,14 @@
                                 </select>
                             </div>
 
-                            <label class="col-md-3 col-xs-12 control-label"><p>是否符合免试条件<span class="required">*</span></p></label>
-                            <div class="col-md-2 col-xs-12">
-                                <select class="form-control" name="info[is_free]" id="is_free" required>
-                                    <option value="">请选择</option>
-                                    <option value="0">否</option>
-                                    <option value="1">是</option>
-                                </select>
-                            </div>
+<!--                            <label class="col-md-3 col-xs-12 control-label"><p>是否符合免试条件<span class="required">*</span></p></label>-->
+<!--                            <div class="col-md-2 col-xs-12">-->
+<!--                                <select class="form-control" name="info[is_free]" id="is_free" required>-->
+<!--                                    <option value="">请选择</option>-->
+<!--                                    <option value="0">否</option>-->
+<!--                                    <option value="1">是</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
 
 <!--                            <label class="col-md-3 col-xs-12 control-label"><p>符合亲属回避原则<span class="required">*</span></p></label>-->
 <!--                            <div class="col-md-2 col-xs-12">-->
@@ -174,15 +174,15 @@
                                 <input class="form-control" name="info[nation]" id="nation" type="text" value="" required>
                             </div>
 
-                            <label class="col-md-2 col-xs-6 control-label"><p>学历<span class="required">*</span></p></label>
-                            <div class="col-md-3 col-xs-12">
-                                <select class="form-control" name="info[education]" id="education" required>
-                                    <option value="">请选择</option>
-                                    <foreach name="education" item="r" key="k">
-                                        <option value="{$k}">{$r}</option>
-                                    </foreach>
-                                </select>
-                            </div>
+<!--                            <label class="col-md-2 col-xs-6 control-label"><p>学历<span class="required">*</span></p></label>-->
+<!--                            <div class="col-md-3 col-xs-12">-->
+<!--                                <select class="form-control" name="info[education]" id="education" required>-->
+<!--                                    <option value="">请选择</option>-->
+<!--                                    <foreach name="education" item="r" key="k">-->
+<!--                                        <option value="{$k}">{$r}</option>-->
+<!--                                    </foreach>-->
+<!--                                </select>-->
+<!--                            </div>-->
 
                         </div>
 
@@ -229,7 +229,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 form-group">
-                            <label class="col-md-2 col-xs-12 control-label"><p>报考科室<span class="required">*</span></p></label>
+                            <label class="col-md-2 col-xs-12 control-label"><p>系部名称<span class="required">*</span></p></label>
                             <div class="col-md-9 col-xs-12">
                                 <select class="form-control" name="info[unit]" id="unit" required>
                                 </select>
@@ -505,30 +505,30 @@
                     </div>
                 </div>
 
-                <div class="col-xs-12 proSN">
-                    <div class="col-md-2 titSN-left ">
-                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
-                        <p class="titP">规培证</p>
-                    </div>
-                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
-                </div>
-                <div class="contact-way">
-                    <label class="col-md-2 col-xs-12 control-label"><p>是否有规培证<span class="required">*</span></p></label>
-                    <label class="checkbox-inline col-md-2 col-xs-3 full_time">
-                        <input type="radio" id="is_train" name="info[is_train]" value="1" required> 有
-                        &nbsp;&nbsp;
-                        <input type="radio" id="is_train" name="info[is_train]" value="0"> 没有
-                    </label>
+<!--                <div class="col-xs-12 proSN">-->
+<!--                    <div class="col-md-2 titSN-left ">-->
+<!--                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>-->
+<!--                        <p class="titP">规培证</p>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>-->
+<!--                </div>-->
+<!--                <div class="contact-way">-->
+<!--                    <label class="col-md-2 col-xs-12 control-label"><p>是否有规培证<span class="required">*</span></p></label>-->
+<!--                    <label class="checkbox-inline col-md-2 col-xs-3 full_time">-->
+<!--                        <input type="radio" id="is_train" name="info[is_train]" value="1" required> 有-->
+<!--                        &nbsp;&nbsp;-->
+<!--                        <input type="radio" id="is_train" name="info[is_train]" value="0"> 没有-->
+<!--                    </label>-->
 
-                    <div class="col-md-3 col-xs-12">
-                        <div class="img-de graduation_img_div">
-                            <div>
-                                <img src="__PUBLIC__/images/index/uptu.png" class="img-responsive graduation_img"  style="width: 200px; float: left" >
-                                <input type="file" name="train_img" multiple="multiple" class="required" style="display: none"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!--                    <div class="col-md-3 col-xs-12">-->
+<!--                        <div class="img-de graduation_img_div">-->
+<!--                            <div>-->
+<!--                                <img src="__PUBLIC__/images/index/uptu.png" class="img-responsive graduation_img"  style="width: 200px; float: left" >-->
+<!--                                <input type="file" name="train_img" multiple="multiple" class="required" style="display: none"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <div class="col-xs-12 proSN">
                     <div class="col-md-2 titSN-left ">
