@@ -21,7 +21,7 @@ class RecruitController extends AdminBaseController {
     public function index(){
 		$tt = I('get.tt',1,'intval');
         $recuit_status = F('_common/recuit_status');
-        $recuit_status[5] = "免试通过";
+//        $recuit_status[5] = "免试通过";
     	$this->_list();
         $this->assign('sex',F('_common/sex'))
 			->assign('education',F('_common/education'))
@@ -266,7 +266,7 @@ class RecruitController extends AdminBaseController {
         //面试待审核
         $mapFree = [
             'status'=>2,
-//            'is_free'=>1,
+            'is_free'=>1,
         ];
         $Freecount = $model->where($mapFree)->count();
         $result[6] = $Freecount ?? 0;
@@ -274,7 +274,7 @@ class RecruitController extends AdminBaseController {
         //待审核
         $mapFree = [
             'status'=>2,
-//            'is_free'=>0,
+            'is_free'=>0,
         ];
         $Freecount = $model->where($mapFree)->count();
         $result[2] = $Freecount ?? 0;
@@ -1512,7 +1512,7 @@ class RecruitController extends AdminBaseController {
     public function getWhere(){
     	$where = array();
     	$status		= I('get.status',2,'intval');
-//    	$isFree		= I('get.is_free', 0, 'intval');
+    	$isFree		= I('get.is_free', 0, 'intval');
 		$sex 		= I('get.sex',0,'intval');
 		$isPay = I('get.is_pay', 3, 'intval');
 		$isPayStatus = I('get.is_pay_status', 3, 'intval');
@@ -1526,13 +1526,13 @@ class RecruitController extends AdminBaseController {
 		    if ($status == 6) {
                 $where['status'] = 2;
             } elseif ($status == 2){
-//                $where['is_free'] = 0;
+                $where['is_free'] = 0;
                 $where['status'] = 2;
             } else {
                 $where['status'] = $status;
             }
         }
-//        if($isFree > 0) $where['is_free'] = $isFree;
+        if($isFree > 0) $where['is_free'] = $isFree;
 
 		if($tt!=1) $where['status'] = 1;		
 		if($sex > 0) $where['sex'] = $sex;	
