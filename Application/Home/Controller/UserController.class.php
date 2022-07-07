@@ -17,14 +17,13 @@ class UserController extends PublicController{
 
         $resume = D('Resume')->where(array('userid'=>$userid))->find();
 		$achievement = D('ResumeAchievement')->where(array('user_id'=>$userid))->find();
-        if(empty($achievement)){
-            $achievement = [
-                'written_achievement'=>0,
-                'interview_achievement'=>0,
-                'achievement'=>0,
-//                'is_free'=>0,
-            ];
-        }
+//        if(empty($achievement)){
+//            $achievement = [
+//                'written_achievement'=>0,
+//                'interview_achievement'=>0,
+//                'achievement'=>0,
+//            ];
+//        }
 
 		$this->assign('resume',$resume)
             ->assign('achievement',$achievement)
