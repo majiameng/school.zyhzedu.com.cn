@@ -13,6 +13,7 @@ $dbConfig = [
     'SITE_NAME'   =>  $site_name,
     'SITE_TITLE'   =>  $site_title,
     'BANNER_IMAGE'   =>  $banner_image,
+    'SITE_NAME_PREF'   =>  $site_name_pref,
 
     'DB_HOST'   => '127.0.0.1', // 服务器地址
     'DB_NAME'   => 'gczyxy_zyhzedu', // 数据库名
