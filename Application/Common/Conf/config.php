@@ -1,27 +1,34 @@
 <?php
-return array(
-    //'配置项'=>'配置值'
+$site_name = '中青旅博汇人才招考系统';
+$dbConfig = [
     'DB_HOST'   => '127.0.0.1', // 服务器地址
     'DB_NAME'   => 'gczyxy_zyhzedu', // 数据库名
     'DB_USER'   => 'gczyxy_zyhzedu', // 用户名
     'DB_PWD'    => 'C3akSE6WiYtNXCnR', // 密码
-    'DB_PORT'   => '3306', // 端口
-    'DB_TYPE'   => 'mysql', // 数据库类型
     'DB_PREFIX' =>  'tp_',    // 数据库表前缀
 
+    'REDIS_ON' 				=> true, //是否开启
+    'REDIS_RW_SEPARATE' 	=> false, //Redis读写分离 true 开启
+    'REDIS_HOST'			=>'127.0.0.1', //redis服务器ip，多台用逗号隔开；读写分离开启时，第一台负责写，其它[随机]负责读；
+    // 'REDIS_PORT'			=>'6379',//端口号
+    'REDIS_PORT'			=>'6177',//端口号
+    'DATA_CACHE_TIMEOUT'	=>'3000',//超时时间
+    'REDIS_PERSISTENT'		=>false,//是否长连接 false=短连接
+    'REDIS_AUTH'			=>'wending123a@ABC',//AUTH认证密码
+    'REDIS_PREF' 			=> 'hpyy:', //redis 前缀
+];
+
+$config = array(
+    //'配置项'=>'配置值'
+    'DB_PORT'   => '3306', // 端口
+    'DB_TYPE'   => 'mysql', // 数据库类型
     'DB_DEBUG'  		=>  false, // 数据库调试模式 开启后可以记录SQL日志
     'DB_FIELDS_CACHE'   =>  true,        // 启用字段缓存
 
-
-    /* 'SITE_NAME'   =>  '河北省人民银行聘用制员工招聘报名系统',
-     'SITE_KEYWORDS'   =>  '河北省人行系统聘用制员工招聘报名系统',
-     'SITE_DESCRIPTION'   =>  '河北省人行系统聘用制员工招聘报名系统',*/
-    'SITE_NAME'   =>  '中青旅博汇人才招考系统',
-    'SITE_KEYWORDS'   =>  '中青旅博汇人才招考系统',
-    'SITE_DESCRIPTION'   =>  '中青旅博汇人才招考系统',
-
-    'FOOTER_SITE_NAME'   =>  '中国人民银行石家庄中心支行',
-
+    'SITE_NAME'   =>  $site_name,
+    'SITE_KEYWORDS'   =>  $site_name,
+    'SITE_DESCRIPTION'   =>  $site_name,
+    'FOOTER_SITE_NAME'   =>  $site_name,
 
     /* URL设置 */
     'URL_CASE_INSENSITIVE'  =>  true,   // 默认false 表示URL区分大小写 true则表示不区分大小写
@@ -87,7 +94,7 @@ return array(
     'MAIL_SMTPAUTH'  	=>TRUE, //启用smtp认证
     'MAIL_USERNAME' 	=>'hzgkfd@zyhzedu.com',//你的邮箱名
     'MAIL_FROM' 		=>'hzgkfd@zyhzedu.com',//发件人地址
-    'MAIL_FROMNAME'		=>'石家庄工程职业学院2022年招聘报名系统',//发件人姓名
+    'MAIL_FROMNAME'		=>$site_name,//发件人姓名
     'MAIL_PASSWORD'		=>'Bohui123',//邮箱密码
     'MAIL_CHARSET'		=>'utf-8',//设置邮件编码
     'MAIL_ISHTML'		=>TRUE, // 是否HTML格式邮件
@@ -99,16 +106,7 @@ return array(
        %s<br/> 
        在访问链接之后, 您可以重新设置新的密码。",
 
-    'REDIS_ON' 				=> true, //是否开启
-    'REDIS_RW_SEPARATE' 	=> false, //Redis读写分离 true 开启
-    'REDIS_HOST'			=>'127.0.0.1', //redis服务器ip，多台用逗号隔开；读写分离开启时，第一台负责写，其它[随机]负责读；
-    // 'REDIS_PORT'			=>'6379',//端口号
-    'REDIS_PORT'			=>'6177',//端口号
-    'DATA_CACHE_TIMEOUT'	=>'3000',//超时时间
-    'REDIS_PERSISTENT'		=>false,//是否长连接 false=短连接
-    'REDIS_AUTH'			=>'wending123a@ABC',//AUTH认证密码
-    'REDIS_PREF' 			=> 'hpyy:', //redis 前缀
-
-    'DB_BACKUP'				=> RUNTIME_PATH . 'Backup/',//AUTH认证密码
+    'DB_BACKUP'				=> RUNTIME_PATH . 'Backup/',
 
 );
+return array_merge($config,$dbConfig);
