@@ -94,6 +94,7 @@ class UserController extends PublicController{
         ];
         $result = $this->httpPost($url,$params);
         $result = json_decode($result,true);
+        var_dump($result);die;
         if($result['code']!=200){
             $this->error("调用支付系统出错：".$result['msg']);
         }
