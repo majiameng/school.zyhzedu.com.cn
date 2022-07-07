@@ -1,3 +1,9 @@
+# 项目初始化
+cd Application/Common/Conf/
+cp site_gc.php site.php
+
+
+
 online1.0.1
 和平医院-招聘网站
 http://hpyy2022.zyhzedu.com.cn/
