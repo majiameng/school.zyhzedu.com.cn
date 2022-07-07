@@ -13,9 +13,9 @@ $dbConfig = [
     'SITE_TITLE'   =>  $site_title,
 
     'DB_HOST'   => '127.0.0.1', // 服务器地址
-    'DB_NAME'   => 'gczyxy_zyhzedu', // 数据库名
-    'DB_USER'   => 'gczyxy_zyhzedu', // 用户名
-    'DB_PWD'    => 'C3akSE6WiYtNXCnR', // 密码
+    'DB_NAME'   => 'cjzyxy_zyhzedu', // 数据库名
+    'DB_USER'   => 'cjzyxy_zyhzedu', // 用户名
+    'DB_PWD'    => 'xfJWCZGZDDnrnsWr', // 密码
     'DB_PREFIX' =>  'tp_',    // 数据库表前缀
 
     'REDIS_ON' 				=> true, //是否开启
