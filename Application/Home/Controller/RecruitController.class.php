@@ -24,6 +24,8 @@ class RecruitController extends PublicController{
 
         $this->getCompany();//获取科室
 
+        var_dump(F('_common/sex'));
+        die;
         $this->assign('news',$news)
 			->assign('education',F('_common/education'))
 			->assign('policy',F('_common/policy'))
