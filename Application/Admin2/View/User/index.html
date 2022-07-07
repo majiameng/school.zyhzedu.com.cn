@@ -1,0 +1,133 @@
+<include file="Public:header" />
+<style>
+	.form-horizontal input[type=password]{
+		width: auto;
+	}
+	p{
+		margin-top:4px;
+	}
+	#password-error{
+		display: inline;
+		color: red;
+	}
+</style>
+		<div id="content">
+			<div id="content-header">
+				<h1>管理员管理</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+				<a href="{:U('admin/index')}" class="current">个人信息</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-align-justify"></i>									
+								</span>
+								<h5>个人密码修改</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<form  method="post" class="form-horizontal" id="dosubmit" />
+									
+									<input type="hidden" name="id" value="{$id}" />               
+                                    <div class="control-group">
+                                        <label class="control-label">用户名</label>
+                                        <div class="controls">
+                                            <p>{$username}</p>
+                                        </div>
+                                    </div>
+									
+									<div class="control-group">
+                                        <label class="control-label">密码</label>
+                                        <div class="controls">
+                                            <input name="password" type="password" id="pas" value="" placeholder="请输入密码" />
+                                        </div>
+                                    </div>
+									<div class="control-group">
+										<label class="control-label">确认密码</label>
+										<div class="controls">
+											<input name="repassword" type="password" id="repassword" value="" placeholder="请输入确认密码" />
+										</div>
+									</div>
+									
+
+
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary">保存修改</button>
+										&nbsp;&nbsp;&nbsp;
+										<a type="button" href="{:U('recruit/index')}" class="btn btn-primary">返回首页</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>		
+<script src="__PUBLIC__/js/jquery.validate.js"></script>
+<script src="__PUBLIC__/js/main.js"></script>
+<script src="__PUBLIC__/js/jquery.form.js"></script>
+
+<script>
+    $('#dosubmit').validate({
+        errorElement: "span",
+        errorClass: "reg-tishi",
+        rules: {
+            password: {
+                required: true,
+                rangelength: [6, 16],
+                checkpwd: true
+            },
+            repassword: {
+                required: true,
+                rangelength: [6, 16],
+                equalTo: "#pas"
+            }
+        },
+        messages: {
+            password: {
+                required: "密码不能为空",
+                rangelength: "密码长度为6~12位",
+                checkpwd: '密码要求6-13字母或数字'
+            },
+            repassword: {
+                required: '请输入重复密码',
+                rangelength: '密码长度为6~12位',
+                equalTo: "两次密码输入不一致"
+            }
+        },
+        errorPlacement : function(error, element) {
+            error.appendTo(element.parent());
+        },
+        submitHandler:function(form) {
+            var obj = $('#dosubmit');
+            $(form).ajaxSubmit({
+                type:'post',
+                url:'/index.php/admin2/user/index',
+                dataType:'json',
+                success:function(json){
+                    obj.attr('disabled',false).val("保存");
+                    if(json.status==1) {
+                        layer.msg('密码修改成功', {icon: 6});
+                        setTimeout(function(){
+                            form.reset();
+                        },1500);
+                        return false;
+                    }
+                    layer.msg(json.info, {icon: 5});
+                    return false;
+                },
+                beforeSubmit:function(){
+                    obj.attr('disabled',true).val('请稍等...');
+                }
+            });
+            return false;
+        }
+    })
+</script> 
+   
+<include file="Public:footer" />

@@ -1,0 +1,72 @@
+{__NOLAYOUT__}
+    <include file="_layout/top-login" />
+<div class="clearfix"></div>
+
+
+
+<div class="findcode">
+    <div class="container">
+        <div class="findcode-con">
+            <div class="logReg">
+                <h4 class="pull-left log_on">找回密码</h4>
+            </div>
+            <div class="clearfix"></div>
+            <div class="grid-Reg">
+                <form id="FindByEmail" method="post">
+                    <div class="regLi">
+                        <ul>
+                            <li>
+                                <div class="pull-left regL">
+                                    <p>账号</p>
+                                </div>
+                                <div class="pull-right regR">
+                                    <input type="text" id="username" name="username" placeholder="请输入账号"/>
+                                </div>
+                            </li>
+                            <div class="clearfix"></div>
+                            <li>
+                                <div class="pull-left regL">
+                                    <p>邮箱</p>
+                                </div>
+                                <div class="pull-right regR">
+                                    <input  type="text" name="email" id="email" placeholder="请输入注册时的邮箱"/>
+
+                                </div>
+                            </li>
+                            <div class="clearfix"></div>
+                            <li>
+                                <div class="pull-left regL">
+                                    <p>验证码</p>
+                                </div>
+                                <div class="pull-right regR yzm">
+                                    <div class="pull-left yzmInp">
+                                        <input type="text" name="verifycode" id="verifycode" placeholder="请输入验证码"/>
+                                        <br/>
+                                    </div>
+                                    <div class="pull-left yzmImg">
+                                        <img src="{:U('login/code')}" class="code captcha" id="captchaimg"/>
+                                    </div>
+                                    <div class="pull-left yzmA">
+                                        <a href="javascript:;" class="code captcha">换一张</a>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="find-btn">
+                            <input class="btn btn-primary" type="submit" id="btnFindEmail" value="提交">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="clearfix"></div>
+<div class="">
+    <include file="_layout/footer-login" />
+</div>

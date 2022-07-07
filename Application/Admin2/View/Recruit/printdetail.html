@@ -1,0 +1,58 @@
+<style>
+
+</style>
+<div class="projects">
+	<div class="container projects-con">
+		<!--打印-->
+		<div class="personal noprint" style="text-align:center;">
+			<input type="button" class="printBtn" onclick="window.print()" value="打印">
+		</div>
+		<br/>
+		<foreach name="list" item="val">
+		<?php 
+		$base 	= $val['base'];
+		$edu 	= $val['edu'];
+		$family = $val['family'];
+		$work 	= $val['work'];
+		$skill 	= $val['skill'];
+		?>
+		<include file="table" />
+			<if condition=" $key neq count($list)-1">
+				<div class="PageNext"></div>
+			</if>
+		<span class="noprint"><br/><br/></span>
+		</foreach>				
+	</div>
+</div>
+<style media='print'>     
+.noprint{display : none } 
+.PageNext{page-break-after: always;}     
+</style>
+<style>
+.noprint .printBtn{
+	background: #f7f7f7;
+    border: #e1e1e1 1px solid;cursor:pointer;
+    padding: 12px 24px; margin-top:10px;display:inline-block;
+}
+.msg-hide{
+display:none;
+}
+.msg-show{
+display:block;
+}
+</style>
+<script src="__PUBLIC__/admin/js/jquery.min.js"></script>
+<script src="__PUBLIC__/layer/layer.js"></script>
+<script>
+ //parent.$('#parentIframe').text('我被改变了');
+$(function(){
+	var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+	$(':radio[name="status"]').click(function(){
+		var val = $(this).val();
+		if(val==4) $('#msg-tip').show();
+		else $('#msg-tip').hide();
+	});
+})
+</script>
+
+

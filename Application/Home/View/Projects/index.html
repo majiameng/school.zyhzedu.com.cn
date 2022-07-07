@@ -1,0 +1,497 @@
+
+<div class="projects">
+        <div class="container projects-con">
+            <form class="form-horizontal" method="post" role="form">
+                <div class="pro-tit">
+                    <h3>
+                        填写报名信息
+                    </h3>
+                </div>
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-2 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">个人资料</p>
+                    </div>
+                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-xs-10 touxian-left">
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>姓名<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-8">
+                                <input class="form-control" name="name" id="name" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                            <label class="col-md-2 col-xs-4 control-label"><p>性别<span class="required">*</span></p></label>
+                            <label class="checkbox-inline col-md-1">
+                                <input type="radio" name="sex" id="optionsRadios13" value="1" checked> 男
+                            </label>
+                            <label class="checkbox-inline col-md-1">
+                                <input type="radio" name="sex" id="optionsRadios14"  value="0"> 女
+                            </label>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>身份证号<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-7">
+                                <input class="form-control" name="card" id="focusedInputCard" type="text" >
+                            </div>
+                            <div class="col-md-1 col-xs-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>出生年月<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-7">
+                                <input class="form-control" name="birth" id="focusedInputBirth" type="text">
+                            </div>
+                            <div class="col-md-1 col-xs-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>户口所在地</p></label>
+                            <div class="col-md-9 col-xs-7">
+                                <input class="form-control" name="peraddress" id="peraddress" type="text">
+                            </div>
+                            <div class="col-md-1 col-xs-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>政治面貌<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-8">
+                                <input class="form-control" name="zhengzhi" id="zhengzhi" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                            <label class="col-md-4 col-xs-4 control-label"><p>是否符合亲属回避原则<span class="required">*</span></p></label>
+                            <div class="col-md-1 col-xs-8">
+                                <input class="form-control" name="huibi" id="huibi" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>健康状况</p></label>
+                            <div class="col-md-3 col-xs-8">
+                                <input class="form-control" name="jiankang" id="jiankang" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                            <label class="col-md-2 col-xs-4 control-label"><p>婚姻状况<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-8">
+                                <input class="form-control" name="hunyin" id="hunyin" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>身高</p></label>
+                            <div class="col-md-3 col-xs-8">
+                                <input class="form-control" name="shengao" id="shengao" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                            <label class="col-md-2 col-xs-4 control-label"><p>体重</p></label>
+                            <div class="col-md-3 col-xs-8">
+                                <input class="form-control" name="tizhong" id="tizhon" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>民族<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-8">
+                                <input class="form-control" name="minzu" id="minzu" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                            <label class="col-md-2 col-xs-4 control-label"><p>学历<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-8">
+                                <input class="form-control" name="xueli" id="xueli" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>是否全日制<span class="required">*</span></p></label>
+                            <label class="checkbox-inline col-md-1">
+                                <input type="radio" name="sex" value="1" checked> 是
+                            </label>
+                            <label class="checkbox-inline col-md-1">
+                                <input type="radio" name="sex" value="0"> 否
+                            </label>
+                            <label class="col-md-3 col-xs-4 control-label"><p>所学专业(高中可不填)</p></label>
+                            <div class="col-md-2 col-xs-8">
+                                <input class="form-control" name="zhuanye" id="zhuanye" type="text" >
+                            </div>
+                            <div class="col-md-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>毕业院校</p></label>
+                            <div class="col-md-9 col-xs-7">
+                                <input class="form-control" name="school" id="school" type="text">
+                            </div>
+                            <div class="col-md-1 col-xs-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>报考科室<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-7">
+                                <input class="form-control" name="danwei" id="danwei" type="text">
+                            </div>
+                            <div class="col-md-1 col-xs-1 err">格式错误</div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-4 control-label"><p>报考岗位<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-7">
+                                <input class="form-control" name="gangwei" id="gangwei" type="text">
+                            </div>
+                            <div class="col-md-1 col-xs-1 err">格式错误</div>
+                        </div>
+                    </div>
+                    <div  class="col-md-2 form-group touxian-right">
+                        <div id="addCommodityIndex">
+
+
+                            <!--input-group start-->
+                            <div class="input-group row">
+                                <div class="col-md-12 big-photo">
+                                    <div id="preview">
+                                        <img id="imghead" border="0" src="__PUBLIC__/images/index/uptu.png" width="200" height="260" onclick="$('#previewImg').click();">
+                                    </div>
+                                    <input type="file" onchange="previewImage(this)" style="display: none;" id="previewImg">
+                                    <!--<input id="uploaderInput" class="uploader__input" style="display: none;" type="file" accept="" multiple="">-->
+                                </div>
+                            </div>
+                            <!--input-group end-->
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-3 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">教育情况(从高中开始)</p>
+                    </div>
+                    <div class="col-md-9 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+                <div class="addschool" id="addschool">
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>学校<span class="required">*</span></p></label>
+                        <div class="col-md-9 col-xs-8">
+                            <input class="form-control" name="PROschool1" id="PROschool1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>学位<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="PROxuewei1" id="PROxuewei1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>学历<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="PROxueli1" id="PROxueli1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>开始时间<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="PROstart1" id="PROstart1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>结束时间<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="PROfinish1" id="PROfinish1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>专业<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="PROzhuanye" id="PROzhuanye" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>是否全日制<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="PROquanrizhi1" id="PROquanrizhi1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-1 hrsn"></div>
+                        <div class="col-xs-10 hr"></div>
+                        <div class="col-md-1 hrsn"></div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-12">
+                    <input class="btn btn-primary jixubtn" type="submit" id="" value="继续添加">
+                </div>
+
+
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-5 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">工作经历(包含服兵役,如未参加工作,可不填)</p>
+                    </div>
+                    <div class="col-md-7 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+
+
+                <div class="work-history">
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>工作单位<span class="required">*</span></p></label>
+                        <div class="col-md-9 col-xs-8">
+                            <input class="form-control" name="PROdanwei1" id="PROdanwei1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>岗位和职务<span class="required">*</span></p></label>
+                        <div class="col-md-9 col-xs-8">
+                            <input class="form-control" name="PROgangwei1" id="PROgangwei1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>入职日期<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="PROruzhi1" id="PROruzhi1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>离职时间<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="PROlizhi1" id="PROlizhi1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-1 hrsn"></div>
+                        <div class="col-xs-10 hr"></div>
+                        <div class="col-md-1 hrsn"></div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <input class="btn btn-primary jixubtn" type="submit" id="" value="继续添加">
+                </div>
+
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-5 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">专业技能、特长及奖惩情况(如没有可不填)</p>
+                    </div>
+                    <div class="col-md-7 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+
+
+                <div class="work-history">
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>取得专业资格证书</p></label>
+                        <div class="col-md-9 col-xs-8">
+                            <input class="form-control" name="zhengshu" id="zhengshu" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>其它特长</p></label>
+                        <div class="col-md-9 col-xs-8">
+                            <input class="form-control" name="techang" id="techang" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>奖惩情况</p></label>
+                        <div class="col-md-9 col-xs-8">
+                            <input class="form-control" name="jiangcheng" id="jiangcheng" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-3 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">家庭主要成员情况</p>
+                    </div>
+                    <div class="col-md-9 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+
+
+                <div class="profamily">
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>成员关系<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="guanxi1" id="guanxi1" placeholder="如:父女" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>姓名<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="guanxiname1" id="guanxiname1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>工作单位<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="guanxiwork1" id="guanxiwork1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>职务<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="guanxizhiwu1" id="guanxizhiwu1" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+
+                    <div class="col-md-1 hrsn"></div>
+                    <div class="col-xs-10 hr"></div>
+                    <div class="col-md-1 hrsn"></div>
+
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>成员关系<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="guanxi2" id="guanxi2" placeholder="如:父女" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>姓名<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="guanxiname2" id="guanxiname2" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>工作单位<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="guanxiwork2" id="guanxiwork2" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>职务<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="guanxizhiwu2" id="guanxizhiwu2" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-2 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">联系方式</p>
+                    </div>
+                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+
+
+                <div class="contact-way">
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>通讯地址</p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="address" id="address" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>邮政编码</p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="post" id="post" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>手机号码<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="mobile" id="mobile" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                        <label class="col-md-2 col-xs-4 control-label"><p>固定电话</p></label>
+                        <div class="col-md-3 col-xs-8">
+                            <input class="form-control" name="tel" id="tel" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-4 control-label"><p>电子邮箱<span class="required">*</span></p></label>
+                        <div class="col-md-9 col-xs-8">
+                            <input class="form-control" name="proemail" id="proemail" type="text" >
+                        </div>
+                        <div class="col-md-1 err">格式错误</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 form-group">
+                    <label class="col-md-3 col-xs-4 control-label"><p>&nbsp;</p></label>
+                    <div class="form-agreen">
+                        <div>
+                            <input name="agreen" type="checkbox">&nbsp;阅读并同意<a href="javascript:;" id="protocol">《2022年石家庄工程职业学院业务操作岗位聘用制员工招聘公告》</a>
+                        </div>
+                        <div class="input-tip">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 tijiao">
+                    <!-- <button type="button" id="submitProjects" class=" btn btn-default btn-lg">提交</button>-->
+                    <input type="button" id="submitProjects" class=" btn btn-primary btn-lg" value="提交">
+                </div>
+            </form>
+
+        </div>
+
+</div>
+<script>
+    //图片上传预览    IE是用了滤镜。
+    function previewImage(file)
+    {
+        var MAXWIDTH  = 200;
+        var MAXHEIGHT = 260;
+        var div = document.getElementById('preview');
+        if (file.files && file.files[0])
+        {
+            div.innerHTML ='<img id=imghead onclick=$("#previewImg").click()>';
+            var img = document.getElementById('imghead');
+            img.onload = function(){
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                img.width  =  rect.width;
+                img.height =  rect.height;
+//                 img.style.marginLeft = rect.left+'px';
+                img.style.marginTop = rect.top+'px';
+            }
+            var reader = new FileReader();
+            reader.onload = function(evt){img.src = evt.target.result;}
+            reader.readAsDataURL(file.files[0]);
+        }
+        else //兼容IE
+        {
+            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img id=imghead>';
+            var img = document.getElementById('imghead');
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+            status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+            div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+        }
+    }
+    function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+        var param = {top:0, left:0, width:width, height:height};
+        if( width>maxWidth || height>maxHeight ){
+            rateWidth = width / maxWidth;
+            rateHeight = height / maxHeight;
+
+            if( rateWidth > rateHeight ){
+                param.width =  maxWidth;
+                param.height = Math.round(height / rateWidth);
+            }else{
+                param.width = Math.round(width / rateHeight);
+                param.height = maxHeight;
+            }
+        }
+        param.left = Math.round((maxWidth - param.width) / 2);
+        param.top = Math.round((maxHeight - param.height) / 2);
+        return param;
+    }
+</script>

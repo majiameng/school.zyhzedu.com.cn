@@ -1,0 +1,54 @@
+
+    .ticket{
+        width: 100%;
+        padding:50px 0;
+    }
+    .ticket .ticket-con{
+        width:738px;
+        overflow: auto;
+        margin:0 auto;
+        border: 2px solid #333333;
+        overflow: auto;
+    }
+    .ticket .ticket-con .tick-tit{
+        width: 100%;
+        padding:30px 0;
+    }
+    .ticket .ticket-con .tick-tit h4{
+        text-align: center;
+        font-weight: bold;
+        letter-spacing:5px;
+    }
+    .ticket .ticket-con .tick-con{
+        padding:0 40px;
+        overflow: auto;
+
+    }
+    .ticket .ticket-con .tick-con .tickL{
+        float: left;
+        width: 65%;
+    }
+    .ticket .ticket-con .tick-con .tickR{
+        float: right;
+    }
+    .ticket .ticket-con .tick-con .tickR img{
+        border: 1px solid #5e5e5e;
+    }
+    .ticket .ticket-con .tick-con .tickL p{
+        display: inline;
+
+    }
+    .ticket .ticket-con .tick-con .tickL h5{
+        display: inline;
+    }
+    .ticket .ticket-con .tick-con .tickL .tickStr{
+        margin-bottom: 15px;
+    }
+    .ticket .ticket-con .tick-notice{
+        padding:30px 40px;
+        margin-bottom: 30px;
+    }
+    .ticket .ticket-con .tick-notice h4{
+        text-align: center;
+        margin:30px 0;
+    }

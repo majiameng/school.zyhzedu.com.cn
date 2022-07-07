@@ -1,0 +1,677 @@
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="0">
+<notempty name="base.status">
+    <div class="review">
+        <div class="container">
+            <div class="rev-tit">
+                <h3>报名信息</h3>
+            </div>
+            <div class="review-con">
+                <div class="rev rev-yes">
+                    <div class="rev-nol">
+                        <img src="__PUBLIC__/images/review/review-yes.png" class="img-responsive">
+                    </div>
+                    <div class="rev-nor">
+                        <p style="font-size:30px;">已经完成报名</p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- 1成功 3 审核失败 -->
+                    <if condition=" $base.status neq 1 && $base.status neq 3">
+                        <div class="yesBtn">
+                            <a href="{:U('recruit/modify')}">报名信息修改</a><br/><span>(审核开始后无法修改)</span>
+                        </div>
+                    </if>
+                    <div class="yesBtn" style="width: 82%;">
+                        <if condition=" $base.status eq 2">
+                            <a href="{:U('review/index')}">查看审核状态</a>
+                        <else/>
+                            <a href="{:U('review/index')}">审核结果已出，查看状态</a>
+                        </if>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{:U('Recruit/detail')}">查看报名表</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .review{
+            padding-bottom:100px;
+            padding-top:5px;
+        }
+        .review .review-con .rev{
+            padding-top:80px;
+        }
+        .review .review-con .rev .yesBtn{
+            margin-top: 50px;
+            width: 82%;
+
+        }
+    </style>
+    <else/>
+    <script src="__PUBLIC__/layer/layer.js"></script>
+    <script src="__PUBLIC__/admin/js/My97DatePicker/WdatePicker.js"></script>
+    <script src="__PUBLIC__/js/validate.js"></script>
+    <script src="__PUBLIC__/js/jquery.form.js"></script>
+    <script src="__PUBLIC__/js/main.js?v={$version}"></script>
+    <script src="__PUBLIC__/js/recruit.js?v={$version}"></script>
+    <div class="projects">
+        <div class="container projects-con">
+            <form class="form-horizontal" id="resume-info">
+                <div class="pro-tit">
+                    <h3>
+                        填写报名信息
+                    </h3>
+                </div>
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-2 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">个人资料</p>
+                    </div>
+                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+                <div class="col-md-12 col-xs-12">
+                    <div class="col-md-10 col-xs-12 touxian-left">
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-12 control-label"><p>姓名<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-12">
+                                <input class="form-control" name="info[name]" id="name" type="text" value="" required>
+                            </div>
+
+                            <label class="col-md-2 col-xs-12 control-label"><p>性别<span class="required">*</span></p></label>
+                            <label class="checkbox-inline col-md-2 col-xs-3 full_time">
+                                <foreach name="sex" item="r">
+<!--                                    <input type="radio" name="info[sex]" id="optionsRadios13" value="{$key}" required>&nbsp;{$r}-->
+                                    <input type="radio" name="info[sex]" id="optionsRadios13" value="{$key}">&nbsp;{$r}
+                                    &nbsp;&nbsp;
+                                </foreach>
+                            </label>
+
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-6 control-label"><p>身份证号<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-12">
+                                <input class="form-control" name="info[card]" id="idCard" type="text" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-6 control-label"><p>出生年月<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-12">
+                                <input class="form-control dateselect" name="info[birth]" id="birth" type="text" readonly required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-6 control-label"><p>户口所在地<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-12">
+                                <input class="form-control" name="info[house_address]" id="house_address" type="text" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-6 control-label"><p>政治面貌<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-12">
+                                <select class="form-control" name="info[political_status]" id="political_status" required>
+                                    <option value="">请选择</option>
+                                    <foreach name="policy" item="r" key="k">
+                                        <option value="{$k}">{$r}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+
+                            <label class="col-md-3 col-xs-12 control-label"><p>是否符合免试条件<span class="required">*</span></p></label>
+                            <div class="col-md-2 col-xs-12">
+                                <select class="form-control" name="info[is_free]" id="is_free" required>
+                                    <option value="">请选择</option>
+                                    <option value="0">否</option>
+                                    <option value="1">是</option>
+                                </select>
+                            </div>
+
+<!--                            <label class="col-md-3 col-xs-12 control-label"><p>符合亲属回避原则<span class="required">*</span></p></label>-->
+<!--                            <div class="col-md-2 col-xs-12">-->
+<!--                                <select class="form-control" name="info[is_huibi]" id="is_huibi" required>-->
+<!--                                    <option value="">请选择</option>-->
+<!--                                    <option value="0">否</option>-->
+<!--                                    <option value="1">是</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-6 control-label"><p>健康状况<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-12">
+                                <input class="form-control" name="info[health]" id="health" type="text" value="" required>
+                            </div>
+
+                            <label class="col-md-3 col-xs-6 control-label"><p>婚姻状况<span class="required">*</span></p></label>
+                            <div class="col-md-2 col-xs-12">
+                                <select class="form-control" name="info[marriage]" id="marriage" required>
+                                    <option value="">请选择</option>
+                                    <option value="0">未婚</option>
+                                    <option value="1">已婚</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-6 control-label"><p>身高<!--<span class="required">*</span>--></p></label>
+                            <div class="col-md-2 col-xs-12">
+                                <input class="form-control" name="info[height]" id="height" type="text" value=""><!-- required-->
+                                <p class="cm">CM</p>
+                            </div>
+
+                            <label class="col-md-2 col-xs-6 control-label"><p>体重<!--<span class="required">*</span>--></p></label>
+                            <div class="col-md-2 col-xs-12">
+                                <input class="form-control" name="info[weight]" id="weight" type="text" value=""><!-- required-->
+                                <p class="cm">KG</p>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-6 control-label"><p>民族<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-12">
+                                <input class="form-control" name="info[nation]" id="nation" type="text" value="" required>
+                            </div>
+
+                            <label class="col-md-2 col-xs-6 control-label"><p>学历<span class="required">*</span></p></label>
+                            <div class="col-md-3 col-xs-12">
+                                <select class="form-control" name="info[education]" id="education" required>
+                                    <option value="">请选择</option>
+                                    <foreach name="education" item="r" key="k">
+                                        <option value="{$k}">{$r}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-6 control-label"><p>是否985/211<span class="required">*</span></p></label>
+                            <div class="col-md-2 col-xs-12">
+                                <select class="form-control" name="info[is_famous]" id="is_famous" required>
+                                    <option value="">请选择</option>
+                                    <option value="1">是</option>
+                                    <option value="0">否</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-12 control-label"><p>是否全日制<span class="required">*</span></p></label>
+                            <label class="checkbox-inline col-md-2 col-xs-3 full_time">
+                                <input type="radio" id="base_full_time" name="info[full_time]" value="1" required> 是
+                                &nbsp;&nbsp;
+                                <input type="radio" id="base_full_time" name="info[full_time]" value="0"> 否
+                            </label>
+                            <label class="checkbox-inline col-md-1 col-xs-3">
+                            </label>
+                            <label class="col-md-3 col-xs-12 control-label"><p>所学专业(高中填：无)<span class="required">*</span></p></label>
+                            <div class="col-md-2 col-xs-12">
+                                <input class="form-control" name="info[profession]" id="profession" type="text" value="" required>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-12 control-label"><p>学位<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-12">
+                                <select class="form-control" name="info[degree]" id="degree" required>
+                                    <option value="">请选择</option>
+                                    <foreach name="degree" item="r" key="k">
+                                        <option value="{$k}">{$r}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-12 control-label"><p>毕业院校<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-12">
+                                <input class="form-control" name="info[school]" id="school" type="text" value="" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-12 control-label"><p>报考科室<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-12">
+                                <select class="form-control" name="info[unit]" id="unit" required>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 form-group">
+                            <label class="col-md-2 col-xs-12 control-label"><p>报考岗位<span class="required">*</span></p></label>
+                            <div class="col-md-9 col-xs-12">
+                                <select class="form-control" name="info[job]" id="job" required>
+                                    <option>请选择</option>
+                                </select>
+                            </div>
+                            <!-- <div class="col-md-1 col-xs-1 err">格式错误</div> -->
+                        </div>
+                    </div>
+                    <div  class="col-md-2 col-xs-12 form-group touxian-right">
+                        <!-- <div id="addCommodityIndex">
+                             &lt;!&ndash;input-group start&ndash;&gt;
+                             <div class="input-group row">
+                                 <div class="col-md-12 big-photo">
+                                     <div id="preview">
+                                         <img id="imghead" border="0" src="__PUBLIC__/images/index/uptu.png" width="200" height="260" onclick="$('#previewImg').click();">
+                                     </div>
+                                     <input type="file" name="avatar" onchange="previewImage(this)" style="display: none;" id="previewImg" accept="image/jpg,image/jpeg,image/png,image/bmp,image/gif" class="required">
+                                     &lt;!&ndash;<input id="uploaderInput" class="uploader__input" style="display: none;" type="file" accept="" multiple="">&ndash;&gt;
+                                 </div>
+                             </div>
+                             &lt;!&ndash;input-group end&ndash;&gt;
+
+                         </div>-->
+                        <div class="img-de">
+                            <img src="__PUBLIC__/images/index/uptu.png" id="img0"  class="img-responsive"  >
+                        </div>
+                        <input type="file" name="avatar" id="previewImg" multiple="multiple" class="required" />
+                        <br/>
+                        <script>
+                            $("#previewImg").change(function(){
+                                var objUrl = getObjectURL(this.files[0]) ;
+                                console.log("objUrl = "+objUrl) ;
+                                if (objUrl) {
+                                    $("#img0").attr("src", objUrl) ;
+                                }
+                            }) ;
+
+                            //建立一個可存取到該file的url
+                            function getObjectURL(file) {
+                                var url = null ;
+                                if (window.createObjectURL!=undefined) { // basic
+                                    url = window.createObjectURL(file) ;
+                                } else if (window.URL!=undefined) { // mozilla(firefox)
+                                    url = window.URL.createObjectURL(file) ;
+                                } else if (window.webkitURL!=undefined) { // webkit or chrome
+                                    url = window.webkitURL.createObjectURL(file) ;
+                                }
+                                return url ;
+                            }
+                        </script>
+                        <div class="photointro">
+                            <p>报考人员上传的照片应为本人近期免冠正面彩色电子照片，jpg格式，宽度200像素左右，高度260像素左右，分辨率350dpi左右，文件大小不超过500K，并保证照片清晰可辨。上传照片不符合规定或上传无关图片者，视为自动放弃考试资格。</p>
+                            <p style="color: red">如IE或360浏览器无法显示上传照片,请升级到IE11或360极速模式，也可使用其它浏览器。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 proSN proSNN">
+                    <div class="col-md-3 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">教育情况(从高中开始)</p>
+                    </div>
+                    <div class="col-md-9 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+                <div class="addschool" id="addschool">
+                    <include file="education"/>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-5 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">工作经历(包含服兵役,如未参加工作,填：无)</p>
+                    </div>
+                    <div class="col-md-7 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+                <div class="work-history">
+                    <include file="work"/>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-5 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">专业技能、特长及奖惩情况(如没有可不填)</p>
+                    </div>
+                    <div class="col-md-7 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+                <div class="work-history">
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-12 control-label"><p>取得专业资格证书</p></label>
+                        <div class="col-md-9 col-xs-12">
+                            <input class="form-control" name="skill[certificate]" type="text" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-12 control-label"><p>其它特长</p></label>
+                        <div class="col-md-9 col-xs-12">
+                            <input class="form-control" name="skill[other]" type="text" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-12 control-label"><p>奖惩情况</p></label>
+                        <div class="col-md-9 col-xs-12">
+                            <input class="form-control" name="skill[rewards]" type="text" value="">
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-3 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">家庭主要成员情况</p>
+                    </div>
+                    <div class="col-md-9 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+
+
+                <div class="profamily">
+                    <include file="family"/>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-2 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">联系方式</p>
+                    </div>
+                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+
+
+                <div class="contact-way">
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-12 control-label"><p>通讯地址</p></label>
+                        <div class="col-md-3 col-xs-12">
+                            <input class="form-control" name="info[address]" id="address" type="text" value="" >
+                        </div>
+
+                        <label class="col-md-2 col-xs-12 control-label"><p>邮政编码</p></label>
+                        <div class="col-md-3 col-xs-12">
+                            <input class="form-control" name="info[postcode]" id="postcode" type="text" value="" >
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-12 control-label"><p>手机号码<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-12">
+                            <input class="form-control" name="info[mobile]" id="mobile" type="text" value="" required>
+                        </div>
+
+                        <label class="col-md-2 col-xs-12 control-label"><p>固定电话</p></label>
+                        <div class="col-md-3 col-xs-12">
+                            <input class="form-control" name="info[tel]" id="tel" type="text" value="" >
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-12 control-label"><p>电子邮箱<span class="required">*</span></p></label>
+                        <div class="col-md-9 col-xs-12">
+                            <input class="form-control" name="info[email]" id="email" type="text" value="" required >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-2 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">身份证照片</p>
+                    </div>
+                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+                <div class="contact-way">
+                    <div class="col-xs-12 form-group">
+                        <label class="col-md-2 col-xs-12 control-label"><p>身份证正面<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-12">
+                            <div class="img-de graduation_img_div">
+                                <div>
+                                    <img src="__PUBLIC__/images/index/uptu.png" class="img-responsive graduation_img"  style="width: 200px; float: left" >
+                                    <input type="file" name="card_front" multiple="multiple" class="required" style="display: none"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="col-md-2 col-xs-12 control-label"><p>身份证反面<span class="required">*</span></p></label>
+                        <div class="col-md-3 col-xs-12">
+                            <div class="img-de graduation_img_div">
+                                <div>
+                                    <img src="__PUBLIC__/images/index/uptu.png" class="img-responsive graduation_img"  style="width: 200px; float: left" >
+                                    <input type="file" name="card_behind" multiple="multiple" class="required" style="display: none"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-2 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">毕业证书</p>
+                    </div>
+                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+                <div class="contact-way">
+                    <div class="col-md-1 col-xs-12 control-label"></div>
+                    <div class="col-md-10 titSN-right form-group">
+                        <input class="btn btn-primary graduation_img-add" value="新增" type="button">
+                        <div class="img-de graduation_img_div">
+                            <div>
+                                <img src="__PUBLIC__/images/index/uptu.png" class="img-responsive graduation_img"  style="width: 200px; float: left" >
+                                <input type="file" name="graduation_img[]" multiple="multiple" class="required graduation_input" style="display: none"/>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-7 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">学信网在线验证报告（必须真实二维码可扫描，否则审核驳回）</p>
+                    </div>
+                    <div class="col-md-5 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+                <div class="contact-way">
+                    <div class="col-md-3 col-xs-12">
+                        <div class="img-de graduation_img_div">
+                            <div>
+                                <img src="__PUBLIC__/images/index/uptu.png" class="img-responsive graduation_img"  style="width: 200px; float: left" >
+                                <input type="file" name="study_img" multiple="multiple" class="required" style="display: none"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-2 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">执业资格证</p>
+                    </div>
+                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+                <div class="contact-way">
+                    <label class="col-md-2 col-xs-12 control-label"><p>是否有执业资格<span class="required">*</span></p></label>
+                    <label class="checkbox-inline col-md-2 col-xs-3 full_time">
+                        <input type="radio" id="is_operation" name="info[is_operation]" value="1" required> 有
+                        &nbsp;&nbsp;
+                        <input type="radio" id="is_operation" name="info[is_operation]" value="0"> 没有
+                    </label>
+
+                    <div class="col-md-3 col-xs-12">
+                        <div class="img-de graduation_img_div">
+                            <div>
+                                <img src="__PUBLIC__/images/index/uptu.png" class="img-responsive graduation_img"  style="width: 200px; float: left" >
+                                <input type="file" name="operation_img" multiple="multiple" class="required" style="display: none"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-2 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">规培证</p>
+                    </div>
+                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+                <div class="contact-way">
+                    <label class="col-md-2 col-xs-12 control-label"><p>是否有规培证<span class="required">*</span></p></label>
+                    <label class="checkbox-inline col-md-2 col-xs-3 full_time">
+                        <input type="radio" id="is_train" name="info[is_train]" value="1" required> 有
+                        &nbsp;&nbsp;
+                        <input type="radio" id="is_train" name="info[is_train]" value="0"> 没有
+                    </label>
+
+                    <div class="col-md-3 col-xs-12">
+                        <div class="img-de graduation_img_div">
+                            <div>
+                                <img src="__PUBLIC__/images/index/uptu.png" class="img-responsive graduation_img"  style="width: 200px; float: left" >
+                                <input type="file" name="train_img" multiple="multiple" class="required" style="display: none"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 proSN">
+                    <div class="col-md-2 titSN-left ">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <p class="titP">其他证书</p>
+                    </div>
+                    <div class="col-md-10 titSN-right" style="BORDER-TOP: #666666 1px dashed; OVERFLOW: hidden; HEIGHT: 1px"></div>
+                </div>
+
+                <div class="contact-way">
+                    <div class="col-md-1 col-xs-12 control-label"></div>
+                    <div class="col-md-10 titSN-right form-group">
+                        <input class="btn btn-primary skill-add" value="新增" type="button">
+                        <div class="img-de skill_img_div">
+                            <div>
+                                <img src="__PUBLIC__/images/index/uptu.png" class="img-responsive skill_img"  style="width: 200px; float: left" >
+                                <input type="file" name="skill_img[]" multiple="multiple" class="required skill_input" style="display: none"/>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+                <script>
+                    $(".skill-add").click(function(){
+                        $(this).next().append('<div>' +
+                            '<img src="__PUBLIC__/images/index/uptu.png" class="img-responsive skill_img"  style="width: 200px; float: left" >\n' +
+                            '<input type="file" name="skill_img[]" multiple="multiple" class="required skill_input" style="display: none"/>\n' +
+                            '</div>');
+                    }) ;
+
+                    $(".skill_img_div").on("click","div",function(event){
+                        $(event.target).next().click();
+                    })
+                    $(".skill_img_div").on("change","input",function(event){
+                        var objUrl = getObjectURL(this.files[0]) ;
+                        console.log("objUrl = "+objUrl) ;
+                        if (objUrl) {
+                            $(event.target).prev().attr("src", objUrl) ;
+                        }
+                    })
+                    $(".graduation_img-add").click(function(){
+                        $(this).next().append('<div>' +
+                            '<img src="__PUBLIC__/images/index/uptu.png" class="img-responsive graduation_img"  style="width: 200px; float: left" >\n' +
+                            '<input type="file" name="graduation_img[]" multiple="multiple" class="required skill_input" style="display: none"/>\n' +
+                            '</div>');
+                    }) ;
+
+                    $(".graduation_img_div").on("click","div",function(event){
+                        $(event.target).next().click();
+                    })
+                    $(".graduation_img_div").on("change","input",function(event){
+                        var objUrl = getObjectURL(this.files[0]) ;
+                        console.log("objUrl = "+objUrl) ;
+                        if (objUrl) {
+                            $(event.target).prev().attr("src", objUrl) ;
+                        }
+                    })
+                </script>
+                <div class="col-xs-12 form-group">
+                    <label class="col-md-1 col-xs-12 control-label"><p>&nbsp;</p></label>
+                    <div class="form-agreen">
+                        <div>
+                            <input id="agree" style="float: none" type="checkbox" value="1" required >&nbsp;阅读并同意<a href="index.php?m=Home&c=recruit&a=explain" data="{:U('recruit/explain')}" target="blank" id="protocol">《{$news.title}{$news.sub_title}》</a>
+                        </div>
+                        <div class="input-tip">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 tijiao" style="text-align:center;">
+                    <input type="submit" id="resume-btn" class="btn btn-primary btn-lg" value="提交">
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+    <style>
+        .form-agreen #agree-error{width:100% !important;}
+    </style>
+    <script>
+
+    </script>
+    <script src="__PUBLIC__/js/recruit_list.js?v={$version}&rnd={$rnd}"></script>
+
+    <script>
+        $(function(){
+            $('.projects-con').on('click','.dateselect',function(){
+                WdatePicker({dateFmt:'yyyy.MM.dd',readOnly:true})
+            });
+            Recruit.init($('#unit'),$('#job'));
+        });
+        //图片上传预览    IE是用了滤镜。
+        function previewImage(file)
+        {
+            var MAXWIDTH  = 200;
+            var MAXHEIGHT = 260;
+            var div = document.getElementById('preview');
+            if (file.files && file.files[0])
+            {
+                div.innerHTML ='<img id=imghead onclick=$("#previewImg").click()>';
+                var img = document.getElementById('imghead');
+                img.onload = function(){
+                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                    img.width  =  rect.width;
+                    img.height =  rect.height;
+//              img.style.marginLeft = rect.left+'px';
+                    img.style.marginTop = rect.top+'px';
+                }
+                var reader = new FileReader();
+                reader.onload = function(evt){img.src = evt.target.result;}
+                reader.readAsDataURL(file.files[0]);
+            }
+            else //兼容IE
+            {
+                var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                file.select();
+                var src = document.selection.createRange().text;
+                div.innerHTML = '<img id=imghead>';
+                var img = document.getElementById('imghead');
+                img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+                div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+            }
+        }
+        function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+            var param = {top:0, left:0, width:width, height:height};
+            if( width>maxWidth || height>maxHeight ){
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+
+                if( rateWidth > rateHeight ){
+                    param.width =  maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                }else{
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+    </script>
+</notempty>

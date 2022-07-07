@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>中青旅博汇人才招考系统</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Champion Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //for-mobile-apps -->
+	<!--<link href="/Public/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />-->
+	<link  rel="stylesheet" type="text/css" href="/Public/css/reset.css">
+	<link href="/Public/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link  rel="stylesheet" href="/Public/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/css/lanrenzhijia.css" /><!--图片特效1-->
+
+	<script src="/Public/js/jquery-1.11.1.min.js"></script>
+	<script src="/Public/js/bootstrap.min.js"></script>
+	<!--<script src="/Public/js/jquery-migrate-1.1.1.js"></script>-->
+	<script src="/Public/js/script.js"></script>
+	<script src="/Public/js/jquery.equalheights.js"></script>
+	<!--<script src="/Public/js/superfish.js"></script>-->
+	<script  src="/Public/js/jquery.responsivemenu.js"></script>
+	<script  src="/Public/js/jquery.mobilemenu.js"></script>
+	<!-- for-gallery-rotation -->
+	<script src="/Public/js/modernizr.custom.97074.js"></script>
+	<!-- //for-gallery-rotation -->
+	<!--<script type="text/javascript" src="/Public/js/jquery-1.9.1.min.js"></script>-->
+
+
+
+
+
+	<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="/Public/js/move-top.js"></script>
+	<script type="text/javascript" src="/Public/js/easing.js"></script>
+	<!-- end-smoth-scrolling -->
+	<link href="favicon.ico" rel="SHORTCUT ICON" />
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
+<style>
+	/*start web css*/
+	p{
+		text-align:justify;
+	}
+	.schoolBann{
+		margin-top:2em;
+	}
+
+	.schoolXiao li{
+		margin-top:2em;
+	}
+	.schoolAbout h3{
+		text-align: center;
+		font-family:'微软雅黑';
+	}
+	.schoolAbout p{
+		font-family:'微软雅黑';
+		text-indent: 2em;
+		line-height: 2em;
+	}
+	.schooltopic h3{
+		font-family: '黑体', cursive;
+		font-weight: bold;
+	}
+	.schooltopic .grid_12{
+		border-bottom:2px solid #ccc;
+		text-indent: 2em;
+	}
+	.schooltopic .alpha{
+		margin-top:2em;
+		/*width:32.2%;*/
+		margin:15px 0;
+	}
+	.schooltopic h4, .schooltopic h6, .schooltopic p, .schooltopic .extra_wrapper{
+		text-align: left;
+
+	}
+	.schooltopic img{
+		width:100%;
+
+	}
+	.schoolXiao li img{
+
+		box-shadow: 3px 3px 1px #888888;
+		width:100%;
+
+	}
+	.schooltopic a{
+		cursor:pointer;
+	}
+
+	/*以下是图片特效*/
+	.grid figure{
+		width:100%;
+	}
+	figure.effect-sadie figcaption::before{
+		background:linear-gradient(to bottom, rgba(72,76,97,0) 75%, rgba(72,76,97,0.8) );
+	}
+
+
+	@media only screen and (max-width: 480px){
+		.extra_wrapper{
+			padding-top:10px;
+		}
+		.container_12{
+			width:99%
+		}
+		.container_12 .grid_12,.container_12 .grid_4{
+			width:100%;
+		}
+		.grid figure{
+			width:85%;
+		}
+
+	}
+
+
+</style>
+
+
+
+
+
+</head>
+<body>
+<style>
+	.logedAL{
+		width:150px;
+
+	}
+	.logedAL p{
+		display:inline;
+		line-height: normal;
+	}
+	.logAL{
+
+	}
+</style>
+<header>
+	<div class="container_12">
+		<div class="grid_12">
+			<h1><a href="/index.php?m=Home&c=Index&a=index"><img src="/Public/images/login/LOGO.PNG" width="200" alt="Prospect best opportunity to succeed"></a> </h1>
+			<div class="menu_block">
+				<nav>
+					<ul class="sf-menu">
+						<li><a href="/index.php?m=Home&c=Index&a=index">首页</a> <!-- <ul>
+							<li><a href="#">Lorem ipsum</a></li>
+
+							<li><a href="#">Corporis  </a>
+								&lt;!&ndash;<ul>
+									<li><a href="#">Ratione dicta</a></li>
+									<li><a href="#">Quaerat maiores</a></li>
+									<li><a href="#">Exercitationem</a></li>
+								</ul>&ndash;&gt;
+							</li>
+							<li><a href="#">Maiores ipsum</a></li>
+
+						</ul>--></li>
+						<li><a href="/index.php?m=Home&c=School&a=index">校园风采</a> </li>
+						<!--<li><a href="/index.php?m=Home&c=Contact&a=index">关于我们</a> </li>-->
+						<!--<li><a href="/index.php?m=Home&c=Resume&a=index">加入我们</a> </li>-->
+						<!--<li><a href="/index.php?m=Home&c=Projects&a=index">招生信息</a> </li>-->
+						<li><a href="/index.php?m=Home&c=News&a=index">新闻中心</a></li>
+						<li>
+							<div class="logAL">
+								<a href="/index.php?m=Home&c=Register&a=index">注册</a>
+								<a href="/index.php?m=Home&c=Login&a=index">登录</a>
+							</div>
+							<div class="logedAL">
+								<p></p>
+								<a href="/index.php?m=Home&c=Login&a=index" id="logOff">退出登录</a>
+							</div>
+						</li>
+
+						<!--<li><a href="##">Contacts</a> </li>-->
+						<li><a href="http://www.zyhzedu.com.cn/index.php?m=Admin2&c=Login&a=login">管理员登录</a></li>
+					</ul>
+				</nav>
+				<script src="/Public/js/jquery.cookie.js"></script>
+				<script>
+
+                   $('.menu_block li a').each(function(){
+                       if($($(this))[0].href==String(window.location))
+                           $(this).parent().addClass('current');
+                   });
+				   $(function () {
+				       var cookieUsername = $.cookie('username');
+				       if(cookieUsername == null ){
+                            $(".logAL").css('display','block');
+                            $(".logedAL").css('display','none');
+					   } else{
+                            $(".logAL").css('display','block');
+							$('.logedAL').find("p").html($.cookie('username'));
+							$(".logAL").css('display','none');
+					   }
+                   })
+					$(function () {
+                       $('#logOff').click(function () {
+                           $.cookie('username', null);
+                       })
+				   })
+
+				</script>
+				<div class="clear"></div>
+			</div>
+
+		</div>
+	</div>
+</header>
+
+<!--=======content================================-->
+<div class="content">
+	<div class="container_12 ">
+		<div class="schoolBann">
+			<img src="/Public/images/school/1.png" class="img-responsive">
+
+		<div class="clear"></div>
+		</div>
+		<div class="grid_12 schoolXiao">
+			<div class="carousel_wrapper topicWrapper grid" style="margin:0 auto;">
+				<ul>
+					<li class="col-md-3">
+						<figure class="effect-sadie">
+							<img src="/Public/images/school/5.png" class="img-responsive">
+							<figcaption>
+								<p>校园一角</p>
+								<a>View more</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-3">
+						<figure class="effect-sadie">
+							<img src="/Public/images/school/4.png" class="img-responsive">
+							<figcaption>
+								<p>校园一角</p>
+								<a>View more</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-3">
+						<figure class="effect-sadie">
+							<img src="/Public/images/school/3.png" class="img-responsive">
+							<figcaption>
+								<p>校园一角</p>
+								<a>View more</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-3">
+						<figure class="effect-sadie">
+							<img src="/Public/images/school/5.png" class="img-responsive">
+							<figcaption>
+								<p>校园一角</p>
+								<a>View more</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-3">
+						<figure class="effect-sadie">
+							<img src="/Public/images/school/5.png" class="img-responsive">
+							<figcaption>
+								<p>校园一角</p>
+								<a>View more</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-3">
+						<figure class="effect-sadie">
+							<img src="/Public/images/school/3.png" class="img-responsive">
+							<figcaption>
+								<p>校园一角</p>
+								<a>View more</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-3">
+						<figure class="effect-sadie">
+							<img src="/Public/images/school/5.png" class="img-responsive">
+							<figcaption>
+								<p>校园一角</p>
+								<a>View more</a>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="col-md-3">
+						<figure class="effect-sadie">
+							<img src="/Public/images/school/5.png" class="img-responsive">
+							<figcaption>
+								<p>校园一角</p>
+								<a>View more</a>
+							</figcaption>
+						</figure>
+					</li>
+
+
+
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="grid_12 schoolAbout">
+			<h3><span>校园文化</span></h3>
+			<div class="carousel_wrapper">
+				<a href="#" class="prev1"></a><a href="#" class="next1"></a>
+				<div>
+					<ul class="carousel1">
+						<li>
+							<p>衡水第一中学位于美丽的衡水湖畔，总投资8亿多元，占地600亩，建有教学楼、实验楼、科技楼、图书馆、体育馆、餐厅、宿舍楼、运动场、礼堂、国际交流中心、游泳馆。另，射击馆将于2017年竣工，总建筑面积25万平米，绿树成荫，环境优美，布局合理。学校设有舞蹈厅、琴房、排练厅、心理咨询中心、网络中心、美术天光教室、天象馆、校史展室、室内田径、篮球、排球训练场、社团活动室、医务室、书店、超市，宿舍内有卫生间和盥洗室，全天供应热水，功能完备，设施一流。学校本着高起点办学、高标准要求、高速度发展的原则，全面推行衡水中学的办学模式，并与衡水中学共享教育资源，具有一流的师资、一流的管理、一流的办学条件。学校与英国、美国、新西兰、韩国、澳大利亚等国家建立了15所国际友好学校，被70多所全国著名高校授予优秀生源基地。学校按照“立德树人、全面优质、追求卓越、和谐发展”的办学方针，每年组织50多项精品活动，学校全面打造特色文化，是优秀学子求学的理想乐园。</p>
+
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="container_12 schooltopic">
+			<div class="grid_12">
+				<h3><span>学生活动</span></h3>
+			</div>
+			<div class="grid_4 alpha col-lg-4 col-md-4 col-xs-12 ">
+					<div class="box">
+
+						<h4>
+							2017-03-23						</h4>
+						<div class="maxheight1">
+							<img src="/fudaoedu/upload/image/20170323/20170323111824_35177.png" alt="" class="img-responsive" >
+							<div class="extra_wrapper" id="best">
+								<p><strong>sd</strong> </p>
+								<div limit="50">
+									<a>sd</a>
+								</div>
+
+							</div>
+						</div>
+						<h6><a href="/index.php?m=Home&c=News&a=details&id=1&j=2">更多详情</a></h6>
+					</div>
+				</div>		</div>
+	</div>
+
+</div>
+
+	<script>
+		jQuery.fn.limit=function(){
+		    var self = $("div[limit]");
+		    self.each(function(){
+		        var objString = $(this).text();
+		        var objLength = $(this).text().length;
+		        var num = $(this).attr("limit");
+		        if(objLength > num){
+		            $(this).attr("title",objString);
+		            objString = $(this).text(objString.substring(0,num) + "...");
+		        }
+		    })
+		}
+		$(function(){
+		    $(document.body).limit();
+		})
+	</script>
+<!--==============================footer=================================-->
+<div class="fix">
+<hr style="filter:alpha(opacity=100,finishopacity=0,style=1)" width="100%" color="#ccc" size="1" />
+<div class="container_12">
+	<div class="grid_12"><footer>
+		<div class="socials">
+			<a href="www.zyhzedu.com">衡中在线课堂</a><a href="http://www.hz2014.com/">衡水第一中学</a><a href="http://www.hbhz.net/">衡水中学</a>		</div>
+		<div class="copy">Copyright &copy; 2017.Company name All rights reserved.<a href="##">中青旅博汇人才招考系统</a></div></footer>
+
+
+
+	</div>
+</div>
+</div>
+</body>
+</html>

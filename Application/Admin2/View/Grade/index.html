@@ -1,0 +1,112 @@
+<include file="Public:header" />
+<div id="content">
+    <div id="content-header">
+        <h1>平均分数</h1>
+    </div>
+    <div id="breadcrumb">
+        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+        <a href="#" class="current">平均分数</a>
+    </div>
+<script src="__PUBLIC__/js/region.js"></script> 
+<script src="__PUBLIC__/js/select-city.js"></script> 
+<script>
+$(function(){
+Region.listCity(10,$('#city'));
+});
+</script>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+				<!--
+				<div class="well">					
+					<a href="{:U('AuditNotice/add')}" class="btn btn-primary">添加</a>
+				</div>
+				-->
+				<form class="well form-search" method="get" action="__ACTION__" id="searchform">
+				
+					报考科室：
+					<select name="unit" id="recurit_unit" data-select="{$Think.get.unit}">
+						<option value='0'>请选择</option>
+					</select>
+					报考岗位：
+					<select name="job" id="recurit_job">
+						<option value='0'>请选择</option>
+					</select>
+					<input type="submit" class="btn btn-success" value="查询">
+					<a href="{:U('Grade/add')}" class="btn btn-primary">添加</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+				</form>
+                <div class="widget-box">
+                    <form method="post" action="{:U('AuditNotice/index')}">
+                    <div class="widget-content nopadding">
+                        <style>.pleft{ text-align:left;}</style>
+                        <table class="table table-bordered table-striped with-check">
+                            <thead>
+                            <tr>
+								<td>
+								<span class="icon">
+								<input type="checkbox" id="title-checkbox" >
+								</span>
+								</td>
+                                <th>报考科室</th>
+                                <th>报考岗位</th>
+                                <th>平均分数</th>
+                                <th>备注</th>
+                                <th>操作</th>                             
+                            </tr>
+                            </thead>
+                            <tbody>
+							<foreach name="list" item="r">
+                             <tr>
+								<td>
+								<input type="checkbox" name="id[]" value="{$r.id}">
+								</td>
+                                <td>{$company[$r['unit']]['name']}</td>
+                                <td>{$job[$r['job']]}</td>
+                                <td>{$r.score}</td>
+                                <td>{$r.desc}</td>
+                                <td>
+								<a class="btn btn-primary btn-small" href="{:U('Grade/edit','id='.$r[id])}">修改</a>
+								
+								<a class="btn btn-primary btn-small" href="{:U('Grade/del','id='.$r[id])}">删除</a>
+								</td>
+                            </tr>
+							</foreach>
+                            </tbody>
+                        </table>
+                    </div>
+					<div class="widget-title">
+						<span class="icon">							
+							<input type="checkbox" id="title-checkbox">
+						</span>
+						<h5 style="padding-top:5px;">
+	                        <input class="btn btn-primary btn-small del" type="submit" onclick="javascript:this.form.action='{:U('Grade/del')}';" value="批量删除">
+							
+						</h5>
+					</div>
+					</form>
+                    <div class="widget-bottom">
+                        <div class="dataTables_paginate">
+                            {$pages}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div id="footer" class="span12">
+                2014 &copy; DODICMS, Update source by <a href="##">中青旅博汇人才招考系统</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/js/recruit_list.js"></script>
+<script src="__PUBLIC__/js/recruit.js"></script>
+<script src="__PUBLIC__/js/jquery.validate.min.js"></script> 
+<script>
+$(function(){
+	Recruit.init($('#recurit_unit'),$('#recurit_job'));		
+});
+</script>
+<include file="Public:footer" />

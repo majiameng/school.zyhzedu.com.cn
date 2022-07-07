@@ -1,0 +1,93 @@
+{__NOLAYOUT__}
+<include file="_layout/top-login" />
+
+<div class="clearfix"></div>
+<div class="register">
+    <div class="container">
+        <div class="register-con">
+            <div class="logReg">
+                <h4 class=" log_on">注册账号</h4>
+                <p class="">我已经注册过,现在去<a href="{:U('Login/index')}">登录</a></p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="reg-con">
+                <form id="UserRegister" method="post">
+                    <div class="regLi">
+                        <ul>
+                            <li>
+                                <div class="regL">
+                                    <p>账号</p>
+                                </div>
+                                <div class="regR">
+                                    <input type="text" id="" name="username" placeholder="请输入账号"/>
+                                </div>
+                            </li>
+                            <div class="clearfix"></div>
+                            <li>
+                                <div class=" regL">
+                                    <p>密码</p>
+                                </div>
+                                <div class=" regR">
+                                    <input type="password" id="userPwd" name="userpwd"  placeholder="请输入密码"/>
+                                </div>
+                            </li>
+                            <div class="clearfix"></div>
+                            <li>
+                                <div class=" regL">
+                                    <p>确认密码</p>
+                                </div>
+                                <div class=" regR">
+                                    <input type="password" name="confirmpassword" placeholder="请再次输入您的密码"/>
+                                </div>
+                                <!--
+								<div class="reg-tishi">
+                                    <p>格式不正确</p>
+                                </div>
+								-->
+                            </li>
+                            <div class="clearfix"></div>
+                            <li>
+                                <div class=" regL">
+                                    <p>邮箱</p>
+                                </div>
+                                <div class=" regR">
+                                    <input  type="text"  name="email" id="email" placeholder="请输入邮箱"/>
+                                </div>
+                            </li>
+                            <div class="clearfix"></div>
+                            <li>
+                                <div class=" regL">
+                                    <p>验证码</p>
+                                </div>
+                                <div class=" regR yzm">
+                                    <div class=" yzmInp">
+                                        <input type="text" name="verifycode" id="verifycode" placeholder="请输入验证码"/>
+                                        <br/>
+                                    </div>
+                                    <div class=" yzmImg">
+										<img src="{:U('login/code')}" class="code captcha" id="captchaimg"/>
+                                    </div>
+                                    <div class="yzmA">
+                                        <a class="captcha" href="javascript:;">换一张</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="reg-btn">
+                            <input class="btn btn-primary" type="submit" id="regiserBtn" value="注册">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="clearfix"></div>
+<div class="">
+    <include file="_layout/footer-login" />
+</div>

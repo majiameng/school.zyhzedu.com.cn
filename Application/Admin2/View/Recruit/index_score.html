@@ -1,0 +1,204 @@
+<include file="Public:header" />
+<script src="/Public/js/jquery.form.js"></script>
+<style>.move_cat{display:inline-block}</style>
+
+<div id="content">
+    <div id="content-header">
+		 <h1>
+	<neq name="Think.session.admin.role_id" value="1">
+       您好!<b>{$Think.session.admin.city_name}用户</b>,
+	</neq>	
+		欢迎访问石家庄工程职业学院聘用制员工招聘报名审核系统
+		</h1>
+    </div>
+		<div class="biaoti">
+			<a href="{:U('Recruit/index','tt=1')}"><p class="ti2">报名审核</p></a>
+			<a href="{:U('Recruit/index','tt=2')}"><p class="ti1">笔试分数</p></a>
+		</div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+            
+            	<form class="well form-search" method="get" action="__ACTION__" id="searchform">
+					<input type="hidden" name="tt" value="2">
+					<input type="hidden" name="status" value="{$status}">
+					<span>报考科室：
+						<select name="unit" id="recurit_unit" data-select="{$Think.get.unit}" style="width:140px;">
+							<option value='0'>请选择</option>
+							<foreach name="unit" item="r" key="k">
+							<option value='{$k}' <if condition=" $k eq $Think.get.unit ">selected</if>>{$r.name}</option>
+							</foreach>
+						</select> &nbsp;报考岗位
+                        <select name="job" id="recurit_job" data-select="{$Think.get.job}" style="width:110px;">
+							<option value='0'>请选择</option>
+						</select> &nbsp;
+						出生日期：
+						<input type="text" name="start_time" value="{$Think.get.start_time}" style="width: 70px;" onclick="WdatePicker({dateFmt:'yyyy.MM.dd'})"> -
+						<input type="text" name="end_time" value="{$Think.get.end_time}" style="width:70px;" onclick="WdatePicker({dateFmt:'yyyy.MM.dd'})"> &nbsp; &nbsp;
+						性别：<select name="sex" style="width:65px;">
+								<option value="">不限</option>
+								<option value="1" <eq name="Think.get.sex" value="1">selected</eq>>男</option>
+								<option value="2" <eq name="Think.get.sex" value="2">selected</eq>>女</option>
+								</select>
+						&nbsp;
+						学历：<select name="education" style="width:100px;">
+								<option value="0" >不限</option>
+								<foreach name="education" item="r" key="k">
+								<option value="{$k}" <if condition=" $k eq $Think.get.education ">selected</if>>{$r}</option>
+								</foreach>
+								</select>
+						准考证： 
+						<input type="text" name="no" style="width: 90px;" value="{$Think.get.no|trim}" placeholder="准考证...">	
+						姓名/身份证： 
+						<input type="text" name="keyword" style="width: 90px;" value="{$Think.get.keyword|trim}" placeholder="请输入关键字...">
+						<input type="submit" class="btn btn-primary search-list" value="搜索" />											
+					</span>						
+				</form>
+			
+				
+                <div class="widget-box">
+                <form action="{:U('Recruit/listorders')}" method="post">
+                    <div class="widget-title">
+						<span class="icon">
+							<input type="checkbox" id="title-checkbox" name="title-checkbox" />
+						</span>
+                        <h5 class="pull-left">应聘人员列表&nbsp;&nbsp;&nbsp;
+						</h5>
+                    </div>
+                    
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped with-check">
+                            <thead>
+                            <tr>
+                                <th><i class="icon-resize-vertical"></i></th>
+                                <th>编号</th>
+                                <th>姓名</th>                						
+                                <th>分数</th>
+                                <th>考场</th>
+                                <th>准考证号</th>							
+								<th>报考科室</th>
+                                <th>报考岗位</th>      
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+							<?php 
+							$page = isset($_GET['p'])?intval($_GET['p']):1;
+							$m = 1+($page-1)*20
+							?>
+                            <volist name="list" id="vo">							
+						
+                                <tr>                          
+                                <td><input type="checkbox" name="ids[]" value="{$vo.id}" title="ID:{$vo.id}"/></td> 
+                                <td>
+								{$m}
+								</td> 								
+                                <td>								
+								{$vo.name}</td>                            
+																
+								<td>{$vo.score}</td>
+								<td>{$vo.exam_no}</td>
+								<td>{$vo.no}</td>								
+								<td>{$unit[$vo[unit]][name]}</td>
+                                <td>{$job[$vo[job]]}</td>                         
+                                <td class="center">
+                                    <a href="javascript:;" id="detail_{$vo.id}">
+									<span class="btn btn-success btn-mini">详情</span>
+									</a>
+                                </td>
+                                </tr>
+									<?php $m++;?>
+                            </volist>
+
+                            </tbody>
+                        </table>
+                    </div>
+                   
+                    <div class="widget-bottom">
+                        <div class="dataTables_filter">
+	                        
+	                    </div>
+                        <div class="dataTables_paginate">
+                            {$pages}
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/js/recruit_list.js"></script>
+<script src="__PUBLIC__/js/recruit.js"></script>
+
+<script>
+
+var web_status = {$status};
+$(document).ready(function(){
+	var ids;
+	$('.btn-do').click(function(){
+		ids = get_ids();
+		var checked = $('#print-type').prop('checked');
+
+		if(ids.length==0 && checked==false){
+			layer.msg('请选择信息', {icon: 5});
+			return false;
+		}		
+		var url = $(this).data('href');
+		if(url.indexOf('?')!= -1){
+			url+='&ids='+ids;
+		}else{
+			url+='?ids='+ids;
+		}
+		if($(this).attr('id')=='btn-print'){
+			window.open(url,'_blank');  
+		}else if($(this).attr('id')=='btn-verify'){
+			location.href = url;  
+		}else{
+			location.href = $(this).data('href')+'?'+$('#searchform').serialize();
+		}				
+		return false;
+	});
+		
+	function get_ids(){
+		return $(':checkbox[name="ids[]"]:checked').map(function(){
+			return $(this).val();
+		}).get();
+	}
+	$("a[id^=detail_]").click(function(){	
+		var target = $(this);
+		var id = target.prop('id').replace('detail_','');		
+		layer.open({
+		  type: 2,
+		  closeBtn: true,
+		  shadeClose: true,
+		  area: ['60%', '90%'],
+		  fixed: false, //不固定
+		  maxmin: true,
+		  btn: ['关闭'],
+		  btn: function(){
+			layer.closeAll();
+		  },
+		  content: '/index.php/admin2/recruit/detail?id='+id
+		});
+	});
+	$("a[id^=avatar]").click(function(){
+		var src = $(this).data('src');
+		layer.open({  
+		  type: 1,
+		  title: false,
+		  closeBtn: true,
+		  shade: false,
+		  area: '200px',
+		  skin: 'layui-layer-nobg', //没有背景色
+		  shadeClose: true,
+		  content: '<img src="/'+src+'" alt="头像">'
+		});
+	})
+Recruit.bind($('#recurit_unit'),$('#recurit_job'));	
+Recruit.childSelect($('#recurit_unit'),$('#recurit_job'));	
+})
+</script>
+
+<include file="Public:footer" />

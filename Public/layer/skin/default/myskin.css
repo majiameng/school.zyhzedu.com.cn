@@ -1,0 +1,5 @@
+.mytip-class {background:url('/Public/images/projects/enroll.png') no-repeat;  border: none; }
+.mytip-class {color:#ff5137; text-align: center; font-size: 24px; vertical-align: middle;padding-top:6%;font-family: "黑体";text-align:inline;}
+.mytip-class p{font-weight: bold; color:#ff5137; text-align: center;display: inline;}
+.mytip-class h3{color:#323232; text-decoration:none; font-size:30px; padding:20px;display: inline;}
+.mytip-class button{background: #ff5137; color: #fff; font-weight:normal;margin-top:58px; font-size: 18px; width: 80px; border: none; border-radius: 10px; margin:0 auto;}

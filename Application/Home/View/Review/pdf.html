@@ -1,0 +1,85 @@
+{__NOLAYOUT__}
+<body>
+<?php $domain = 'http://' . I("server.HTTP_HOST");?>
+
+<link  rel="stylesheet" type="text/css" media="all" href="{$domain}/Public/css/bootstrap.css">
+<link  rel="stylesheet" type="text/css" media="all" href="{$domain}/Public/css/site.css">
+<link rel="stylesheet" type="text/css" href="{$domain}/Public/css/print2.css" media="all" />
+
+<div id="ticket" style="margin-top: 100pt; padding:50pt; border:none;">
+    <div class="" style="border:1pt solid #333; width: auto; padding-bottom: 50pt;">
+
+        <table align="center" cellpadding="0" cellspacing="0"  border=0 bordercolor="#333333">
+            <tr>
+                <td valign="middle" colspan="10" align="center" class="pdf-title">石家庄工程职业学院<br/>{$config.exam_year}年聘用制员工招聘笔试准考证<br></td>
+            </tr>
+
+            <tr>
+                <td class="pdf-left" style="margin-top:30pt;" valign="middle" align="left">考生姓名:</td>
+                <td valign="middle"  align="left">{$base.name}</td>
+                <td valign="top" rowspan="8" align="right">
+					<empty name="base.avatar">
+					<else/>
+                    <img src="{$domain}{$base.avatar}" width="100"  height="auto" style=" border: 1px solid #5e5e5e;"/>
+					</empty>
+                </td>
+            </tr>
+            <tr>
+                <td class="pdf-left" valign="middle"  align="left">报考科室:</td>
+                <td  valign="middle" align="left">{$unit[$base[unit]][name]}</td>
+
+            </tr>
+            <tr>
+                <td class="pdf-left" valign="middle" align="left">报考岗位:</td>
+                <td   valign="middle" align="left">{$job[$base[job]]}</td>
+            </tr>
+            <tr>
+                <td class="pdf-left"  valign="middle"  align="left">准考证号:</td>
+                <td   valign="middle" align="left">{$base.no}</td>
+            </tr>
+            <tr>
+                <td  class="pdf-left" valign="middle" align="left">考&nbsp;&nbsp;场:</td>
+                <td   class="pdf-right" valign="middle" align="left">{$base.exam_no}</td>
+            </tr>
+            <tr>
+                <td class="pdf-left"  valign="middle"  align="left">身份证号:</td>
+                <td   valign="middle" align="left">{$base.card}</td>
+            </tr>
+            <tr>
+                <td class="pdf-left"  valign="middle"  align="left">考试时间:</td>
+                <!--<td   valign="middle" align="left">{:L('EXAM_DATE')}</td>-->
+                <!--<td valign="middle" align="left">{$config['exam_date']}</td>-->
+              <td valign="middle" align="left">待定</td>
+            </tr>
+           <tr>
+                <td  class="pdf-left" valign="middle" align="left">（8:45才可入场，10:00以后不许进场，10:30以后不许提前交卷离场）</td>
+              
+            </tr>
+            <tr>
+                <td  class="pdf-left" valign="middle" align="left">考试地点:</td>
+                <!-- <td   class="pdf-right" valign="middle" align="left">{:L('EXAM_ADDRESS')}</td> -->
+                <td   class="pdf-right" valign="middle" align="left">{$config['exam_address']}</td>
+            </tr>
+            <tr>
+                <td colspan="10">
+					<h4 style="margin-top:20pt;">注&nbsp;意:</h4><br/>
+					 <p>1、考试人员应持准考证、有效身份证、阴性核酸检测报告进入考场，上述证件</p>
+                  <p>不全者不得参加考试。</p>
+                <p>2、考试人员不得携带移动通讯工具以及计算器、电子词典等电子设备入场。</p>
+                <p>3、考试需准备2B铅笔、橡皮、黑（蓝）墨水钢笔或签字笔。</p>
+              <p>4、考生需自备口罩，且进入考点和考试全程佩戴口罩。</p>
+                </td>
+            </tr>
+            <tr></tr>
+        </table>
+    </div>
+</div>
+
+<style media='all'>
+#ticket table{margin-top:30pt;}
+#ticket td{font-size:12pt;font-family:"微软雅黑";color:#333333;margin-bottom:10pt;}
+#ticket td.pdf-title{font-weight:bolder;letter-spacing:10pt;font-size:18pt;padding-bottom:30pt;font-family:"微软雅黑";}
+#ticket td.pdf-left{width:30pt;height:30pt;line-height:30pt;}
+#ticket td.pdf-right{width:50pt;}
+</style>
+</body>

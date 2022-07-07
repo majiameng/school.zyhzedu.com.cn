@@ -1,0 +1,58 @@
+body{
+    background: url('../img/login.png') no-repeat;
+
+}
+
+#logo .logoP {
+    padding:20px 0;
+    margin:0;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    background: #3374d3;
+    font-family: '黑体', cursive;
+}
+.login-lo{
+    margin-top:15%;
+    overflow: auto;
+}
+#logo {
+    padding: 0;
+}
+#loginbox{
+    height: 246px;
+    background: #ffffff;
+    box-shadow: none;
+    border:none;
+    overflow: hidden !important;
+    text-align: center;
+    position: relative;
+    border-radius: 0;
+
+
+}
+
+.login-lo .login-lo1{
+    width: 400px;
+    border-radius: 7px;
+    overflow: hidden;
+    margin:0 auto;
+    -webkit-box-shadow:0 0 10px rgba(63, 64, 65, .5);
+    -moz-box-shadow:0 0 10px rgba(63, 64, 65, .5);
+    box-shadow:0 0 10px rgba(63, 64, 65, .5);
+}
+
+.form-actions{
+    background: none;
+    border-top: none;
+}
+#loginbox .form-actions {
+    width: 250px;
+    margin:0 auto;
+}
+.login-lo .login-lo1 #loginbox .form-actions .pull-right input{
+    width: 100%;
+}
+.login-lo .login-lo1 #loginbox .form-actions .pull-right{
+    width: 100%;
+}

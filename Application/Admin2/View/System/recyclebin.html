@@ -1,0 +1,124 @@
+<include file="Public:header" />
+
+<style>.move_cat{display:inline-block}</style><script>
+function moveto(){
+	$('.move_cat').toggle();
+}
+$(document).ready(function(){
+	$(".cat_id").change(function(){
+		$("#searchform").submit();
+	})				   
+})
+</script>
+<div id="content">
+    <div id="content-header">
+        <h1>商品管理</h1>
+    </div>
+    <div id="breadcrumb">
+        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+        <a href="#" class="current">商品回收站</a>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+            
+            	<form class="well form-search" method="get" action="{:U('Product/recyclebin')}" id="searchform">
+					
+					<span>分类： 
+						<select name="cat_id" class="cat_id">
+							<option value='0'>全部</option>
+							{$cat_option}
+						</select> &nbsp;&nbsp;
+						时间：
+						<input type="text" name="start_time" value="{$formget.start_time}" style="width: 80px;" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">-
+						<input type="text" name="end_time" value="{$formget.end_time}" style="width: 80px;" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"> &nbsp; &nbsp;
+						关键字： 
+						<input type="text" name="keyword" style="width: 200px;" value="{$formget.keyword}" placeholder="请输入关键字...">
+                        <input type="hidden" name="m" value="Admin" />
+                        <input type="hidden" name="c" value="Product" />
+                        <input type="hidden" name="a" value="recyclebin" />
+						<input type="submit" class="btn btn-primary" value="搜索" />
+					</span>
+						
+				</form>
+                <div class="widget-box">
+                <form action="{:U('Product/listorder')}" method="post">                
+                    <div class="widget-title">
+								<span class="icon">
+									<input type="checkbox" id="title-checkbox" name="title-checkbox" />
+								</span>
+                        <h5>商品回收站</h5>
+                    </div>
+                    
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped with-check">
+                            <thead>
+                            <tr>
+                                <th><i class="icon-resize-vertical"></i></th>
+                                <th>排序</th>
+                                <th>ID</th>
+                                <th>标题</th>
+                                <th>分类</th>
+                                <th>新品</th>
+                                <th>促销</th>
+                                <th>Engine version</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            <volist name="products" id="vo">
+                                <tr<if condition="$i % 2 eq 0"> class="odd"</if>>
+                                <td><input type="checkbox" name="ids[]" value="{$vo.id}" title="ID:{$vo.id}"/></td>
+                                <td><input name="listorders[{$vo.id}]" style="width:35px;line-height: 20px; margin:0;padding:0;padding-left:5px;" type="text" value="{$vo.listorder}" title="ID:{$vo.id}"></td>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.name}</td>
+                                <td>{$cates[$vo['category_id']]}</td>
+                                <td><if condition="($vo.is_new eq 1)">√<else />X</if></td>
+                                <td><if condition="($vo.is_promote eq 1)">√<else />X</if></td>
+                                <td class="center">
+                                    <a href="{:U('Product/restore',array('id'=>$vo['id']))}" class="btn btn-primary btn-mini">还原</a>
+                                    <a href="{:U('Product/clean',array('id'=>$vo['id']))}" class="btn btn-danger btn-mini del">删除</a>
+                                </td>
+                                </tr>
+                            </volist>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="widget-title">
+								<span class="icon">
+									<input type="checkbox" id="title-checkbox" name="title-checkbox" />
+								</span>
+                        <h5 style="padding-top:5px;">
+                        	<input class="btn btn-primary btn-small" type="submit"  onclick="javascript:this.form.action='{:U('Product/restore')}';"  value="还原" />
+	                        <input class="btn btn-primary btn-small del" type="submit"  onclick="javascript:this.form.action='{:U('Product/clean')}';"  value="批量删除" />
+	                    </h5>
+                    </div>
+                    <div class="widget-bottom">
+                        <div class="dataTables_filter">
+	                        
+	                    </div>
+                        <div class="dataTables_paginate">
+                            {$pages}
+                            <!--<a tabindex="0" class="first ui-corner-tl ui-corner-bl fg-button ui-button ui-state-default ui-state-disabled">First</a>
+                            <a tabindex="0" class="previous fg-button ui-button ui-state-default ui-state-disabled">Previous</a>
+									<span>
+										<a tabindex="0" class="fg-button ui-button ui-state-default ui-state-disabled">1</a>
+										<a tabindex="0" class="fg-button ui-button ui-state-default">2</a>
+										<a tabindex="0" class="fg-button ui-button ui-state-default">3</a>
+										<a tabindex="0" class="fg-button ui-button ui-state-default">4</a>
+										<a tabindex="0" class="fg-button ui-button ui-state-default">5</a>
+									</span>
+                            <a tabindex="0" class="next fg-button ui-button ui-state-default">Next</a>
+                            <a tabindex="0" class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-default">Last</a>-->
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<include file="Public:footer" />

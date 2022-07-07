@@ -1,0 +1,35 @@
+<div class="review">
+        <div class="container">
+            <div class="rev-tit">
+                <h3>审核情况</h3>
+            </div>
+           <div class="review-con">		
+               <div class="rev rev-yes">
+                   <div class="rev-nol">
+                       <img src="__PUBLIC__/images/review/review-yes.png" class="img-responsive">
+                   </div>
+                   <div class="rev-nor">
+                       <p>您已确认参加考试</p>
+                   </div>
+                   <div class="clearfix"></div>
+				  
+                   <div class="BtnZu"> 
+				<if condition=" $now egt strtotime($config['print_start_date']) && $now elt strtotime($config['print_end_date'])">
+					   <div class="yesBtn">
+                  <a href="{:U('review/ticket')}" id="confirm-print">打印准考证<i class="fa fa-angle-double-right fa-1x" aria-hidden="true"></i></a>
+                    <!-- <a href="{:U('review/ticket')}">打印准考证<i class="fa fa-angle-double-right fa-1x" aria-hidden="true"></i></a> -->
+                         <!-- <a href="{:U('review/time')}">打印准考证</a> -->
+                       </div>
+				 <else/>
+					    <div class="rev-nor" style="width:100%;">
+						  <p>打印准考证时间：{$config['print_start_date']} 至 {$config['print_end_date']}</p>
+
+					   </div>
+				</if>
+                   </div>
+               </div>		   
+        
+			   
+           </div>
+        </div>
+</div>

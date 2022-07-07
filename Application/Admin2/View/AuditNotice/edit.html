@@ -1,0 +1,75 @@
+<include file="Public:header" />
+	<div id="content">
+			<div id="content-header">
+				<h1>核审通知</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+				<a href="#" class="current">通知添加</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-align-justify"></i>									
+								</span>
+								<h5>通知添加</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<form action="{:U('AuditNotice/edit_post')}" method="post" class="form-horizontal" />
+								<input type="hidden" name="id" value="{$info.id}">
+								<div class="control-group">
+									<label class="control-label">时间</label>
+									<div class="controls">
+										<input name="start_time" type="text" value="{$info.start_time}" onClick="WdatePicker({dateFmt:'yyyy-MM-dd H:mm'})" class="select-time" readonly />
+										至
+										<input name="end_time" type="text" value="{$info.end_time}" onClick="WdatePicker({dateFmt:'yyyy-MM-dd H:mm'})"  class="select-time" readonly />
+									</div>
+								</div>
+								 <div class="control-group">
+									<label class="control-label">地点</label>
+									<div class="controls">
+										<input name="address" type="text" value="{$info.address}" class=""  style="width:420px;" />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">所属地区</label>
+									<div class="controls">
+										<select id="province" data-select="10" style="display:none;">
+										
+										</select>
+										<select name="city" id="city" data-select="{$info.city}"></select>
+									</div>
+								</div>	
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary">保存</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+<style>
+.form-horizontal input.select-time{cursor:pointer;width:150px;}
+</style>
+<script src="__PUBLIC__/js/region.js"></script> 
+<script src="__PUBLIC__/js/select-city.js"></script> 
+<script src="__PUBLIC__/js/jquery.validate.min.js"></script> 
+<script>
+$(function(){
+	Region.init($('#province'),$('#city'));
+});
+</script>
+				<div class="row-fluid">
+					<div id="footer" class="span12">
+						2014 &copy; DODICMS, Update source by <a href="##">中青旅博汇人才招考系统</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+
+<include file="Public:footer" />

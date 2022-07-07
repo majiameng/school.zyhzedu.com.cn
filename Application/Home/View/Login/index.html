@@ -1,0 +1,67 @@
+{__NOLAYOUT__}
+
+<include file="_layout/top-login" />
+
+
+<div class="login">
+    <div class="container">
+        <div class="login-con">
+            <div class="">
+                <h4 class="log_on">用户登录</h4>
+            </div>
+            <div class="grid-log">
+                <form id="userLogin" method="post">
+                    <div class="regLi">
+                        <ul>
+                            <li>
+                                <div class="log-li">
+                                    <i class="fa fa-user fa-1g"></i>
+									<input  type="text"  name="username"  placeholder="请输入账号"/>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="log-li">
+                                    <i class="fa fa-lock fa-1g"></i>
+                                    <input  type="password"  name="userpwd"  placeholder="密码"/>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="log-yzm">
+                                    <div class="logInp">
+                                        <input type="text" name="code" id="verifycode" placeholder="请输入验证码"/>
+                                    </div>
+                                    <div class="logImg">
+                                        <img src="{:U('login/code')}" class="code captcha" id="captchaimg"/>
+                                    </div>
+                                    <div class="logA">
+                                        <a class="captcha" href="javascript:;">换一张</a>
+                                    </div><br/><br/>
+                                </div>
+                            </li>
+                            <div class="clearfix"></div>
+
+                            <div class="remChe">
+                                <span><input type="checkbox" id="remember" name="remember" value="1" /></span>
+                                <label for="remember">下次自动登录</label>
+                            </div>
+                            <div class="btn">
+                                <input type="submit" id="loginBtn" class="btn btn-primary" value="登录">
+                            </div>
+                            <div class="btnA">
+                                <a class="forBtnL" href="{:U('login/forget')}">忘记密码</a>
+                                <a class="forBtnR" href="{:U('login/register')}" >注册账号</a>
+                            </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="clearfix"></div> 
+<div class="">
+   <include file="_layout/footer-login" />
+</div>

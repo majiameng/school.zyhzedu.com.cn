@@ -1,0 +1,86 @@
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+@media (min-width: 992px) {
+        .container {
+            width: 970px;
+        }
+    }
+@media (min-width: 768px){
+            .container {
+                width: 750px;
+            }
+        }
+    .ticket{
+        width: 100%;
+        padding:50px 0;
+        margin-top:160px;
+    }
+    .ticket .container{
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .ticket .ticket-con{
+        width:738px;
+        overflow: auto;
+        margin:0 auto;
+        border: 2px solid #333333;
+        overflow: auto;
+        border-radius: 5px;
+    }
+    .ticket .ticket-con .tick-tit{
+        width: 100%;
+        padding:30px 0;
+        margin-bottom: 11px;
+    }
+    .ticket .ticket-con .tick-tit h4{
+        text-align: center;
+        font-size: 18pt;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .ticket .ticket-con .tick-notice h4{
+        font-size: 20px;
+    }
+    .ticket .ticket-con .tick-con{
+        padding:0 62px;
+        overflow: auto;
+    }
+    .ticket .ticket-con .tick-con .tickL{
+        float: left;
+        width: 80%;
+    }
+    .ticket .ticket-con .tick-con .tickR{
+        float: right;
+
+    }
+    .ticket .ticket-con .tick-con .tickR img{
+       /* border: 1px solid #5e5e5e;*/
+    }
+    .ticket .ticket-con .tick-con .tickL p{
+        display: inline;
+        font-size: 16px;
+    }
+    .ticket .ticket-con .tick-notice p{
+        margin: 0 0 9px;
+    }
+
+    .ticket .ticket-con .tick-con .tickL h5{
+        display: inline;
+        font-size: 16px;
+    }
+    .ticket .ticket-con .tick-con .tickL .tickStr{
+        margin-bottom: 24px;
+    }
+    .ticket .ticket-con .tick-notice{
+        padding: 0px 62px;
+        margin-bottom: 70px;
+        margin-top: -18px;
+    }
+    .ticket .ticket-con .tick-notice h4{
+        margin:30px 0;
+    }

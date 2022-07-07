@@ -1,0 +1,172 @@
+<include file="Public:header" />
+<script src="/Public/js/jquery.form.js"></script>
+<style>.move_cat{display:inline-block}</style>
+
+<div id="content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+            	<form class="well form-search" method="get" action="__ACTION__" id="searchform">
+					科室名称：
+					<input type="text" name="keyword" style="width: 90px;" value="{$Think.get.keyword|trim}" placeholder="请输入关键字...">
+					<input type="submit" class="btn btn-primary search-list" value="搜索" />
+					<a href="__CONTROLLER__/companyAdd" class="btn btn-primary search-list" >新增单位</a>								
+				</form>			
+				
+                <div class="widget-box">
+                <form action="{:U('Recruit/listorders')}" method="post">
+                    <div class="widget-title">						
+                        <h5>招聘科室</h5>
+                    </div>
+                    
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped with-check">
+                            <thead>
+                            <tr>
+                                <th><i class="icon-resize-vertical"></i></th>
+								<th>序号</th>
+								<th>招聘科室</th>
+                                <th>所属地区</th>
+                                <th>单位编码</th>        
+                                <th>操作</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+							<?php 
+							$page = isset($_GET['p'])?intval($_GET['p']):1;
+							$m = 1+($page-1)*20
+							?>
+                            <volist name="list" id="vo">
+                                <tr>                          
+                                <td><input type="checkbox" name="ids[]" value="{$vo.id}" title="ID:{$vo.id}"/></td> 
+                                <td>
+								{$m}
+								</td> 								
+                                <td>						
+								{$vo.name}</td> 
+								<td>{$region[$vo[city]]}</td>
+                                <td>{$vo[regionsn]}</td>
+                                <td class="center">
+                                    <a href="{:U('RecruitCompany/companyEdit','id='.$vo['id'])}">
+									<span class="btn btn-primary btn-mini ">编辑</span>	
+									</a>
+									<a href="javascript:;" id="remove_{$vo.id}">
+									<span class="btn btn-primary btn-mini ">删除</span>	
+									</a>
+                                </td>
+								 <td class="center">
+                                   &nbsp;
+                                </td> <td class="center">
+                                   &nbsp;
+                                </td>
+                                </tr>
+								<?php $m++;?>
+                            </volist>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="widget-title">
+						<span class="icon">
+							<input type="checkbox" id="title-checkbox" name="title-checkbox" />
+						</span>  
+						 <h5 style="padding-top:5px;">
+							&nbsp;
+							<!--
+							<input value="1" type="checkbox" id="print-type" name="type">打印全部
+							
+							<a class="btn btn-primary btn-small btn-do" data-href="{:U('Recruit/printdetail')}" href="javascript:;" target="_blank" id="btn-print"/>打印报名表</a>-->							
+	                    	</h5>
+                    </div>
+                    <div class="widget-bottom">
+                        <div class="dataTables_filter">
+	                        
+	                    </div>
+                        <div class="dataTables_paginate">
+                            {$pages}
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+var form = $('#searchform');
+$(document).ready(function(){
+	var ids;	
+	function get_ids(){
+		return $(':checkbox[name="ids[]"]:checked').map(function(){
+			return $(this).val();
+		}).get();
+	}
+	// 删除
+	$("a[id^=remove_]").click(function(){	
+		var target = $(this);
+		var id = target.prop('id').replace('remove_','');
+		layer.confirm('该过程不可逆 确认删除？', {
+		  btn: ['确定','关闭'] //按钮
+		}, function(){
+		  	$.post('__CONTROLLER__/companyremove',{id:id},function(res){
+				if(res.status==1) {
+					target.closest('tr').fadeOut();					
+					layer.closeAll();
+					return false;
+				}
+				layer.msg(res.info,{icon:2});
+				return false;
+			});
+		});		
+		return false;
+	});
+	
+	$("a[id^=detail_]").click(function(){	
+		var target = $(this);
+		var id = target.prop('id').replace('detail_','');		
+		layer.open({
+		  type: 2,
+		  closeBtn: true,
+		  shadeClose: true,
+		  area: ['60%', '90%'],
+		  fixed: false, //不固定
+		  maxmin: true,
+		  btn: ['保存', '直接关闭'],
+		  yes: function(index, layero){
+			var body = layer.getChildFrame('body', index);
+			var obj = body.find(':radio[name="status"]:checked');
+			var len = obj.length;
+			if(len == 0) {
+				layer.msg('请审核',{icon:5});return false;
+			}
+			var status = obj.val();
+			var remark = $.trim(body.find('#remark').val());
+			$.post('/index.php/admin2/recruit/detail?id='+id,{remark:remark,status:status},function(json){
+				if(json.status==1) {
+					if(web_status==0) {
+						location.reload();return false;
+					}
+					if(web_status!=status) {
+						target.closest('tr').fadeOut();
+					}
+					
+					layer.closeAll();
+					return false;
+				}
+				layer.msg(json.info,{icon:5});
+				return false;
+			});
+			
+		  },
+		  btn2: function(){
+			layer.closeAll();
+		  },
+		  content: '/index.php/admin2/recruit/detail?id='+id
+		});
+	});
+	
+})
+</script>
+<include file="Public:footer" />

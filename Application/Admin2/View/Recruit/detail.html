@@ -1,0 +1,338 @@
+<div class="projects">
+        <div class="container projects-con">
+
+                <table align="center" width="1000" height="1350"  cellpadding="0" cellspacing="0"  border=1 bordercolor="#333333">
+
+                    <tr>
+                        <td colspan="10" height="60" align="center" style="font-size:20px; font-family: '黑体' ">石家庄工程职业学院报名登记表</td>
+                    </tr>
+                    <tr>
+                        <td colspan="10" height="33" align="left" style="font-size:18px; background:#feffde;">个人资料</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="1" height="33"   width="100" align="center">姓名:</td>
+                        <td colspan="2" height="33"   width="100" align="center">{$base.name}</td>
+                        <td colspan="1" height="33"   width="100" align="center">性别:</td>
+                        <td colspan="1" height="33"   width="100" align="center">{$sex[$base['sex']]}</td>
+                        <td colspan="2" height="33"   width="100" align="center">出生日期:</td>
+                        <td colspan="2" height="33"   width="100" align="center">{$base.birth}</td>
+                        <td colspan="1" align="center" rowspan="5" align="center" style="width: 230px;">
+                            <div class="layer_photos">
+                                <img src="<empty name='base.avatar'>/__PUBLIC__/images/personal/11.png<else/>/{$base.avatar}</empty>" width="200" class="code" id=""/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" height="33"  width="100"  align="center">健康状况:</td>
+                        <td colspan="2" height="33"  width="100"  align="center">{$base.health}</td>
+                        <td colspan="1" height="33"  width="100"  align="center">政治面貌:</td>
+                        <td colspan="1" height="33"  width="100"  align="center">{$policy[$base['political_status']]}</td>
+                        <td colspan="2" height="33"   width="100" align="center">户口所在地:</td>
+                        <td colspan="2" height="33"   width="200" align="center">{$base.house_address}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" height="33"  width="100"  align="center">婚姻状况:</td>
+                        <td colspan="2" height="33"  width="100"  align="center">{$marriage[$base[marriage]]}</td>
+                        <td colspan="1" height="33"  width="100"  align="center">身高:</td>
+                        <td colspan="1" height="33"  width="100"  align="center">{$base.height|default=0}CM</td>
+                        <td colspan="2" height="33"  width="100"  align="center">体重:</td>
+                        <td colspan="2" height="33"  width="200"  align="center">{$base.weight|default=0}KG</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" height="33"  width="100"  align="center">民族:</td>
+                        <td colspan="2" height="33"  width="100"  align="center">{$base.nation}</td>
+                        <td colspan="1" height="33"  width="100"  align="center">学历:</td>
+                        <td colspan="1" height="33"  width="100"  align="center">{$education[$base['education']]}</td>
+                        <td colspan="2" height="33"   width="100" align="center">所学专业:</td>
+                        <td colspan="2" height="33"  width="200"  align="center">{$base.profession}</td>
+                        
+                    </tr>
+                  <tr>						
+						<td colspan="2" height="33"    align="center">毕业院校:</td>
+                        <td colspan="3" height="33"    align="center">{$base.school}</td>
+                        <td colspan="2" height="33"    align="center">学位:</td>
+                        <td colspan="2" height="33"    align="center">{$degree[$base[degree]]}</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" height="33"    align="center">报考科室:</td>
+                        <td colspan="3" height="33"    align="center">{$unit[$base[unit]][name]}</td>
+                        <td colspan="2" height="33"    align="center">报考岗位:</td>
+                        <td colspan="3" height="33"    align="center">{$job[$base[job]]}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">身份证号:</td>
+                        <td colspan="3" height="33"    align="center">{$base.card}</td>
+<!--                        <td colspan="2" height="33"    align="center">是否符合回避原则:</td>-->
+<!--                        <td colspan="1" height="33"    align="center">{$is_huibi[$base[is_huibi]]}</td>-->
+                        <td colspan="2" height="33"    align="center">是否符合免试条件:</td>
+                        <td colspan="1" height="33"    align="center">
+                            <if condition="$base.is_free eq 1 ">是
+                                <else /> 否
+                            </if>
+                        </td>
+                        <td colspan="1" height="33"    align="center">是否985/211:</td>
+                        <td colspan="1" height="33"    align="center">
+                            <if condition="$base.is_famous eq 1 ">是
+                                <else /> 否
+                            </if>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="10" height="33" align="left" style="font-size:18px; background:#feffde;">教育情况</td>
+
+                    </tr>
+                    <tr>
+                        <td  colspan="3" height="33"    align="center">开始日期-结束日期</td>
+                        <td  colspan="2" height="33"    align="center">学校名称</td>
+                        <td  colspan="2" height="33"    align="center">专业</td>
+                        <td  colspan="1" height="33"    align="center">学历</td>
+                        <td  colspan="1" height="33"    align="center">学位</td>
+                        <td  colspan="1" height="33"    align="center">是否全日制</td>
+                    </tr>
+                    <foreach name="edu" item="r">
+                        <tr>
+                            <td colspan="3" height="33"    align="center">{$r.start_time}-{$r.end_time}</td>
+                            <td colspan="2" height="33"    align="center">{$r.school}</td>
+                            <td colspan="2" height="33"    align="center">{$r.profession}</td>
+                            <td colspan="1" height="33"    align="center">{$education[$r['education']]}</td>
+                            <td colspan="1" height="33"    align="center">{$degree[$r['degree']]}</td>
+                            <td colspan="1" height="33"    align="center">{$full_time[$r[full_time]]}</td>
+                        </tr>
+                    </foreach>
+                    <tr>
+                        <td colspan="10" height="33" align="left" style="font-size:18px; background:#feffde;">工作经历，包含服兵役经历（如未参加工作，可不填写）</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="3" height="33"    align="center">开始日期-结束日期</td>
+                        <td colspan="4" height="33"    align="center">工作单位</td>
+                        <td colspan="3" height="33"    align="center">岗位或职务</td>
+                    </tr>
+                    <foreach name="work" item="r">
+                        <tr>
+                            <td colspan="3" height="33"    align="center">{$r.start_time}-{$r.end_time}</td>
+                            <td colspan="4" height="33"    align="center">{$r.company}</td>
+                            <td colspan="3" height="33"    align="center">{$r.job}</td>
+                        </tr>
+                    </foreach>
+                    <tr>
+                        <td colspan="10" height="33" align="left" style="font-size:18px; background:#feffde;">专业技能专业技能、特长及奖惩情况（如没有，可不填写）</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">取得的专业资格证书:</td>
+                        <td colspan="8" height="33"    align="center">{$skill.certificate} </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">其他特长:</td>
+                        <td colspan="8" height="33"    align="center">{$skill.other} </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">奖惩情况:</td>
+                        <td colspan="8" height="33"    align="center">{$skill.rewards} </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="10" height="33" align="left" style="font-size:18px; background:#feffde;">家庭主要成员情况</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">成员关系</td>
+                        <td colspan="2" height="33"    align="center">姓名</td>
+                        <td colspan="4" height="33"    align="center">工作单位</td>
+                        <td colspan="2" height="33"    align="center">职务</td>
+                    </tr>
+                    <foreach name="family" item="r">
+                        <tr>
+                            <td colspan="2" height="33"    align="center">{$r.relation}</td>
+                            <td colspan="2" height="33"    align="center">{$r.name}</td>
+                            <td colspan="4" height="33"    align="center">{$r.work_place}</td>
+                            <td colspan="2" height="33"    align="center">{$r.job}</td>
+                        </tr>
+                    </foreach>
+					
+                    <tr>
+                        <td colspan="10" height="33" align="left" style="font-size:18px; background:#feffde;">联系方式</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">通讯地址:</td>
+                        <td colspan="3" height="33"    align="center">{$base.address}</td>
+                        <td colspan="2" height="33"    align="center">邮政编码:</td>
+                        <td colspan="3" height="33"    align="center">{$base.postcode}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">手机号码:</td>
+                        <td colspan="3" height="33"    align="center">{$base.mobile}</td>
+                        <td colspan="2" height="33"    align="center">固定电话:</td>
+                        <td colspan="3" height="33"    align="center">{$base.tel}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">电子邮箱:</td>
+                        <td colspan="8" height="33"    align="center">{$base.email}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">身份证正反面:</td>
+                        <td colspan="8" height="">
+                            <div class="layer_photos">
+                                <img src="/{$base.card_front}" width="200" class="code">
+                                <img src="/{$base.card_behind}" width="200" class="code">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" height="33"    align="center">毕业证书:</td>
+                        <td colspan="8" height="">
+                            <div class="layer_photos">
+                            <foreach name="graduation_img" item="vo" >
+                                <img src="/{$vo}" width="200" class="code">
+                            </foreach>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">学信网证明:</td>
+                        <td colspan="8" height="">
+                            <div class="layer_photos">
+                            <img src="/{$base.study_img}" width="200" class="code">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">是否有执业资格:</td>
+                        <td colspan="8" height="" align="center">
+                            <if condition="$base.is_operation eq 1 ">有
+                                <else /> 没有
+                            </if>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">执业资格证:</td>
+                            <if condition="$resume_qualifications['operation_img'] neq null">
+                                <td colspan="8" height="">
+                                    <div class="layer_photos">
+                                        <img src="/{$resume_qualifications.operation_img}" width="200" class="code">
+                                    </div>
+                                </td>
+                                <else/>
+                                <td colspan="8" height="" align="center">
+                                    <span>暂未上传</span>
+                                </td>
+                            </if>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">是否有规培证:</td>
+                        <td colspan="8" height="" align="center">
+                            <if condition="$base.is_train eq 1 ">有
+                                <else /> 没有
+                            </if>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">规培证:</td>
+                        <if condition="$resume_qualifications['train_img'] neq null">
+                            <td colspan="8" height="">
+                                <div class="layer_photos">
+                                    <img src="/{$resume_qualifications.train_img}" width="200" class="code">
+                                </div>
+                            </td>
+                            <else/>
+                            <td colspan="8" height="" align="center">
+                                <span class="text-center">暂未上传</span>
+                            </td>
+                        </if>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="33"    align="center">其他:</td>
+                        <td colspan="8" height="">
+                            <div class="layer_photos">
+                                <foreach name="skill_img" item="vo" >
+                                    <img src="/{$vo}" width="200" class="code">
+                                </foreach>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+				
+				<!--打印-->
+				<eq name="base.status" value="1">
+				<div class="personal noprint" style="text-align:center;">
+					<input type="button" class="printBtn" onclick="window.print()" value="打印">
+				</div>
+				</eq>
+				<!--打印-->
+				<br/><br/>
+				
+				<table align="center" width="1000" height="100" cellpadding="0" cellspacing="0" border="1" bordercolor="#ddd" class="noprint">
+				<tr>
+				<td colspan="20">审核：
+					<input type="radio" name="status" value="5" <eq name="base.status" value="5">checked</eq>>免试通过 <span style="color: red">（ <if condition="$base.is_famous eq 1 ">是
+                                <else /> 不是
+                            </if> 985/211）</span> <span style="color: red">
+                        （ <if condition="$base.is_free eq 1 ">符合
+                                <else /> 不符合
+                            </if> 免试条件）
+                    </span>
+					<input type="radio" name="status" value="1" <eq name="base.status" value="1">checked</eq>>通过
+					<input type="radio" name="status" value="3" <eq name="base.status" value="3">checked</eq>>拒绝
+					<input type="radio" name="status" value="4" <eq name="base.status" value="4">checked</eq>>信息不全
+					<br/>
+					<div id="msg-tip" class="msg-hide <in name="base.status" value="4,3">msg-show</in>">
+						<textarea id="remark" name="remark" cols="80" rows="6">{$base.remark}</textarea>
+					</div>
+				</td>			  
+			  </tr>
+			<!--
+			  <tr>
+				<td colspan="10">
+					<div class="layui-layer-btn layui-layer-btn-">
+						<a class="layui-layer-btn0 save-btn">继续弹出</a>
+						<a class="layui-layer-btn1 close-btn">全部关闭</a>
+					</div>
+				</td>
+			  </tr>
+			-->
+			  </table>		
+
+        </div>
+</div>
+<style media='print'>     
+.noprint{display : none }      
+ </style>
+ 
+<style>
+.noprint .printBtn{
+	background: #f7f7f7;
+    border: #e1e1e1 1px solid;cursor:pointer;
+    padding: 12px 24px; margin-top:10px;display:inline-block;
+}
+.msg-hide{
+display:none;
+}
+.msg-show{
+display:block;
+}
+</style>
+<script src="__PUBLIC__/admin/js/jquery.min.js"></script>
+<script src="__PUBLIC__/layer/layer.js"></script>
+<script>
+$(function(){
+	var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+	$(':radio[name="status"]').click(function(){
+		var val = $(this).val();
+		if(val==4 || val==3) $('#msg-tip').show();
+		else $('#msg-tip').hide();
+	});
+    layer.photos({
+        photos:".layer_photos",
+        anim:5,
+    })
+})
+
+</script>
+
+

@@ -1,0 +1,129 @@
+<include file="Public:header" />
+
+
+<link rel="stylesheet" href="__COMMON__/js/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="__COMMON__/js/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="__COMMON__/js/kindeditor/lang/zh_CN.js"></script>
+<style>
+#thumbview{
+float: left;
+}
+#thumbview img{
+height: 95px; margin-bottom:5px;margin-right:15px;}
+#imageView li{
+list-style:none;float:left;width: 105px;}
+#imageView img{
+width: 95px; margin-bottom:5px;margin-right:15px;}
+#imageView li a{
+text-align:center}
+#proimages{display:none}
+</style>
+<script>
+	//多图移除某张图片的函数
+	function del_image(i){
+		$('#proinput'+i).remove();
+		$('#proimage'+i).remove();
+	}
+	KindEditor.ready(function(K) {
+		var editor = K.create('textarea[name="content"]', {
+			uploadJson : '__ROOT__/plugin/editor/upload_json.php',
+			fileManagerJson : '__ROOT__/plugin/editor/file_manager_json.php',
+			allowFileManager : true,//			
+		});
+
+		
+		//缩略图
+		K('#image1').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					imageUrl : K('#url1').val(),
+					clickFn : function(url, title, width, height, border, align) {
+						K('#url1').val(url);
+						K('#thumbview').html('<img src="' + url + '">');
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		
+		
+		//多图上传
+		K('#multiImage').click(function() {
+			editor.loadPlugin('multiimage', function() {
+				editor.plugin.multiImageDialog({
+					clickFn : function(urlList) {
+						var div = K('#imageView');
+						div.html('');
+						var photos='';
+						K.each(urlList, function(i, data) {
+							div.append('<li id="proimage'+i+'"><img src="' + data.url + '"><a href="javascript:del_image('+i+')">移除</a></li>');
+							K('#proimages').append('<input id="proinput'+i+'" name="proimages[]" type="text" value="' + data.url + '" />');
+						});
+						
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+		
+		
+		
+		
+		
+		
+	});
+</script>
+		
+		<div id="content">
+			<div id="content-header">
+				<h1>Tables</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+				<a href="#" class="current">联系我们修改</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-align-justify"></i>									
+								</span>
+								<h5>联系我们修改</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<form action="{:U('Message/add')}" method="post" class="form-horizontal" />
+                                    
+								
+                                
+									<div class="control-group">
+										<label class="control-label">内容</label>
+										<div class="controls">
+										
+										    
+											<input type="hidden" name="id" value="">
+											<textarea name="content" style="height:200px;visibility:hidden;" ></textarea>
+											
+										</div>
+									</div>
+					 <div class="form-actions">
+										<button type="submit" class="btn btn-primary">保存</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row-fluid">
+					<div id="footer" class="span12">
+						2014 &copy; DODICMS, Update source by <a href="##">中青旅博汇人才招考系统</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+
+<include file="Public:footer" />

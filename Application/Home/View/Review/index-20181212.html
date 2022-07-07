@@ -1,0 +1,124 @@
+<div class="review">
+        <div class="container">
+            <div class="rev-tit">
+                <h3>审核情况</h3>
+            </div>
+           <div class="review-con">
+		   <eq name="data.is_lock" value="1">
+		    <div class="rev rev-no">
+                   <div class="rev-nol">
+                       <img src="__PUBLIC__/images/review/review-no.png" class="img-responsive">
+                   </div>
+                   <div class="rev-nor">
+                       <p>{:L('MSG_LOCK')}</p>
+                       
+                   </div>
+				    <div class="clearfix"></div>					
+               </div>
+			
+		   <else/>
+		    <!-- 正在审核 -->
+			<switch name="data.status">
+				<case value="2">
+               <div class="rev rev-ing">
+                   <div class="rev-nol">
+                       <img src="__PUBLIC__/images/review/review1.png" class="img-responsive">
+                   </div>
+                   <div class="rev-nor">
+                       <p>您已经成功上传了相关资料，我们工作人员正在审核中。</p>
+                   </div>
+               </div>
+				</case>
+			
+			 <!-- 审核通过 -->
+				<case value="1">
+               <div class="rev rev-yes">
+                   <div class="rev-nol">
+                       <img src="__PUBLIC__/images/review/review-yes.png" class="img-responsive">
+                   </div>
+                   <div class="rev-nor">
+                       <p>您的报名信息已经通过审核</p>
+                   </div>
+                   <div class="clearfix"></div>
+                   <div class="BtnZu"> 
+					   <div class="yesBtn">
+                  <a href="javascript:void(0);" id="confirm-print">打印准考证<i class="fa fa-angle-double-right fa-1x" aria-hidden="true"></i></a>
+                    <!-- <a href="{:U('review/ticket')}">打印准考证<i class="fa fa-angle-double-right fa-1x" aria-hidden="true"></i></a> -->
+                         <!-- <a href="{:U('review/time')}">打印准考证</a> -->
+                       </div>
+                   </div>
+               </div>
+               <script src="__PUBLIC__/layer/layer.js"></script>
+               <script>
+                $(function(){
+                  $('#confirm-print').click(function(){
+                      layer.confirm('确认参加笔试？',function(){
+                        layer.load(1);
+                        $.post('/index.php/home/review/confirm',{},function(res){
+                          layer.closeAll();
+                          if(res.status==1) {
+                            location.href = res.url;return false;
+                          }
+                          layer.msg(res.info,{icon:2});
+                        }); 
+                      });
+                      return false;
+                  });
+                });
+               </script>
+				</case>
+			 
+			  <!-- 审核失败 -->
+			 <case value="3">
+               <div class="rev rev-no">
+                   <div class="rev-nol">
+                       <img src="__PUBLIC__/images/review/review-no.png" class="img-responsive">
+                   </div>
+                   <div class="rev-nor">
+                       <p>经审核，您的报名信息不符合我们招聘条件。感谢您的参与!</p>
+                       
+                   </div>
+				    <div class="clearfix"></div>
+					<notempty name="data.remark">
+                   <div class="rev-con">
+                       <div class="rev-con-1">
+                           <h5>工作人员提示:</h5>
+                           <div class="rev-conP">
+                               <p>{$data.remark}</p>
+                           </div>
+                       </div>
+                   </div>
+					</notempty>
+               </div>
+			  </case>
+			  <!-- 资料不全 -->
+			  <case value="4">
+               <div class="rev rev-mod">
+                   <div class="rev-nol">
+                       <img src="__PUBLIC__/images/review/review-no.png" class="img-responsive">
+                   </div>
+                   <div class="rev-nor">
+                       <p>您的报名资料信息不完善，请完善资料后重新提交审核。</p>
+                   </div>
+                   <div class="clearfix"></div>
+                   <div class="rev-con">
+                       <div class="rev-con-1">
+                           <h5>工作人员提示:</h5>
+                           <div class="rev-conP">
+                               <p>{$data.remark}</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="clearfix"></div>
+                   <div class="yesBtn">
+                       <a href="{:U('recruit/modify')}">点击完善报名资料<i class="fa fa-angle-double-right fa-1x" aria-hidden="true"></i></a>
+                   </div>
+
+               </div>
+			  </case>
+			  </switch>
+			</eq>
+			   
+           </div>
+        </div>
+</div>

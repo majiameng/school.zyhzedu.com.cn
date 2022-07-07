@@ -1,0 +1,148 @@
+<if condition="!isset($edu)">
+<div class="blist">
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>开始时间<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control dateselect" name="edu[start_time][]" id="edu_start_time" type="text" readonly required >
+	</div>
+
+	<label class="col-md-2 col-xs-12 control-label"><p>结束时间<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control dateselect" name="edu[end_time][]" id="edu_end_time" type="text" readonly required>
+	</div>
+</div>
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>学校<span class="required">*</span></p></label>
+	<div class="col-md-9 col-xs-12">
+		<input class="form-control" name="edu[school][]" id="edu_school" type="text" required>
+	</div>
+	
+</div>
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>学位<span class="required">*</span><br/>(大专及以下填：无)</p></label>
+	<div class="col-md-3 col-xs-12">
+		<select class="form-control" name="edu[degree][]" id="edu_degree" required>
+			<option value="">请选择</option>
+			<foreach name="degree" item="r" key="k">
+			<option value="{$k}">{$r}</option>
+			</foreach>
+		</select>
+	</div>
+	
+	<label class="col-md-2 col-xs-12 control-label"><p>学历<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<select class="form-control" name="edu[education][]" id="edu_education" required>
+			<option value="">请选择</option>
+			<foreach name="education" item="r" key="k">
+			<option value="{$k}">{$r}</option>
+			</foreach>
+		</select>
+	</div>
+	
+</div>
+
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>专业<span class="required">*</span>(高中填：无)</p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control" name="edu[profession][]" id="edu_profession" type="text" required>
+	</div>
+	
+	<label class="col-md-2 col-xs-12 control-label"><p>是否全日制<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12 full_time">
+		<input type="radio" name="edu[full_time][0]" value="1" id="edu_full_time" required> 是
+		<input type="radio" name="edu[full_time][0]" value="0" id="edu_full_time"> 否
+	</div>
+	
+</div>
+<!-- sgsgs -->
+<div class="col-md-12">
+	<div class="col-md-1 hrsn"></div>
+	<div class="col-xs-10 hr"></div>
+	<div class="col-md-1 hrsn"></div>
+</div>
+</div>
+</if>
+
+<div class="blist" style="display:none;">
+	<div class="col-md-12 btn-del">
+		<a class="glyphicon glyphicon-remove btn form-control-feedback"></a>
+	</div>
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>开始时间<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control dateselect" id="edu_start_time" name="edu[start_time][]" type="text" readonly required>
+	</div>
+
+	<label class="col-md-2 col-xs-12 control-label"><p>结束时间<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control dateselect" name="edu[end_time][]" id="edu_end_time" type="text" readonly required>
+	</div>
+
+</div>
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>学校<span class="required">*</span></p></label>
+	<div class="col-md-9 col-xs-12">
+		<input class="form-control" name="edu[school][]" type="text" id="edu_school" required>
+	</div>
+	
+</div>
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>学位(大专及以下填：无)<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<select class="form-control" name="edu[degree][]" id="edu_degree" required>
+			<option value="">请选择</option>
+			<foreach name="degree" item="r" key="k">
+			<option value="{$k}">{$r}</option>
+			</foreach>
+		</select>
+	</div>
+	
+	<label class="col-md-2 col-xs-12 control-label"><p>学历<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<select class="form-control" name="edu[education][]" id="edu_education" required>
+			<option value="">请选择</option>
+			<foreach name="education" item="r" key="k">
+			<option value="{$k}">{$r}</option>
+			</foreach>
+		</select>
+	</div>
+	
+</div>
+
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>专业(高中填：无)<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control" name="edu[profession][]" id="edu_profession" type="text" required>
+	</div>
+	
+	<label class="col-md-2 col-xs-12 control-label"><p>是否全日制<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12 full_time">
+		<input type="radio" name="edu[full_time][]" value="1" required id="edu_full_time"> 是
+		<input type="radio" name="edu[full_time][]" value="0" id="edu_full_time"> 否
+		
+		<!--
+		<label class="checkbox-inline col-md-4">
+			<input type="radio" name="edu[full_time][1]" value="1" > 是
+		</label>
+		<label class="checkbox-inline col-md-4">
+			<input type="radio" name="edu[full_time][1]" value="0"> 否
+		</label>
+		-->
+	</div>
+	
+</div>
+
+
+<div class="col-md-12">
+	<div class="col-md-1 hrsn"></div>
+	<div class="col-xs-10 hr"></div>
+	<div class="col-md-1 hrsn"></div>
+</div>
+</div>
+
+<div class="col-md-12" style="text-align:center;margin-top:20px;">
+	<input class="btn btn-primary btn-add" id="education" value="新增" type="button">
+</div>
+<style>
+.full_time input{float:none;}
+</style>

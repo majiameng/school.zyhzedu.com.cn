@@ -1,0 +1,20 @@
+<div class="review">
+        <div class="container">
+            <div class="rev-tit">
+                <h3>笔试成绩查询</h3>
+            </div>
+           <div class="review-con">
+
+
+               <div class="rev rev-ing">
+                   <div class="rev-nol">
+                       <img src="__PUBLIC__/images/review/review1.png" class="img-responsive">
+                   </div>
+                   <div class="rev-nor">
+                       <p>您的笔试成绩为：{$info.score|default=0}分</p>
+                       <p>{$unit[$base['unit']]['name']}-{$job[$base['job']]}-岗位，笔试分数线为：{$grade['score']}分。</p>
+                   </div>
+               </div>
+           </div>
+        </div>
+</div>

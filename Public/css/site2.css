@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* CSS Document */
+
+header,footer,nav,div,section,asinde,article{
+	border:1 dotted #999999;
+	border-radius:5em;
+}
+a,a:hover{
+	text-decoration:none;
+}
+.divContent{
+	min-height: 350em;
+}
+
+body, div, ul, ol, h1, h2 {
+	margin: 0;
+	padding: 0
+}
+img {
+	border: 0
+}
+li {
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+a {
+	margin: 0;
+	outline: none;
+	padding: 0;
+	text-decoration: none
+}
+p,a,h1,h2,h3,h4,h5,h6,input{
+	font-family: "微软雅黑";
+	color: #333333;
+}
+
+.gradient{  /*渐变*/
+	background: -webkit-linear-gradient(#dbdbdb, #fff); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(#dbdbdb, #fff); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(#dbdbdb, #fff); /* Firefox 3.6 - 15 */
+	background: linear-gradient(#dbdbdb, #fff); /* 标准的语法 */
+	height: 6em;
+	width: 100%;
+}
+
+/*准考证*/
+.ticket{
+	width: 100%;
+	padding:50em 0;
+}
+.ticket .ticket-con{
+	width:738em;
+	overflow: auto;
+	margin:0 auto;
+	border: 2em solid #333333;
+	overflow: auto;
+}
+.ticket .ticket-con .tick-tit{
+	width: 100%;
+	padding:30em 0;
+}
+.ticket .ticket-con .tick-tit h4{
+	text-align: center;
+	font-weight: bold;
+	letter-spacing:5em;
+}
+.ticket .ticket-con .tick-con{
+	padding:0 40em;
+	overflow: auto;
+
+}
+.ticket .ticket-con .tick-con .tickL{
+	float: left;
+	width: 65%;
+}
+.ticket .ticket-con .tick-con .tickR{
+	float: right;
+}
+.ticket .ticket-con .tick-con .tickR img{
+	border: 1em solid #5e5e5e;
+}
+.ticket .ticket-con .tick-con .tickL p{
+	display: inline;
+
+}
+.ticket .ticket-con .tick-con .tickL h5{
+	display: inline;
+}
+.ticket .ticket-con .tick-con .tickL .tickStr{
+	margin-bottom: 15em;
+}
+.ticket .ticket-con .tick-notice{
+	padding:30em 40em;
+	margin-bottom: 30em;
+}
+.ticket .ticket-con .tick-notice h4{
+	text-align: center;
+	margin:30em 0;
+}
+
+

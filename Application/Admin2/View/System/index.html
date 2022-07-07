@@ -1,0 +1,201 @@
+<include file="Public:header" />
+
+
+<link rel="stylesheet" href="__COMMON__/js/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="__COMMON__/js/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="__COMMON__/js/kindeditor/lang/zh_CN.js"></script>
+<style>
+/*多图上传用到的一点css*/
+#J_imageView li{list-style:none;float:left;width: 105px; position:relative;}
+#J_imageView img{width: 95px; height: 95px; max-height:95px; margin-bottom:5px;margin-right:15px;}
+#J_imageView li a{position: absolute; top: 80px; left: 75px; width: 20px; line-height: 15px; text-align: center; display: block;  background: #ccc;  color: red; font-size: 14px; text-decoration:none;margin: 0;}
+.imagesInput{
+	width: 95px;
+	/*可以隐藏掉input框*/
+	display:none;
+}
+.form-horizontal input.setdate{width:115px;}
+</style>
+<script>
+var editor;
+KindEditor.ready(function(K) {
+	editor = K.editor({
+		uploadJson : '__ROOT__/plugin/editor/upload_json.php',
+		fileManagerJson : '__ROOT__/plugin/editor/file_manager_json.php',
+		allowFileManager : true,//			
+	});
+	
+});
+
+//缩略图
+KindEditor.ready(function(K) {
+	K('#image1').click(function() {
+		editor.loadPlugin('image', function() {
+			editor.plugin.imageDialog({
+				imageUrl : K('#url1').val(),
+				clickFn : function(url, title, width, height, border, align) {
+					K('#url1').val(url);
+					K('#thumbview').html('<img src="' + url + '">');
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+KindEditor.ready(function(K) {
+	K('#image2').click(function() {
+		editor.loadPlugin('image', function() {
+			editor.plugin.imageDialog({
+				imageUrl : K('#url2').val(),
+				clickFn : function(url, title, width, height, border, align) {
+					K('#url2').val(url);
+					K('#thumbview2').html('<img src="' + url + '">');
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+	
+
+
+</script>
+		
+<div id="content">
+	<div id="content-header">
+		<h1>系统配置</h1>
+	</div>
+	<div id="breadcrumb">
+		<a href="javascript:;" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+		<a href="javascript:;" class="current">系统配置</a>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon">
+							<i class="icon-align-justify"></i>									
+						</span>
+						
+					</div>
+					<div class="widget-content nopadding">
+						<form action="__ACTION__" method="post" class="form-horizontal myform" />
+						<input type="hidden" name="id" value="{$sys.id}">                                         
+						   <!--
+							<div class="control-group">
+								<label class="control-label">公司名称</label>
+								<div class="controls">
+									<input name="name" type="text" value="{$sys.name}" class="" />
+								</div>
+							</div>                                    
+							<div class="control-group">
+								<label class="control-label">400电话</label>
+								<div class="controls">
+									<input name="400tel" type="text" value="{$sys.400tel}" class="" />
+								</div>
+							</div>
+							
+							<div class="control-group">
+								<label class="control-label">电话</label>
+								<div class="controls">
+									<input name="tel" type="text" value="{$sys.tel}" class="" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">邮箱</label>
+								<div class="controls">
+									<input name="email" type="text" value="{$sys.email}" class="" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">地址</label>
+								<div class="controls">
+									<input name="address" type="text" value="{$sys.address}" class="" />
+								</div>
+							</div>									
+							<div class="control-group">
+								<label class="control-label">logo</label>
+								<div class="controls">
+								<div id="thumbview"></div>
+									<image src="{$sys.logo}"><br>
+									<input name="logo" type="text" id="url1" value="{$sys.logo}" /><br>
+									<input type="button" id="image1" value="选择图片" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">二维码</label>
+								<div class="controls">
+								<div id="thumbview2"></div>
+								   <image src="{$sys.erwei}"><br>
+									<input name="erwei" type="text" id="url2" value="{$sys.erwei}" /><br>
+									<input type="button" id="image2" value="选择图片" />
+								</div>
+							</div>
+						   -->	
+						   <div class="control-group">
+								<label class="control-label">报名年份</label>
+								<div class="controls">
+									<input name="exam_year" type="text" value="{$sys.exam_year}" onclick="WdatePicker({dateFmt:'yyyy'})" readonly class="setdate"/>
+									
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">确认考试时间</label>
+								<div class="controls">
+									<input name="confirm_start_date" type="text" value="{$sys.confirm_start_date}" onclick="WdatePicker({dateFmt:'yyyy.MM.dd HH:mm'})" readonly class="setdate"/>
+									&nbsp;&nbsp;至&nbsp;&nbsp;
+									<input name="confirm_end_date" type="text" value="{$sys.confirm_end_date}" onclick="WdatePicker({dateFmt:'yyyy.MM.dd HH:mm'})" readonly class="setdate" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">打印时间</label>
+								<div class="controls">
+									<input name="print_start_date" type="text" value="{$sys.print_start_date}" onclick="WdatePicker({dateFmt:'yyyy.MM.dd HH:mm'})" readonly class="setdate"/>
+									&nbsp;&nbsp;至&nbsp;&nbsp;
+									<input name="print_end_date" type="text" value="{$sys.print_end_date}" onclick="WdatePicker({dateFmt:'yyyy.MM.dd HH:mm'})" readonly class="setdate" />
+								</div>
+							</div>						   
+							<div class="control-group">
+								<label class="control-label">报名截止时间</label>
+								<div class="controls">
+									<input name="register_end_date" type="text" value="{$sys.register_end_date}" onclick="WdatePicker({dateFmt:'yyyy.MM.dd HH:mm'})" readonly />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">考试时间</label>
+								<div class="controls">
+									<input name="exam_date" type="text" value="{$sys.exam_date}" onclick="WdatePicker({dateFmt:'yyyy.MM.dd HH:mm'})" readonly />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">考试地点</label>
+								<div class="controls">
+									<input name="exam_address" type="text" value="{$sys.exam_address}" class="" />
+								</div>
+							</div> 							
+							<div class="form-actions">
+								<button type="button" class="save-btn btn btn-primary">保存</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script charset="utf-8" >
+$(document).ready(function(){
+	$('.save-btn').click(function(){
+		$.post('__ACTION__',$('.myform').serialize(),function(res){
+			if(res.status!=1) {
+				layer.msg(res.info, {icon: 2});
+				return false;
+			}
+			layer.msg('保存成功', {icon: 1});
+		});
+	});
+	
+});
+</script>
+<include file="Public:footer" />

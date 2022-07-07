@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>中青旅博汇人才招考系统</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Champion Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //for-mobile-apps -->
+	<!--<link href="/Public/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />-->
+	<link href="/Public/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link  rel="stylesheet" href="/Public/css/bootstrap.min.css">
+
+	<script src="/Public/js/jquery-1.11.1.min.js"></script>
+	<script src="/Public/js/bootstrap.min.js"></script>
+	<script src="/Public/js/jquery.js"></script>
+	<script src="/Public/js/jquery-migrate-1.1.1.js"></script>
+	<script src="/Public/js/script.js"></script>
+	<script src="/Public/js/jquery.equalheights.js"></script>
+	<!--<script src="/Public/js/superfish.js"></script>-->
+	<script  src="/Public/js/jquery.responsivemenu.js"></script>
+	<script  src="/Public/js/jquery.mobilemenu.js"></script>
+	<script  src="/Public/js/jquery.easing.1.3.js"></script>
+	<!--<script type="text/javascript" src="/Public/js/jquery.form.js"></script>-->
+	<script src="/Public/layer/layer.js"></script>
+
+	<!-- for-gallery-rotation -->
+	<script src="/Public/js/modernizr.custom.97074.js"></script>
+	<!-- //for-gallery-rotation -->
+
+
+	<!--<script type="text/javascript" src="/Public/js/jquery-1.9.1.min.js"></script>-->
+    <script type="text/javascript" src="/Public/js/jquery.form.js"></script>
+
+
+
+
+	<!-- start-smoth-scrolling -->
+	<!<script type="text/javascript" src="/Public/js/move-top.js"></script>
+	<script type="text/javascript" src="/Public/js/easing.js"></script>
+
+
+
+
+	<!-- start-smoth-scrolling -->
+	<link href="favicon.ico" rel="SHORTCUT ICON" />
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
+
+
+
+	<style>
+
+
+		ul.nav-tabs{
+
+			margin-top: 20px;
+			border-radius: 4px;
+			border: none;
+			box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+		}
+		ul.nav-tabs li{
+			margin: 0;
+
+		}
+		ul.nav-tabs li:first-child{
+			border-top: none;
+		}
+		ul.nav-tabs li a{
+			margin: 0;
+			padding: 8px 16px;
+			border-radius: 0;
+		}
+		ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+			color: #fff;
+			background: #0088cc;
+			border: 1px solid #0088cc;
+		}
+		ul.nav-tabs li:first-child a{
+			border-radius: 4px 4px 0 0;
+		}
+		ul.nav-tabs li:last-child a{
+			border-radius: 0 0 4px 4px;
+		}
+		ul.nav-tabs.affix{
+			top: 30px; /* Set the top position of pinned element */
+
+
+		}
+
+
+	.history-resume-left{
+		width: 19%;
+	}
+
+
+	.history-resume h3{
+			color: #2dcc70;
+			font-family: '黑体', cursive;
+			margin: 0;
+			font-size: 2em;
+			position: relative;
+			border: #2dcc71;
+	}
+	.history-resume h3:before{
+		display:none;
+	}
+	.history-resume h3 lead{
+		color:#bfbfbf;
+		margin-left:-20px;
+	}
+	.history-resume hr{
+	  border:0;border-top:1.5px solid #2dcc71
+	}
+	.resume{
+		margin-top: 4em;
+		width:100%
+
+
+
+	}
+	.resume h3{
+		margin-left:-1em;
+	}
+	.resume p{
+
+		background:none;!important;
+	}
+	.resume form{
+		width:50%;
+		margin:0 auto;
+	}
+	#file{
+		float:left;
+		color:#a2a2a2;
+		font-size: smaller;
+
+
+
+	}
+	#btn{
+		float:right;
+	}
+footer{
+	text-align: center;
+}
+
+
+
+
+	.file {
+		position: relative;
+		display: inline-block;
+		background: #5cb85c;
+		border: 1px solid #5cb85c;
+		border-radius: 4px;
+		padding: 4px 12px;
+		overflow: hidden;
+		color: #fff;
+		text-decoration: none;
+		text-indent: 0;
+		line-height: 20px;
+		font-size: 12px;
+	}
+	.file input {
+		position: absolute;
+		font-size: 100px;
+		right: 0;
+		top: 0;
+		opacity: 0;
+	}
+	.file:hover {
+		background: #4d9d4d;
+		border-color: #4d9d4d;
+		color: #fff;
+		text-decoration: none;
+	}
+	.history-right{
+		margin-top:30px;
+		margin:0 auto;
+		width:80%;
+	}
+	.h3{
+		color:#585858;
+		size: 16px;
+	}
+	.content{
+
+		margin-bottom:-30px;
+		padding-bottom: 0;
+		height:auto;
+		background:none;
+	}
+	.fix{
+
+		margin-top:4em;
+	}
+	.headine{
+		background-color: #dbdbdb;
+		color:#fff;
+		line-height: 38px;
+		margin-top:2em;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		overflow: hidden;
+	}
+	.headine h3{
+		background-color: #585858;
+		color: #fff;
+		width:25%;
+		padding:13px 30px;
+		font-size: 16px;
+		padding-left: 9%;
+		font-family: 微软雅黑;
+	}
+
+	@media (min-width: 992px){
+		.col-md-3 {
+			width: 19%;
+
+		}
+	}
+	@media (max-width: 480px){
+		.history-resume .history-resume-left h3{
+			display:none;
+		}
+		.history-resume .history-right p lead{
+			display:none;
+		}
+		.file{
+			padding: 2px 10px;
+			font-size: 10px;
+		}
+		footer{
+			display: none;
+		}
+
+	}
+	@media (max-width: 768px) {
+		.history-resume .history-resume-left h3{
+			display:none;
+		}
+		.history-resume .history-right p lead{
+			display:none;
+		}
+
+
+		.history-right {
+			margin:0 auto;
+			width:95%;
+
+		}
+
+		.resume form{
+			width:100%;
+		}
+
+		.headine{
+			background-color: #dbdbdb;
+			color:#fff;
+			line-height: 15px;
+			margin-top:2em;
+			margin-bottom: 0;
+			padding-bottom: 0;
+			overflow: hidden;
+			width: initial;
+		}
+		.headine h3{
+			background-color: #585858;
+			color: #fff;
+			width:42%;
+			padding:10px 5px;
+			font-size: 16px;
+			padding-left: 9%;
+			font-family: 微软雅黑;
+		}
+
+	}
+
+
+
+	</style>
+</head>
+<body>
+<style>
+	.logedAL{
+		width:150px;
+
+	}
+	.logedAL p{
+		display:inline;
+		line-height: normal;
+	}
+	.logAL{
+
+	}
+</style>
+<header>
+	<div class="container_12">
+		<div class="grid_12">
+			<h1><a href="/index.php?m=Home&c=Index&a=index"><img src="/Public/images/login/LOGO.PNG" width="200" alt="Prospect best opportunity to succeed"></a> </h1>
+			<div class="menu_block">
+				<nav>
+					<ul class="sf-menu">
+						<li><a href="/index.php?m=Home&c=Index&a=index">首页</a> <!-- <ul>
+							<li><a href="#">Lorem ipsum</a></li>
+
+							<li><a href="#">Corporis  </a>
+								&lt;!&ndash;<ul>
+									<li><a href="#">Ratione dicta</a></li>
+									<li><a href="#">Quaerat maiores</a></li>
+									<li><a href="#">Exercitationem</a></li>
+								</ul>&ndash;&gt;
+							</li>
+							<li><a href="#">Maiores ipsum</a></li>
+
+						</ul>--></li>
+						<li><a href="/index.php?m=Home&c=School&a=index">校园风采</a> </li>
+						<!--<li><a href="/index.php?m=Home&c=Contact&a=index">关于我们</a> </li>-->
+						<!--<li><a href="/index.php?m=Home&c=Resume&a=index">加入我们</a> </li>-->
+						<!--<li><a href="/index.php?m=Home&c=Projects&a=index">招生信息</a> </li>-->
+						<li><a href="/index.php?m=Home&c=News&a=index">新闻中心</a></li>
+						<li>
+							<div class="logAL">
+								<a href="/index.php?m=Home&c=Register&a=index">注册</a>
+								<a href="/index.php?m=Home&c=Login&a=index">登录</a>
+							</div>
+							<div class="logedAL">
+								<p></p>
+								<a href="/index.php?m=Home&c=Login&a=index" id="logOff">退出登录</a>
+							</div>
+						</li>
+
+						<!--<li><a href="##">Contacts</a> </li>-->
+						<li><a href="http://www.zyhzedu.com.cn/index.php?m=Admin2&c=Login&a=login">管理员登录</a></li>
+					</ul>
+				</nav>
+				<script src="/Public/js/jquery.cookie.js"></script>
+				<script>
+
+                   $('.menu_block li a').each(function(){
+                       if($($(this))[0].href==String(window.location))
+                           $(this).parent().addClass('current');
+                   });
+				   $(function () {
+				       var cookieUsername = $.cookie('username');
+				       if(cookieUsername == null ){
+                            $(".logAL").css('display','block');
+                            $(".logedAL").css('display','none');
+					   } else{
+                            $(".logAL").css('display','block');
+							$('.logedAL').find("p").html($.cookie('username'));
+							$(".logAL").css('display','none');
+					   }
+                   })
+					$(function () {
+                       $('#logOff').click(function () {
+                           $.cookie('username', null);
+                       })
+				   })
+
+				</script>
+				<div class="clear"></div>
+			</div>
+
+		</div>
+	</div>
+</header>
+
+	<!-- banner -->
+	<!--<div class="banner">
+		<div class="container">
+			<section class="slider">
+				<div class="flexslider">
+
+
+				</div>
+			</section>
+
+		</div>
+	</div>-->
+	<!-- //banner -->
+
+
+	<!--resume-->
+<div class="history-resume " data-spy="scroll" data-target="#myScrollspy">
+	<div class="container content">
+
+		<div class=" history-right" >
+			<div class="headine">
+				<h3 class="text-left">新闻内容</h3><i class=" icon-umbrella"></i>
+			</div>
+
+			<div class="resume">
+
+				<p class="h2 text-center"><b></b></p>
+				<p style="margin-top:2em;"></p>
+
+			</div>
+
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+	<!--end-resume-->
+<!--==============================footer=================================-->
+<div class="fix">
+<hr style="filter:alpha(opacity=100,finishopacity=0,style=1)" width="100%" color="#ccc" size="1" />
+<div class="container_12">
+	<div class="grid_12"><footer>
+		<div class="socials">
+			<a href="www.zyhzedu.com">衡中在线课堂</a><a href="http://www.hz2014.com/">衡水第一中学</a><a href="http://www.hbhz.net/">衡水中学</a>		</div>
+		<div class="copy">Copyright &copy; 2017.Company name All rights reserved.<a href="##">中青旅博汇人才招考系统</a></div></footer>
+
+
+
+	</div>
+</div>
+</div>
+</body>
+</html>

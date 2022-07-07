@@ -1,0 +1,93 @@
+<include file="Public:header" />
+		<div id="content">
+			<div id="content-header">
+				<h1>管理员管理</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+				<a href="{:U('admin/index')}" class="current">修改管理员</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-align-justify"></i>									
+								</span>
+								<h5>管理员信息修改...</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<form action="{:U('Admin/edit')}" method="post" class="form-horizontal" id="dosubmit" />
+									
+									<input type="hidden" name="id" value="{$id}" />               
+                                    <div class="control-group">
+                                        <label class="control-label">用户名</label>
+                                        <div class="controls">
+                                            <input name="username" type="text" value="{$username}"  />
+                                        </div>
+                                    </div>
+									
+									<div class="control-group">
+                                        <label class="control-label">密码</label>
+                                        <div class="controls">
+                                            <input name="password" type="password" value="" placeholder="******" />
+                                        </div>
+                                    </div>
+									
+									<div class="control-group">
+										<label class="control-label">所属角色</label>
+										<div class="controls">
+											<select name="role_id">
+												<option value="0">请选择角色</option>
+												<foreach name="roles" item="v">
+												<option <if condition="$v['id'] eq $role_id"> selected</if> value="{$v.id}">{$v.rolename}</option>
+												</foreach>
+	
+											</select>
+										</div>
+									</div>
+									<neq name="role_id" value="1">
+									<div class="control-group">
+										<label class="control-label">所属地区</label>
+										<div class="controls">
+											<select name="province" id="province" data-select="10">												
+											</select>
+											<select name="city" id="city" data-select="{$city}">
+												<option value="0">请选择市</option>		
+											</select>
+										</div>
+									</div>
+									</neq>
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary">Save</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row-fluid">
+					<div id="footer" class="span12">
+						2014 &copy; DODICMS, Update source by <a href="##">中青旅博汇人才招考系统</a>
+					</div>
+				</div>
+			</div>
+		</div>		
+<script src="__PUBLIC__/js/region.js"></script> 
+<script src="__PUBLIC__/js/select-city.js"></script> 
+<script>
+$(function(){
+	Region.init($('#province'),$('#city'));
+	$('#dosubmit').submit(function(){
+		var city = $('#city').val();		
+		if(typeof(city)== undefined || city==0){			
+			layer.msg('请选择市');			
+			return false;
+		}
+	});
+});
+</script> 
+   
+<include file="Public:footer" />

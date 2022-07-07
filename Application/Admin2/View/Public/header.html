@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>后台管理 - DODI互联网专家</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="__COMMON__/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="__COMMON__/css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="__COMMON__/css/colorpicker.css" />
+		<link rel="stylesheet" href="__COMMON__/css/datepicker.css" />
+		<link rel="stylesheet" href="__COMMON__/css/uniform.css" />
+		<!-- <link rel="stylesheet" href="__COMMON__/css/select2.css" /> -->
+		<link rel="stylesheet" href="__COMMON__/css/valiator.css" />
+		<link rel="stylesheet" href="__COMMON__/css/unicorn.main.css" />
+		<link rel="stylesheet" href="__COMMON__/css/unicorn.grey.css" class="skin-color" />
+		<style>
+			.select2-container .select2-choice{width:150px;}
+		</style>
+		<script src="__COMMON__/js/jquery.min.js"></script>
+		<script src="__COMMON__/js/My97DatePicker/WdatePicker.js"></script>
+		<script src="__PUBLIC__/layer/layer.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style>
+		#user-nav{
+			top:28px;
+		}
+	</style>
+	</head>
+	<body>
+		
+		
+		<div id="header">
+			<h1><a href="javascript:;">后台管理 - DODI互联网专家</a></h1>		
+		</div>
+		
+		<div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav btn-group">
+                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-user"></i> <span class="text">{$admin.username}, Welcome!</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="{:U('Home/Index/index')}" target="_blank"><i class="icon icon-home"></i> <span class="text">前台</span></a></li>
+				
+				<li class="btn btn-inverse"><a title="" href="{:U('user/index')}"><i class="icon icon-pencil"></i> <span class="text">密码修改</span></a></li>
+				<eq name="Think.session.admin.role_id" value="1">
+					<li class="btn btn-inverse"><a title="" href="javascript:clear_cache();"><i class="icon icon-pencil"></i> <span class="text">清除缓存</span></a></li>
+					<li class="btn btn-inverse"><a title="" href="javascript:clear_data();"><i class="icon icon-pencil"></i> <span class="text">清空数据</span></a></li>
+				</eq>		
+                <li class="btn btn-inverse"><a title="" href="{:U('Login/logout')}"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+            </ul>
+        </div>
+          <eq name="Think.session.admin.role_id" value="1">
+		<div id="sidebar">
+			<a href="#" class="visible-phone"><i class="icon icon-th-list"></i> Tables</a>
+			<ul>
+				<!--
+				<li><a href="{:U('Index/index')}"><i class="icon icon-home"></i> <span>后台首页</span></a></li>
+				-->
+				<volist name="menu_list" id="vo" >
+				<li class="submenu <if condition="isset($vo['current'])">active open</if>">
+					<a href="#"><i class="icon icon-th-list"></i> <span>{$vo.auth_name}</span> <span class="label"></span></a>
+					<ul>
+						<volist name="vo.son" id="son" >
+							<if condition="in_array($son['id'],$admin_roles) || $_SESSION['admin']['id'] eq 1">
+							<li><a href="{:U($son['auth_c'].'/'.$son['auth_a'])}">{$son.auth_name}</a></li>
+							</if>
+						</volist>
+					</ul>
+				</li>
+				</volist>
+			</ul>
+		
+		</div>
+		</eq>
+
+<script>
+function clear_cache(){
+	layer.load(1);
+	$.post('{:U("index/clearCache")}',function(res){
+		layer.closeAll('loading'); //关闭加载层
+		layer.msg('缓存清除成功',{icon:1});
+	});
+}
+function clear_data(){
+	layer.confirm('数据清空后不可恢复，确认清空吗？',function(index){		
+		layer.close(index);
+		layer.load(1);
+		$.post('{:U("index/clearData")}',function(res){
+			layer.closeAll('loading'); //关闭加载层
+			layer.msg('数据清空成功',{icon:1});			
+		});
+	});
+}
+</script>

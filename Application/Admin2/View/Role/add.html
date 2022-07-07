@@ -1,0 +1,76 @@
+<include file="Public:header" />
+		
+		<div id="content">
+			<div id="content-header">
+				<h1>角色管理</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+				<a href="#" class="current">角色管理</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-align-justify"></i>									
+								</span>
+								<h5>请选择角色对应的权限...</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<form action="" method="post" class="form-horizontal" onsubmit="return check_form()" />
+                                    <div class="control-group">
+                                        <label class="control-label">角色名</label>
+                                        <div class="controls">
+                                            <input name="rolename" type="text" id="name" value="" />
+                                        </div>
+                                    </div>
+									
+                                    <div class="control-group">
+                                        <label class="control-label">权限</label>
+                                        <div class="controls">
+                                            <foreach name="auth_all" item="vo">
+								               <h5><input type="checkbox" name="auth_ids[]" id="role{$vo.id}" value="{$vo.id}" onclick="choose({$vo.id})" /> {$vo.auth_name}</h5>
+								                <foreach name="vo.son" item="son">
+								                    <input type="checkbox" name="auth_ids[]" class="role{$vo.id}" value="{$son.id}" /> <span style="margin-right: 8px;">{$son.auth_name}</span>
+									                <foreach name="son.sonson" item="sonson">
+									                    <input type="checkbox" name="auth_ids[]" class="role{$vo.id}" value="{$sonson.id}" /> <span style="margin-right: 8px;">{$sonson.auth_name}</span>
+									                </foreach>
+								                </foreach>								                
+								            </foreach>
+                                        </div>
+                                        
+                                    </div>
+									<div class="form-actions">
+										<button type="submit" class="btn btn-primary">保存</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+<script>
+    function check_form(){
+        if($('#name').val()==''){
+           alert("请输入角色名");
+            return false;
+        }
+    }
+    function choose(id){
+        if($('#role'+id).attr('checked')=='checked'){
+            $('.role'+id).attr('checked','checked');
+            $('.role'+id).parent().addClass('checked');
+        }else{
+            $('.role'+id).attr('checked',false);
+            $('.role'+id).parent().removeClass('checked');
+        }
+    }
+
+</script>	
+            
+<include file="Public:footer" />

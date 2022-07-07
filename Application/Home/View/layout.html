@@ -1,0 +1,44 @@
+<!-- head -->
+<include file="_layout/header" />
+
+<body>
+	<div class="bodybody">
+
+			<!-- 头部 -->
+			<div class="">
+				<include file="_layout/top" />
+			</div>
+
+
+
+			<!-- 内容 -->
+			<div>
+				{__CONTENT__}
+			</div>
+			
+			<!-- 页脚 -->
+			<div>
+				<include file="_layout/footer" />
+			</div>
+
+	</div>
+
+
+	<!-- banner    Swiper JS -->
+	<script src="__PUBLIC__/js/swiper.min.js"></script>
+	<!-- Initialize Swiper -->
+	<script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false
+        });
+	</script>
+	<!-- banner结束    Swiper JS -->
+</body>
+</html>

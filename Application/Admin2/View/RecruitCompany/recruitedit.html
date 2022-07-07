@@ -1,0 +1,81 @@
+<include file="Public:header" />
+<style>
+.red-star{color:#ff0000;}
+</style>
+<div id="content">
+	<div id="content-header">
+		<h1>招聘信息</h1>
+	</div>
+	<div id="breadcrumb">
+		<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+		<a href="{:U('RecruitCompany/index')}">招聘信息</a>
+		<a href="#" class="current">编辑</a>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon">
+							<i class="icon-align-justify"></i>
+						</span>
+						<h5>编辑</h5>
+					</div>
+					<div class="widget-content nopadding">
+			<form action="__ACTION__" method="post" class="form-horizontal myform" />
+			<input type="hidden" name="id" value="{$info.id}">
+					<div class="control-group">
+						<label class="control-label">招聘科室</label>
+						<div class="controls">
+					<select name="company">
+					<foreach name="company" item="r" key="k">	
+						<option value="{$k}" <eq name="info['company']" value="$k">selected</eq>>{$r['name']}</option>
+					</foreach>	
+					</select>
+						</div>
+					</div>	
+					<div class="control-group">
+						<label class="control-label">招聘岗位</label>
+						<div class="controls">
+					<select name="job">
+					<foreach name="job" item="r" key="k">	
+						<option value="{$k}" <eq name="info['job']" value="$k">selected</eq>>{$r}</option>
+					</foreach>	
+					</select>
+						</div>
+					</div>						   
+					
+					<div class="control-group">
+						<label class="control-label">招聘人数</label>
+						<div class="controls">
+							<input name="num" type="text" value="{$info.num}" class="" /><span class="red-star">*人数不能为0</span>
+						</div>
+					</div>
+							<div class="form-actions">
+								<button type="button" class="btn btn-primary save-btn">保存</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	<include file="Public:copyright" />
+	</div>
+</div>
+<script charset="utf-8" >
+$(document).ready(function(){
+	$('.save-btn').click(function(){
+		$.post('__ACTION__',$('.myform').serialize(),function(res){
+			if(res.status!=1) {
+				layer.msg(res.info, {icon: 2});
+				return false;
+			}
+			layer.msg('保存成功', {icon: 1},function(){
+				location.href = res.url;
+			});
+		});
+	});
+	
+});
+</script>
+<include file="Public:footer" />

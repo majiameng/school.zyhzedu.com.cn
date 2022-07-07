@@ -1,0 +1,46 @@
+
+<div class="projects">
+        <div class="container projects-con">
+            <div class="agreement">
+                <div class="agreement-tit">
+                    <h3 style="text-align: center">
+                        石家庄工程职业学院2022年系统业务操作岗位
+                    </h3>
+                    <h3 style="text-align: center">聘用制员工资格审查通知</h3>
+                </div>
+				<?php 
+					$start = strtotime($notice['start_time']);
+					$weeklist = array('周日','周一','周二','周三','周四','周五','周六',);
+					$week = date('w',$start);
+					$noon = array('am'=>'上午','pm'=>'下午',);
+					$n = date('a',$start);
+				?>
+                <div class="agreement-con">
+                    <h4>现场资格审查时间：</h4><p class="fo-fo">{$start|date='Y年m月d日',###}  （{$weeklist[$week]}） {$noon[$n]}{$start|date="H:i",###}-{$notice.end_time|strtotime|date="H:i",###}</p>
+                    <!-- <p class="fo-fo">{$noon[$n]}{$start|date="H:i",###}-{$notice.end_time|strtotime|date="H:i",###}审查报考石家庄机关文电综合岗、守库押运岗的考生。</p> -->
+
+                    <p class="fo-fo">地点：{$notice.address}</p>
+
+                    <p>现场资格审查须携带材料：身份证、毕业证书、学位证书（本科及以上）及《报名表》中填写的其他证书原件，若考生为军队转业干部或退役士兵的还应携带转业证或退伍证，国外大学毕业生还应提供教育部相关部门的学历认证材料。同时收集上述材料的复印件及考生本人签字后的《报名表》原件，并向现场资格审查通过的考生发放准考证。</p>
+                    <h4>考生个人材料整理顺序为：</h4>
+                    <p class="fo-2">（1）考生本人签字的《报名表》；</p>
+                    <p class="fo-2">（2）身份证复印件；</p>
+                    <p class="fo-2">（3）毕业证书复印件；</p>
+                    <p class="fo-2">（4）学位证书复印件（本科及以上）；</p>
+                    <p class="fo-2">（5）转业证或退伍证（军队转业干部或退役士兵）；</p>
+                    <p class="fo-2">（6）教育部相关部门的学历认证材料（出国留学人员）；</p>
+                    <p class="fo-2">（7）其他。</p>
+                    <h4>注意事项:</h4>
+                        <p class="fo-2">1.考生凭身份证参加现场资格审查，家长及无关人员不得入内。资格审查必须考生本人亲自到场，不得委托他人代为进行，凡未进行和未通过资格审查的一律不得参加笔试。</p>
+                        <p class="fo-2">2.上述各类应携带的证件、证明材料必须提供原件。</p>
+                        <p class="fo-2">3.考生未在规定时间参加现场资格审查的视为放弃笔试资格。</p>
+
+                    <p>联系电话： 0311-87938585；15131123063；0311-87938129；13780309604。</p>
+                    <p style="text-align: right"><?php echo date('Y年m月d日');?> </p>
+                </div>
+
+
+        </div>
+        </div>
+
+</div>

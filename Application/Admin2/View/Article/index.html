@@ -1,0 +1,113 @@
+<include file="Public:header" />
+
+<style>.move_cat{display:inline-block}</style><script>
+
+function moveto(){
+	$('.move_cat').toggle();
+}
+$(document).ready(function(){
+	$(".cat_id").change(function(){
+		$("#searchform").submit();
+	})				   
+})
+</script>
+<div id="content">
+    <div id="content-header">
+        <h1>文章管理</h1>
+    </div>
+    <div id="breadcrumb">
+        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+        <a href="#" class="current">文章列表</a>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+            
+            	<form class="well form-search" method="get" action="__URL__" id="searchform">
+					  <input type="hidden" name="a" value="index" />
+					<span>分类： 
+						<select name="cat_id" class="cat_id">
+							<option value='0'>全部</option>
+							{$cat_option}
+						</select> &nbsp;&nbsp;
+						时间：
+						<input type="text" name="start_time" value="{$formget.start_time}" style="width: 80px;" readonly onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})">-
+						<input type="text" name="end_time" value="{$formget.end_time}" style="width: 80px;" readonly onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"> &nbsp; &nbsp;
+						关键字： 
+						<input type="text" name="keyword" style="width: 200px;" value="{$formget.keyword}" placeholder="请输入关键字...">
+                      
+						<input type="submit" class="btn btn-primary" value="搜索" />
+					</span>
+						
+				</form>
+                <div class="widget-box">
+                <form action="{:U('Article/listorders')}" method="post">                
+                    <div class="widget-title">
+								<span class="icon">
+									<input type="checkbox" id="title-checkbox" name="title-checkbox" />
+								</span>
+                        <h5>文章列表</h5>
+                    </div>
+                    
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped with-check">
+                            <thead>
+                            <tr>
+                                <th><i class="icon-resize-vertical"></i></th>
+                                <th>排序</th>
+                                <th>标题</th>
+                                <th>副标题</th>
+                                <th>分类</th>
+                                <th>发布时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="articles" id="vo">
+                                <tr <if condition="$i%2 eq 0"> class="odd"</if>>
+                                <td><input type="checkbox" name="ids[]" value="{$vo.id}" title="ID:{$vo.id}"/></td>
+                                <td><input name="listorders[{$vo.id}]" style="width:25px;line-height: 20px; margin:0;padding:0;padding-left:5px;" 
+								type="text" value="{$vo.listorder}" title="ID:{$vo.id}"></td>
+                              
+                                <td>{$vo.title}</td>
+                                <td>{$vo.sub_title}</td>
+                                <td>{$cates[$vo['category_id']]}</td>
+								<td>{$vo.create_time|date="Y-m-d H:i",###}</td>
+                                <td class="center">
+                                    <a href="{:U('Article/edit',array('id'=>$vo['id']))}" class="btn btn-primary btn-mini">修改</a>
+                                    <a href="{:U('Article/del',array('id'=>$vo['id']))}" class="btn btn-danger btn-mini del">删除</a>
+                                </td>
+                                </tr>
+                            </volist>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="widget-title">
+								<span class="icon">
+									<input type="checkbox" id="title-checkbox" name="title-checkbox" />
+								</span>
+                        <h5 style="padding-top:5px;"><input class="btn btn-primary btn-small" type="submit"  onclick="javascript:this.form.action='{:U('Article/listorder')}';"  value="排序" />
+	                        <!--<input class="btn btn-primary btn-small del" type="submit"  onclick="javascript:this.form.action='{:U('Article/del')}';"  value="批量删除" />-->
+							</h5>
+                    </div>
+                    <div class="widget-bottom">
+                        <div class="dataTables_filter">
+	                        
+	                    </div>
+                        <div class="dataTables_paginate">
+                            {$pages}                           
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div id="footer" class="span12">
+                2014 &copy; DODICMS, Update source by <a href="##">中青旅博汇人才招考系统</a>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public:footer" />

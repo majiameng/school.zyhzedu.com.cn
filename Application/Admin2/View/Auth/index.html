@@ -1,0 +1,107 @@
+<include file="Public:header" />
+		<div id="content">
+			<div id="content-header">
+				<h1>管理员管理</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+				<a href="#" class="current">权限管理</a>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+					<div class="well">
+						<a href="{:U('Auth/add')}" class="btn btn-primary">添加权限</a>
+					</div>
+						<div class="widget-box">
+							<div class="widget-title">
+								<h5>Static table with checkboxes in box with padding</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<table class="table table-bordered table-striped with-check">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>菜单名称</th>
+											<th>控制器</th>
+											<th>方法</th>
+											<th>是否显示</th>
+                                            <th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										<foreach name="auth_all" item="vo">
+										<tr>
+											<td width="5%">{$vo.id}</td>
+											<td width="45%" align="left" style="text-align:left;padding-left:20px;">
+											<if condition="!empty($vo['son'])">
+											<span onclick="xianshi({$vo.id})" style="text-align:left;padding-right:15px;">▼</span>
+											<else />
+											<span onclick="xianshi({$vo.id})" style="text-align:left;padding-right:15px;">　</span></if>
+											{$vo.auth_name}</td>
+											<td>{$vo.auth_c}</td>
+											<td>{$vo.auth_a}</td>											
+											<td>{$auth_status[$vo[is_show]]}</td>
+											<td class="center">
+												<a href="{:U('Auth/add',array('pid'=>$vo['id']))}" class="btn btn-primary btn-mini">添加子权限</a>
+												<a href="{:U('Auth/edit',array('id'=>$vo['id']))}" class="btn btn-primary btn-mini">修改</a>
+												<a href="{:U('Auth/del',array('id'=>$vo['id']))}" class="btn btn-danger btn-mini">删除</a>
+											</td>
+										</tr>
+											<foreach name="vo.son" item="son">
+										    <tr class="son{$vo.id}" style="display:none">
+												<td>{$son.id}</td>
+												<td align="left" style="text-align:left;padding-left:30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<if condition="!empty($son['sonson'])"><span onclick="xianshi('son{$son.id}')" style="text-align:left;padding-right:15px;">▼</span><else /><span onclick="xianshi('son{$son.id}')" style="text-align:left;padding-right:15px;">　</span></if>{$son.auth_name}</td>
+												<td>{$son.auth_c}</td>
+												<td>{$son.auth_a}</td>
+												<td>{$auth_status[$son[is_show]]}</td>
+												<td class="center">
+													<a href="{:U('Auth/add',array('pid'=>$son['id']))}" class="btn btn-primary btn-mini">添加子权限</a>
+													<a href="{:U('Auth/edit',array('id'=>$son['id']))}" class="btn btn-primary btn-mini">修改</a>
+													<a href="{:U('Auth/del',array('id'=>$son['id']))}" class="btn btn-danger btn-mini">删除</a>
+												</td>
+											</tr>
+												<foreach name="son.sonson" item="sonson">
+											    <tr class="sonson{$son.id}" style="display:none">
+													<td>{$sonson.id}</td>
+													<td align="left" style="text-align:left;padding-left:90px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sonson.auth_name}</td>
+													<td>{$sonson.auth_c}</td>
+													<td>{$sonson.auth_a}</td>
+													<td>{$auth_status[$sonson[is_show]]}</td>
+													<td class="center">
+														<a href="{:U('Auth/add',array('pid'=>$sonson['id']))}" class="btn btn-primary btn-mini">添加子权限</a>
+														<a href="{:U('Auth/edit',array('id'=>$sonson['id']))}" class="btn btn-primary btn-mini">修改</a>
+														<a href="{:U('Auth/del',array('id'=>$sonson['id']))}" class="btn btn-danger btn-mini">删除</a>
+													</td>
+												</tr>
+										        </foreach>
+									        </foreach>
+										</foreach>
+										
+									</tbody>
+								</table>
+								<script>
+								
+								function xianshi(id){
+									$('.son'+id).toggle();
+								}
+								</script>
+							</div>
+							<div class="widget-bottom">
+								<div class="dataTables_filter"><label>Search: <input type="text" aria-controls="DataTables_Table_0"></label></div>
+								<div class="dataTables_paginate">									
+																		
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row-fluid">
+					<div id="footer" class="span12">
+						2014 &copy; DODICMS, Update source by <a href="##">中青旅博汇人才招考系统</a>
+					</div>
+				</div>
+			</div>
+		</div>
+<include file="Public:footer" />

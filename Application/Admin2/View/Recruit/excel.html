@@ -1,0 +1,43 @@
+<?php
+	$base 	= $info['base'];
+	$edu 	= $info['edu'];
+	$work 	= $info['work'];
+	$family = $info['family'];
+	$skill  = $info['skill'];
+	$domain = 'http://' . I("server.HTTP_HOST");
+?>
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--[if gte mso 9]-->
+<xml>
+     <x:ExcelWorkbook>
+        <x:ExcelWorksheets>
+            <x:ExcelWorksheet>
+                <x:Name>sheet1</x:Name>
+                <x:WorksheetOptions>
+                      <x:Print>
+                          <x:ValidPrinterInfo />
+                      </x:Print>
+                </x:WorksheetOptions>
+            </x:ExcelWorksheet>
+         </x:ExcelWorksheets>
+     </x:ExcelWorkbook>
+</xml>
+<!--[endif]-->
+</head>
+<body>
+<div class="projects">
+	<div class="container projects-con">
+		<!--打印-->
+		<div class="personal noprint" style="text-align:center;">
+			<input type="button" class="printBtn" onclick="window.print()" value="打印">
+		</div>
+		<br/>
+		<include file="excel-table" />
+	</div>
+</div>
+</body></html>

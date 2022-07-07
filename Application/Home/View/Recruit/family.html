@@ -1,0 +1,104 @@
+<if condition="!isset($family)">
+<div class="blist">
+	<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>成员关系<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control" name="family[relation][]" id="family_relation" placeholder="如:父女" type="text" required >
+	</div>
+	
+	<label class="col-md-2 col-xs-12 control-label"><p>姓名<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control" name="family[name][]" id="family_name" type="text" required>
+	</div>
+	
+</div>
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>工作单位<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control" name="family[work_place][]" id="family_work_place" type="text" required>
+	</div>
+	
+	<label class="col-md-2 col-xs-12 control-label"><p>职务<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control" name="family[job][]" id="family_job" type="text" required>
+	</div>
+	
+</div>
+	<div class="col-md-1 hrsn"></div>
+	<div class="col-xs-10 hr"></div>
+	<div class="col-md-1 hrsn"></div>
+</div>
+</if>
+
+<div class="blist" style="display:none;">
+	<div class="col-md-12 btn-del">
+		<a class="glyphicon glyphicon-remove btn form-control-feedback"></a>
+	</div>
+	<div class="col-xs-12 form-group">
+		<label class="col-md-2 col-xs-12 control-label"><p>成员关系<span class="required">*</span></p></label>
+		<div class="col-md-3 col-xs-12">
+			<input class="form-control" name="family[relation][]" placeholder="如:父女" type="text" required>
+		</div>
+		<label class="col-md-2 col-xs-12 control-label"><p>姓名<span class="required">*</span></p></label>
+		<div class="col-md-3 col-xs-12">
+			<input class="form-control" name="family[name][]" type="text" required>
+		</div>
+	</div>
+	<div class="col-xs-12 form-group">
+		<label class="col-md-2 col-xs-12 control-label"><p>工作单位<span class="required">*</span></p></label>
+		<div class="col-md-3 col-xs-12">
+			<input class="form-control" name="family[work_place][]" type="text" required>
+		</div>
+		<label class="col-md-2 col-xs-12 control-label"><p>职务<span class="required">*</span></p></label>
+		<div class="col-md-3 col-xs-12">
+			<input class="form-control" name="family[job][]" type="text" required>
+		</div>	
+	</div>
+	<div class="col-md-1 hrsn"></div>
+	<div class="col-xs-10 hr"></div>
+	<div class="col-md-1 hrsn"></div>
+</div>
+<div class="col-md-12" style="text-align:center;margin-top:20px;">
+	<input class="btn btn-primary btn-add" value="新增" type="button">
+</div>
+<style>
+.blist .full_time input{float:none;}
+.blist .btn-del {
+margin-bottom: 15px; height: 30px;
+}
+.blist .btn-del a{
+pointer-events: auto; color: red;margin-right: 130px
+}
+</style>
+<script>
+$(function(){	
+	var m = 20;
+	$('.btn-add').each(function(){
+		var obj = $(this).parent();
+		var target = $(this),str = obj.prev('.blist').html();
+		$(this).click(function(){	
+			var len = $('.blist','.profamily').length;
+			if(len >=7){
+				layer.msg('最多可以填六位家庭成员',{icon:2});
+				return false;
+			}		
+			obj.before('<div class="blist">'+str+'</div>');			
+			var t = obj.prev('.blist').find('input').each(function(){
+				$(this).prop('id',$(this).prop('id')+'_'+m);
+				$(this).prop('name',$(this).prop('name').replace('[]','['+m+']'));
+			});
+			var t = obj.prev('.blist').find('select').each(function(){
+				$(this).prop('id',$(this).prop('id')+'_'+m);
+				$(this).prop('name',$(this).prop('name').replace('[]','['+m+']'));
+			});
+			
+			m++;
+		});		
+	});
+	$('.projects-con').on('click','.btn-del a',function(){
+		$(this).closest('.blist').fadeOut('slow',function(){
+			$(this).remove();
+		});
+	});
+});
+</script>

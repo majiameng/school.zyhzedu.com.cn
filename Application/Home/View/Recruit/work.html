@@ -1,0 +1,78 @@
+<if condition="!isset($work)">
+<div class="blist">
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>工作单位(或服役部队)<span class="required">*</span></p></label>
+	<div class="col-md-9 col-xs-12">
+		<input class="form-control" name="work[company][]" id="work_company" type="text" required>
+	</div>
+	
+</div>
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>岗位和职务<span class="required">*</span></p></label>
+	<div class="col-md-9 col-xs-12">
+		<input class="form-control" name="work[job][]" id="work_job" type="text" required>
+	</div>
+	
+</div>
+
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>入职日期</p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control dateselect" name="work[start_time][]" id="work_start_time" type="text" readonly>
+	</div>
+	
+	<label class="col-md-2 col-xs-12 control-label"><p>离职时间</p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control dateselect" name="work[end_time][]" id="work_end_time" type="text" readonly>
+	</div>
+	
+</div>
+
+<div class="col-md-12">
+	<div class="col-md-1 hrsn"></div>
+	<div class="col-xs-10 hr"></div>
+	<div class="col-md-1 hrsn"></div>
+</div>
+</div>
+</if>
+<div class="blist" style="display:none;">
+	<div class="col-md-12 btn-del">
+		<a class="glyphicon glyphicon-remove btn form-control-feedback"></a>
+	</div>
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>工作单位(或服役部队)<span class="required">*</span></p></label>
+	<div class="col-md-9 col-xs-12">
+		<input class="form-control" name="work[company][]" type="text" required>
+	</div>
+	
+</div>
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>岗位和职务<span class="required">*</span></p></label>
+	<div class="col-md-9 col-xs-12">
+		<input class="form-control" name="work[job][]" type="text" required>
+	</div>
+	
+</div>
+
+<div class="col-xs-12 form-group">
+	<label class="col-md-2 col-xs-12 control-label"><p>入职日期<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control dateselect" name="work[start_time][]" type="text" readonly>
+	</div>
+	
+	<label class="col-md-2 col-xs-12 control-label"><p>离职时间<span class="required">*</span></p></label>
+	<div class="col-md-3 col-xs-12">
+		<input class="form-control dateselect" name="work[end_time][]" type="text" readonly>
+	</div>
+	
+</div>
+
+<div class="col-md-12">
+	<div class="col-md-1 hrsn"></div>
+	<div class="col-xs-10 hr"></div>
+	<div class="col-md-1 hrsn"></div>
+</div>
+</div>
+<div class="col-md-12" style="text-align:center;margin-top:20px;">
+	<input class="btn btn-primary btn-add" value="新增" type="button">
+</div>

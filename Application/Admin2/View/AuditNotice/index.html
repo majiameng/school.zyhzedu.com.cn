@@ -1,0 +1,102 @@
+<include file="Public:header" />
+<div id="content">
+    <div id="content-header">
+        <h1>核审通知</h1>
+    </div>
+    <div id="breadcrumb">
+        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 后台首页</a>
+        <a href="#" class="current">通知列表</a>
+    </div>
+<script src="__PUBLIC__/js/region.js"></script> 
+<script src="__PUBLIC__/js/select-city.js"></script> 
+<script>
+$(function(){
+Region.listCity(10,$('#city'));
+});
+</script>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+				<!--
+				<div class="well">					
+					<a href="{:U('AuditNotice/add')}" class="btn btn-primary">添加</a>
+				</div>
+				-->
+				<form class="well form-search" method="get" action="__ACTION__" id="searchform">
+					<a href="{:U('AuditNotice/add')}" class="btn btn-primary">添加</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					地区：<select name="city" id="city" data-select="{$Think.get.city}"></select>	
+						<input type="submit" class="btn btn-success" value="查询">
+				</form>
+                <div class="widget-box">
+                    <form method="post" action="{:U('AuditNotice/index')}">
+                    <div class="widget-content nopadding">
+                        <style>.pleft{ text-align:left;}</style>
+                        <table class="table table-bordered table-striped with-check">
+                            <thead>
+                            <tr>
+								<td>
+								<span class="icon">
+								<input type="checkbox" id="title-checkbox" >
+								</span>
+								</td>
+                                <th>时间</th>
+                                <th>地点</th>
+                                <th>地区</th>
+                                <th>操作</th>
+                               <!--
+							    <th>岗位</th>
+                                <th>职位</th>
+							   -->
+                            </tr>
+                            </thead>
+                            <tbody>
+							<foreach name="list" item="r">
+                             <tr>
+								<td>
+								<input type="checkbox" name="id[]" value="{$r.id}">
+								</td>
+                                <td>{$r.start_time} 至 {$r.end_time}</td>
+                                <td>{$r.address}</td>
+                                <td>{$region[$r['city']]['region_name']}</td>
+                                <td>
+								<a class="btn btn-primary btn-small" href="{:U('AuditNotice/edit','id='.$r[id])}">修改</a>
+								
+								<a class="btn btn-primary btn-small" href="{:U('AuditNotice/del','id='.$r[id])}">删除</a>
+								</td>
+                               <!--
+							    <td>岗位</td>
+                                <td>职位</td>
+							   -->
+                            </tr>
+							</foreach>
+                            </tbody>
+                        </table>
+                    </div>
+					<div class="widget-title">
+						<span class="icon">							
+							<input type="checkbox" id="title-checkbox">
+						</span>
+						<h5 style="padding-top:5px;">
+	                        <input class="btn btn-primary btn-small del" type="submit" onclick="javascript:this.form.action='{:U('AuditNotice/del')}';" value="批量删除">
+							
+						</h5>
+					</div>
+					</form>
+                    <div class="widget-bottom">
+                        <div class="dataTables_paginate">
+                            {$pages}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div id="footer" class="span12">
+                内容版权 by 中国人民银行石家庄中心支行 2017
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public:footer" />

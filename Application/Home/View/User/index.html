@@ -1,0 +1,70 @@
+
+<div class="container personal">
+    <div class="per-left">
+        <div class="per-tou">
+            <div class="per-tou-img">
+                <img src="__PUBLIC__/images/personal/touxiang.png" class="img-responsive">
+            </div>
+            <p>我是{$Think.session.user.username}</p>
+        </div>
+		<include file="menu"/>
+    </div>
+
+    <div class="per-right ">
+        <div class="per-code">
+            <h4>成绩公布</h4>
+
+            <?php if(empty($resume)):?>
+            <p>您还没有报名，暂无成绩</p>
+            <?php else:?>
+
+                <div class="per-code-con">
+                    <div class="code-left">
+                        <p>个人考试成绩</p>
+                    </div>
+                    <div class="code-right">
+
+                        <div class="code-top">
+                            <p>笔试成绩 ：</p><input value='<?php if($achievement["written_achievement"] > 0):?>{$achievement.written_achievement} 分<?php else:?><?php if($achievement["is_free"] == 1):?>免试<?php else:?>{$achievement.written_achievement} 分<?php endif;?><?php endif;?>' onfocus="this.blur();">
+                        </div>
+                        <div class="code-bom">
+                            <div class="code-bom-left" >
+                                <p>面试成绩&nbsp;：</p><input value="{$achievement.interview_achievement} 分" onfocus="this.blur();">
+                            </div>
+                            <div class="code-bom-right">
+                                <p>最终成绩 ：</p><input value="{$achievement.achievement} 分" onfocus="this.blur();">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            <?php endif;?>
+
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/layer/layer.js"></script>
+<script src="__PUBLIC__/js/jquery.form.js"></script>
+<script src="__PUBLIC__/js/jquery.validate.js"></script>
+<script src="__PUBLIC__/js/main.js"></script>
+<script src="__PUBLIC__/js/user-valiate.js?v=20170819"></script>
+<script src="__PUBLIC__/js/jquery.placeholder.min.js?v=698"></script>
+<script type="text/javascript">
+$(function(){ $('input').placeholder(); });
+</script>
+<style>
+.pwdtip{color: red; display: inline;padding-left: 15px;}
+.easytip{
+text-align: left; position: relative; left:30px; top: 8px;z-index:7770;
+}
+.easytip-text{
+	text-align: left;padding: 10px;min-width: 120px;color: #fff;background-color: #6699cc;border: 1px solid #6699cc;border-radius: 5px;
+}
+.easytip-arrow{
+padding: 0px; margin: 0px; width: 0px; height: 0px; position: absolute; border-width: 10px; border-style: solid; border-image: initial; border-color: transparent #6699cc transparent transparent; left: -20px; top: 11.5px;
+}
+
+</style>
+
+
