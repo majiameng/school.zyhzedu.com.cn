@@ -60,7 +60,7 @@ class UserController extends PublicController{
         if($resume['status'] != 1){
             $this->error("您报名信息正在审核，请先查看审核结果！");
         }
-        if(strtotime('2022-04-20 12:00:00') < NOW_TIME){
+        if(strtotime('2022-07-31 12:00:00') < NOW_TIME){
             $this->error("报名时间已过，不能进行缴费（如有疑问请联系管理员）！");
         }
 
