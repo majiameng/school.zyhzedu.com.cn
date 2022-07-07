@@ -1,0 +1,90 @@
+{__NOLAYOUT__}
+<!-- head -->
+<include file="_layout/header" />
+
+<body>
+
+<link  rel="stylesheet" media="screen" href="/Public/css/bootstrap.css">
+<link  rel="stylesheet" media="screen" href="/Public/css/site.css">
+<link  rel="stylesheet" media="screen" href="/Public/css/font-awesome.min.css">
+<link  rel="stylesheet" media="screen" href="/Public/css/swiper.min.css">
+<link rel="stylesheet" href="/Public/css/print.css" media="print" />
+
+<div class="ticket">
+
+	<div class="personal noprint" style="text-align:center;">
+		<input type="submit" class="saveBtn" onClick="window.print()" value="打印">
+		<!-- <input type="submit" class="saveBtn" id="down-pdf" value="下载"> -->
+	</div>
+    <div class="container">
+	<foreach name="list" item="r">
+        <div class="ticket-con">
+            <div class="tick-tit">
+                <h4>笔试准考证</h4>
+            </div>
+            <div class="tick-con">
+                <div class="tickL">
+                    <div class="tickStr">
+                        <p>考生姓名 :</p>
+                        <h5>{$r.name}</h5>
+                    </div>
+                    <div class="tickStr">
+                        <p>系部名称 :</p>
+                        <h5>{$unit[$r[unit]][name]}</h5>
+                    </div>
+                    <div class="tickStr">
+                        <p>报考岗位 :</p>
+                        <h5>{$job[$r[job]]}</h5>
+                    </div>
+                    <div class="tickStr">
+                        <p>准考证号 :</p>
+                        <h5>{$r.no}</h5>
+                    </div>
+                    <div class="tickStr">
+                        <p>身份证号 :</p>
+                        <h5>{$r.card}</h5>
+                    </div>
+
+                    <div class="tickStr">
+                        <p>考试时间 :</p>
+                      <!--  <h5>{$config['exam_date']}</h5>-->
+                       <!-- <h5>{:L('EXAM_DATE')}</h5>-->
+                      <h5>2020年9月26日 9:30-11:00</h5>
+                    </div>
+					<div class="tickStr">
+                        <p>考试地点 :</p>
+                        <h5>{$config['exam_address']}</h5>
+                    </div>
+					<div class="tickStr">
+                        <p>考&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;场 :</p>
+                        <h5>{$r.exam_no}</h5>
+                    </div>
+                </div>
+                <div class="tickR">
+                    <img src="/{$r.avatar}" class="img-responsive" width="100"  id=""/>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+            <div class="tick-notice">
+                <h4>注&nbsp;&nbsp;意:</h4>
+                <p>1、考试人员应持准考证、有效身份证、阴性核酸检测报告进入考场，上述证件不全者不得参加考试。</p>
+                <p>2、考试人员不得携带移动通讯工具以及计算器、电子词典等电子设备入场。</p>
+                <p>3、考试需准备2B铅笔、橡皮、黑（蓝）墨水钢笔或签字笔。</p>
+              <p>4、考生需自备口罩，且进入考点和考试全程佩戴口罩。</p>
+            </div>
+        </div>
+		<if condition=" $k neq count($list)-1">
+			<div class="PageNext"></div>
+			<span class='noprint'><br/></span>
+		</if>
+
+	</foreach>
+    </div>
+	
+</div>
+<style media='print'>     
+.noprint{display : none }     
+.PageNext{page-break-after: always;}     
+</style>
+</body>
