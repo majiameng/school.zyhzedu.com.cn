@@ -1,5 +1,9 @@
 <?php
-$site_name = '中青旅博汇人才招考系统';
+$name = '中青旅博汇人才招考系统';
+$site_name = '石家庄工程职业学院';
+$site_title = '石家庄工程职业学院2022年暑期教师公开招聘';
+$site_name_pref = 'gczy';
+
 $dbConfig = [
     'DB_HOST'   => '127.0.0.1', // 服务器地址
     'DB_NAME'   => 'gczyxy_zyhzedu', // 数据库名
@@ -15,7 +19,7 @@ $dbConfig = [
     'DATA_CACHE_TIMEOUT'	=>'3000',//超时时间
     'REDIS_PERSISTENT'		=>false,//是否长连接 false=短连接
     'REDIS_AUTH'			=>'wending123a@ABC',//AUTH认证密码
-    'REDIS_PREF' 			=> 'hpyy:', //redis 前缀
+    'REDIS_PREF' 			=> $site_name_pref.':', //redis 前缀
 ];
 
 $config = array(
@@ -25,10 +29,10 @@ $config = array(
     'DB_DEBUG'  		=>  false, // 数据库调试模式 开启后可以记录SQL日志
     'DB_FIELDS_CACHE'   =>  true,        // 启用字段缓存
 
-    'SITE_NAME'   =>  $site_name,
-    'SITE_KEYWORDS'   =>  $site_name,
-    'SITE_DESCRIPTION'   =>  $site_name,
-    'FOOTER_SITE_NAME'   =>  $site_name,
+    'SITE_NAME'   =>  $name,
+    'SITE_KEYWORDS'   =>  $name,
+    'SITE_DESCRIPTION'   =>  $name,
+    'FOOTER_SITE_NAME'   =>  $name,
 
     /* URL设置 */
     'URL_CASE_INSENSITIVE'  =>  true,   // 默认false 表示URL区分大小写 true则表示不区分大小写
