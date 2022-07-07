@@ -7,6 +7,13 @@ $site_title = '石家庄工程职业学院2022年暑期教师公开招聘';
 $site_name_pref = 'gczy';
 
 $dbConfig = [
+    'NAME'   =>  $name,
+    'SITE_KEYWORDS'   =>  $name,
+    'SITE_DESCRIPTION'   =>  $name,
+    'FOOTER_NAME'   =>  $name,
+    'SITE_NAME'   =>  $site_name,
+    'SITE_TITLE'   =>  $site_title,
+
     'DB_HOST'   => '127.0.0.1', // 服务器地址
     'DB_NAME'   => 'gczyxy_zyhzedu', // 数据库名
     'DB_USER'   => 'gczyxy_zyhzedu', // 用户名

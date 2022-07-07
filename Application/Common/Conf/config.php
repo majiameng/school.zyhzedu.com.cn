@@ -8,12 +8,6 @@ $config = array(
     'DB_DEBUG'  		=>  false, // 数据库调试模式 开启后可以记录SQL日志
     'DB_FIELDS_CACHE'   =>  true,        // 启用字段缓存
 
-    'NAME'   =>  $name,
-    'SITE_KEYWORDS'   =>  $name,
-    'SITE_DESCRIPTION'   =>  $name,
-    'FOOTER_NAME'   =>  $name,
-    'SITE_NAME'   =>  $site_name,
-    'SITE_TITLE'   =>  $site_title,
 
     /* URL设置 */
     'URL_CASE_INSENSITIVE'  =>  true,   // 默认false 表示URL区分大小写 true则表示不区分大小写
