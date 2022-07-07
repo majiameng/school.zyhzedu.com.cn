@@ -2,7 +2,7 @@
 namespace Admin2\Controller;
 use Think\Controller;
 class RecruitController extends AdminBaseController {
-    public $api_url = "http://pay.zyhzedu.com.cn/index.php";
+    public $api_url = "http://payment.zyhzedu.com.cn/index.php";
 
     protected $model;
 	

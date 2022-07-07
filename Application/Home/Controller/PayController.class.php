@@ -2,7 +2,7 @@
 namespace Home\Controller;
 class PayController extends PublicController {
 
-    public $api_url = "http://pay.zyhzedu.com.cn/index.php";
+    public $api_url = "http://payment.zyhzedu.com.cn/index.php";
 
     /**
      * 发送短信
