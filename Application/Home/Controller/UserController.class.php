@@ -92,10 +92,9 @@ class UserController extends PublicController{
             'user_id'=>$userid,
             'total_amount'=>$total_amount,
             'type'=>C('SITE_NAME_PREF'),
-            'service_url'=>$_SERVER,
-            'callback_url'=>'',
+            'service_url'=>$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'],
+            'callback_url'=>$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].'/pay/callback',
         ];
-        var_dump($params);die;
         $result = $this->httpPost($url,$params);
         $result = json_decode($result,true);
         if($result['code']!=200){
