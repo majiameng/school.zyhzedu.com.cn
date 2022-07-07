@@ -91,10 +91,13 @@ class UserController extends PublicController{
         $params = [
             'user_id'=>$userid,
             'total_amount'=>$total_amount,
+            'type'=>C('SITE_NAME_PREF'),
+            'service_url'=>$_SERVER,
+            'callback_url'=>'',
         ];
+        var_dump($params);die;
         $result = $this->httpPost($url,$params);
         $result = json_decode($result,true);
-        var_dump($result);die;
         if($result['code']!=200){
             $this->error("调用支付系统出错：".$result['msg']);
         }
