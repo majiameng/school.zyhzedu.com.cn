@@ -1,4 +1,7 @@
 <?php
+include_once "site.php";
+
+
 $name = '中青旅博汇人才招考系统';
 $site_name = '石家庄工程职业学院';
 $site_title = '石家庄工程职业学院2022年暑期教师公开招聘';
