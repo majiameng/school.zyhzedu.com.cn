@@ -26,6 +26,8 @@ class CallbackController extends PublicController {
             $result['msg'] = '数据不存在';
             $this->jsonSuccess($result);
         }
+
+        $where = array('user_id'=>$user_id);
         $data = [
             'is_pay' =>1,
         ];
