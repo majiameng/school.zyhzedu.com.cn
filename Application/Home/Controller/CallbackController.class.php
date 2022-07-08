@@ -35,6 +35,7 @@ class CallbackController extends PublicController {
             'is_pay' =>1,
         ];
         D('Resume')->where($where)->save($data);
+        $result['mobile'] = $info['mobile'];
         $this->jsonSuccess($result);
     }
 
