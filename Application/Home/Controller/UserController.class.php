@@ -63,11 +63,11 @@ class UserController extends PublicController{
         if(strtotime('2022-07-31 12:00:00') < NOW_TIME){
             $this->error("报名时间已过，不能进行缴费（如有疑问请联系管理员）！");
         }
-        $this->error("支付于2022-07-09 12:00:00日开始支付！");
+//        $this->error("支付于2022-07-09 12:00:00日开始支付！");
 
         $system = D('System')->where(array('id'=>1))->find();
         $total_amount = $system['pay_total_amount'] ?? 1;// 金额（元）
-        $qrUrl = $this->getPay($userid,$total_amount*100);
+        $qrUrl = $this->getPay($resume['id'],$userid,$total_amount*100);
         $result = [
             'qrUrl'=>$qrUrl,
             'total_amount'=>$total_amount,
@@ -87,14 +87,14 @@ class UserController extends PublicController{
      * @return string
      * @throws \Exception
      */
-    public function getPay($userid,$total_amount){
+    public function getPay($id,$userid,$total_amount){
         $url = $this->api_url."/UnionPay/index";
         $params = [
             'user_id'=>$userid,
             'total_amount'=>$total_amount,
             'type'=>C('SITE_NAME_PREF'),
             'service_url'=>$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'],
-            'callback_url'=>$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].'/pay/callback',
+            'callback_url'=>$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].'/index.php?m=Home&c=Callback&a=pay&userid='.$userid.'&id='.$id,
         ];
         $result = $this->httpPost($url,$params);
         $result = json_decode($result,true);
