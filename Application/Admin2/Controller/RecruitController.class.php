@@ -384,7 +384,7 @@ class RecruitController extends AdminBaseController {
                     break;
             }
 //            $this->sendEmail($info['userid'], $desc);
-//            $this->sendEmail($info['userid'],$info['email'], $desc);
+            $this->sendEmail($info['userid'],$info['email'], $desc);
             if(!empty($info['mobile']) && !empty($sms_template)){
 //                $this->sendSms($info['mobile'], $sms_template);
                 $sms = [
@@ -395,7 +395,7 @@ class RecruitController extends AdminBaseController {
                     'send_time'=>time()+30*60,
                     'status'=>1,
                 ];
-//                $this->addSms($sms);
+                $this->addSms($sms);
             }
 
 			$data['status'] = $status;
@@ -449,7 +449,7 @@ class RecruitController extends AdminBaseController {
 	public function sendEmail($uid,$email, $desc)
     {
         // 官网url
-        $url = 'http://hpyy2022.zyhzedu.com.cn/index.php?m=Home';
+        $url = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].'/index.php?m=Home';
         $model = M('User');
         $userInfo = $model->where(['id' => $uid])->find();
         if(empty($userInfo)){
