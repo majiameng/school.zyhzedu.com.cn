@@ -63,6 +63,7 @@ class UserController extends PublicController{
         if(strtotime('2022-07-31 12:00:00') < NOW_TIME){
             $this->error("报名时间已过，不能进行缴费（如有疑问请联系管理员）！");
         }
+        $this->error("支付于2022-07-09 12:00:00日开始支付！");
 
         $system = D('System')->where(array('id'=>1))->find();
         $total_amount = $system['pay_total_amount'] ?? 1;// 金额（元）
