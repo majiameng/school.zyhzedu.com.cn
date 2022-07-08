@@ -2,7 +2,7 @@
 $banner_image = '/Public/images/index/banner.png';
 $name = '中青旅博汇人才招考系统';
 $site_name = '石家庄工程职业学院';
-$site_title = '石家庄工程职业学院2022年暑期教师公开招聘';
+$site_title = '石家庄工程职业学院2022年教师公开招聘';
 $site_name_pref = 'gczy';
 
 $dbConfig = [
