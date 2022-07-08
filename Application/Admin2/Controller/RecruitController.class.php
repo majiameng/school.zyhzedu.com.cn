@@ -383,9 +383,7 @@ class RecruitController extends AdminBaseController {
                     $sms_template = 'template1';
                     break;
             }
-//            $this->sendEmail($info['userid'], $desc);
             $this->sendEmail($info['userid'],$info['email'], $desc);
-            var_dump($status);
             if(!empty($info['mobile']) && !empty($sms_template)){
 //                $this->sendSms($info['mobile'], $sms_template);
                 $sms = [
@@ -396,10 +394,8 @@ class RecruitController extends AdminBaseController {
                     'send_time'=>time()+30*60,
                     'status'=>1,
                 ];
-                var_dump($sms);
                 $this->addSms($sms);
             }
-            die;
 
 			$data['status'] = $status;
 			if($status==4 || $status==3) {
@@ -448,7 +444,6 @@ class RecruitController extends AdminBaseController {
      * @param $uid
      * @param $desc
      */
-//	public function sendEmail($uid, $desc)
 	public function sendEmail($uid,$email, $desc)
     {
         // 官网url
