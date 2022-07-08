@@ -12,14 +12,14 @@ class CallbackController extends PublicController {
             'code' => 200,
             'msg' => ''
         ];
-        $user_id = I('get.user_id',0,'intval');
+        $user_id = I('get.userid',0,'intval');
         if(empty($user_id)){
             $result['code'] = 400;
             $result['msg'] = '参数缺失';
             $this->jsonSuccess($result);
         }
 
-        $where = array('user_id'=>$user_id);
+        $where = array('userid'=>$user_id);
         $info = D('Resume')->where($where)->find();
         if(empty($info)) {
             $result['code'] = 400;
@@ -27,7 +27,6 @@ class CallbackController extends PublicController {
             $this->jsonSuccess($result);
         }
 
-        $where = array('user_id'=>$user_id);
         $data = [
             'is_pay' =>1,
         ];
