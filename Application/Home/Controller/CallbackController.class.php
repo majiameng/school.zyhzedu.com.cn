@@ -12,14 +12,18 @@ class CallbackController extends PublicController {
             'code' => 200,
             'msg' => ''
         ];
+        $id = I('get.id',0,'intval');
         $user_id = I('get.userid',0,'intval');
-        if(empty($user_id)){
+        if(empty($id) || empty($user_id)){
             $result['code'] = 400;
             $result['msg'] = '参数缺失';
             $this->jsonSuccess($result);
         }
 
-        $where = array('userid'=>$user_id);
+        $where = array(
+            'id'=>$id,
+            'userid'=>$user_id,
+        );
         $info = D('Resume')->where($where)->find();
         if(empty($info)) {
             $result['code'] = 400;
