@@ -503,10 +503,10 @@ class RecruitController extends PublicController{
 	* 文章
 	*/
 	public function article() {
-        if(empty($_POST['id'])){
+        if(empty($_GET['id'])){
             $id=1;
         }else{
-            $id=$_POST['id'];
+            $id=$_GET['id'];
         }
 		$where = ['id'=>$id];
 		$info = D('Article')->where($where)->find();
