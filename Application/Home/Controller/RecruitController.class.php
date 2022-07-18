@@ -499,5 +499,21 @@ class RecruitController extends PublicController{
 			->assign('more',$more)
 			->display();
 	}
+	/**
+	* 文章
+	*/
+	public function article() {
+        if(empty($_POST['id'])){
+            $id=1;
+        }else{
+            $id=$_POST['id'];
+        }
+		$where = ['id'=>$id];
+		$info = D('Article')->where($where)->find();
+		$more = D('ArticleData')->where($where)->find();
+		$this->assign('info',$info)
+			->assign('more',$more)
+			->display();
+	}
 }
 ?>
