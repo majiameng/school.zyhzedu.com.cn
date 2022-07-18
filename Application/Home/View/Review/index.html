@@ -52,6 +52,10 @@
                                 <!-- <a href="{:U('review/ticket')}">打印准考证<i class="fa fa-angle-double-right fa-1x" aria-hidden="true"></i></a> -->
                              <!-- <a href="{:U('review/time')}">打印准考证</a> -->
                            </div>
+                        <div class="rev-nor" style="width:100%">
+                            <p><a href="{:U('recruit/article','id=3')}">{:C('NAME')}招聘面试公告</a></p>
+                            <p><a href="{:U('recruit/article','id=4')}">应聘简历</a></p>
+                        </div>
                      <else/>
                             <div class="rev-nor" style="width:100%">
                                <p>确认笔试时间：{$config['confirm_start_date']} 至 {$config['confirm_end_date']}</p>
@@ -67,7 +71,7 @@
                   $('#confirm-print').click(function(){
                       layer.confirm(
                           // "确认参加笔试？<br/>请于{$config['confirm_start_date']}—{$config['confirm_end_date']}期间进行确认,逾期未确认者，将无法打印准考证及参加笔试。确认参加笔试的考生笔试当天（{$config['confirm_start_date']}）需携带{$config['confirm_start_date']}至{$config['confirm_end_date']}期间核酸检测报告，结果阴性方可参加笔试。<br>",
-                          "确认参加笔试？<br/>因疫情原因考试待定，考试前会以短信形式通知打印准考证<br>",
+                          "确认参加笔试？",
                           {area: ['350px', '250px']},function(){
                         layer.load(1);
                         $.post('/index.php/home/review/confirm',{},function(res){
