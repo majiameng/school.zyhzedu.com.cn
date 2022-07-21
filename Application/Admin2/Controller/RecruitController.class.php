@@ -1188,7 +1188,6 @@ class RecruitController extends AdminBaseController {
 			 
 			// $data=$model->order('id DESC')->where($where)->select();
 			$data=$model->order('cast(exam_no as signed) asc,cast(no AS signed) asc')->where($where)->field('id,userid,exam_no,no,unit')->select();
-            var_dump($data);die;
 			if(empty($data)) $this->error('没有可导出的信息');
 			// $data=$model->order('exam_no asc,no asc')->where($where)->field('id,userid')->select();
 			$sex        = F('_common/sex');  
