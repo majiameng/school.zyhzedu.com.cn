@@ -15,10 +15,10 @@
             <h4>成绩公布</h4>
 
             <?php if(empty($resume)):?>
-                <p>您还没有报名，暂无成绩</p>
+                <p>您还没有报名，请前往报名</p>
             <?php else:?>
                 <?php if(empty($achievement)):?>
-                <p>您还未参加考试</p>
+                <p>暂未公布成绩，请查看公告时间！</p>
                 <?php else:?>
                     <div class="per-code-con">
                         <div class="code-left">
@@ -41,7 +41,9 @@
                     </div>
                 <?php endif;?>
             <?php endif;?>
+            <hr>
 
+            <include file="_layout/news" />
         </div>
     </div>
 </div>
