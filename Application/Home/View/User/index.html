@@ -42,6 +42,12 @@
                 <?php endif;?>
             <?php endif;?>
 
+            <?php if(C('SITE_NAME_PREF')=='cjzy'):?>
+            <include file="school/cjzy" />
+            <?php elseif(C('SITE_NAME_PREF')=='gczy'):?>
+            <include file="school/gczy" />
+            <?php endif;?>
+
         </div>
     </div>
 </div>
