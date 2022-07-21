@@ -29,7 +29,8 @@ class ResumeModel extends Model{
 	}
 	
 	public function getResumeBase($userid){
-		if(empty($userid)) $userid = session('user.id');		
+		if(empty($userid)) $userid = session('user.id');
+        //tinymeng  redis 获取缓存中报名信息
 //		$info = $this->redis->getCache('resume_base_'.$userid);
 		if(empty($info)) {
 			$info  = $this->where(array('userid'=>$userid))->find();
