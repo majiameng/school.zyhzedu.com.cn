@@ -1,7 +1,7 @@
 <?php
 $where = ['id'=>3];
 $news = D('Article')->where($where)->find();
-
+$more = D('ArticleData')->where($where)->find();
 ?>
 
 <div class="agreement-tit">
@@ -9,5 +9,5 @@ $news = D('Article')->where($where)->find();
     <h3 style="text-align: center">{$news.sub_title}</h3>
 </div>
 <div class="agreement-con">
-    {$news.description}
+    {$more.description}
 </div>
