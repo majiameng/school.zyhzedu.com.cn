@@ -30,7 +30,7 @@ class ResumeModel extends Model{
 	
 	public function getResumeBase($userid){
 		if(empty($userid)) $userid = session('user.id');		
-		$info = $this->redis->getCache('resume_base_'.$userid);
+//		$info = $this->redis->getCache('resume_base_'.$userid);
 		if(empty($info)) {
 			$info  = $this->where(array('userid'=>$userid))->find();
 			$this->setResumeCache($userid, array('base'=>$info));
