@@ -59,7 +59,6 @@ class RecruitController extends PublicController{
         $str = "var recruitJson = JSON.parse('" . json_encode($recruitJson)."')";
         $file_name = "./Public/js/recruit_list.js";
         $res = file_put_contents($file_name, $str);
-        var_dump($res);die;
         if($res == false){
             //没有权限
         }
