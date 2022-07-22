@@ -4,6 +4,7 @@ $name = '中青旅博汇人才招考系统';
 $site_name = '石家庄工程职业学院';
 $site_title = '石家庄工程职业学院2022年教师公开招聘';
 $site_name_pref = 'gczy';
+$examination_method = '笔试准考证';
 
 $dbConfig = [
     'NAME'   =>  $name,
@@ -14,6 +15,7 @@ $dbConfig = [
     'SITE_TITLE'   =>  $site_title,
     'BANNER_IMAGE'   =>  $banner_image,
     'SITE_NAME_PREF'   =>  $site_name_pref,
+    'EXAMINATION_METHOD'   =>  $examination_method,
 
     'DB_HOST'   => '127.0.0.1', // 服务器地址
     'DB_NAME'   => 'gczyxy_zyhzedu', // 数据库名
