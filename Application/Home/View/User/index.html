@@ -31,10 +31,20 @@
                             </div>
                             <div class="code-bom">
                                 <div class="code-bom-left" >
+                                    <?php if(empty($achievement['interview_achievement'])):?>
                                     <p>面试成绩&nbsp;：</p><input value="{$achievement.interview_achievement} 分" onfocus="this.blur();">
+                                    <?php else:?>
+                                    <p>面试成绩&nbsp;：</p><input value="暂未公布成绩" onfocus="this.blur();">
+                                    <?php endif;?>
                                 </div>
+
                                 <div class="code-bom-right">
+                                    <?php if(empty($achievement['interview_achievement'])):?>
                                     <p>最终成绩 ：</p><input value="{$achievement.achievement} 分" onfocus="this.blur();">
+                                    <?php else:?>
+                                    <p>最终成绩 ：</p><input value="暂未公布成绩" onfocus="this.blur();">
+                                    <?php endif;?>
+
                                 </div>
                             </div>
                         </div>
