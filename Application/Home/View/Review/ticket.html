@@ -15,7 +15,10 @@
         <div class="ticket-con">
 		
             <div class="tick-tit">.
-                <h4>{:C('SITE_TITLE')}面试准考证<br></h4>
+                <h4>
+                    {:C('SITE_TITLE')}
+                    <br><br>{:C('EXAMINATION_METHOD')}<br>
+                </h4>
             </div>
             <div class="tick-con">
                 <div class="tickL">
@@ -52,7 +55,7 @@
                          
                     </div>
                   <div class="tickStr">
-                        <p>（8:15才可入场，10:00以后不许进场）</p>
+                        <p>（9:40才可入场，10:00以后不许进场）</p>
                     </div>
 					<div class="tickStr">
                         <p>考试地点 :</p>
@@ -88,7 +91,11 @@
 .personal{text-align:center;} 
 </style>
 <style type="text/css" media='print'> 
-.noprint{display : none }  
+.noprint{display : none }
+.ticket {
+    width: 100%;
+    padding: 0;
+}
 </style>
 
 <!-- <script src="__PUBLIC__/js/pdf/ace.js"></script> -->
